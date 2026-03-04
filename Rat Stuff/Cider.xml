@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Cider name="Pomegrenade Cider" identifier="cider" description="A liquor made from pomegrenade and ethanol. Doesn't taste as good as apple cider, but it's the best you have." category="Medical,Misc" maxstacksize="8" cargocontaineridentifier="mediccrate" Tags="smallitem" useinhealthinterface="flase" scale="0.5" impactsoundtag="impact_metal_light">
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedcrewcab,piratecrewcab" minamount="1" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="crewcab" minamount="1" maxamount="2" spawnprobability="0.5" notcampaign="true" />
+    <PreferredContainer primary="medfabcab" secondary="medcab" />
+    <Price baseprice="40" sold="false" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="false">
+      <RequiredItem identifier="ethanol" mincondition="0.5" usecondition="true" />
+      <RequiredItem identifier="creepingorange" amount="1" />
+    </Fabricate>
+    <Sprite texture="%ModDir%/Cider.png" sourcerect="0,0,26,67" depth="0.6" origin="0.5,0.5" />
+    <Body width="27" height="66" density="20" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0" />
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" disabledeltatime="true" stackable="false">
+        <Conditional Condition="lte 1" />
+        <Affliction identifier="psychosisresistance" amount="225" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" duration="30" stackable="false">
+        <Conditional Condition="lte 1" />
+        <ReduceAffliction identifier="psychosis" amount="0.75" />
+        <ReduceAffliction identifier="hallucinating" amount="0.75" />
+        <Affliction identifier="drunk" amount="0.75" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </Cider>
+</Items>

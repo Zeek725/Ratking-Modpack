@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Character speciesname="BlightMoloch" humanoid="False" group="moloch" husk="False" needsair="False" canspeak="False" noise="100" blooddecal="blackblood" bleedparticlewater="blackwaterblood" usebosshealthbar="true" disabledistance="30000" caneat="False">
+  <ragdolls folder="default" />
+  <animations folder="default" />
+  <damageemitter particle="blackgib" drawontop="True" particleamount="10" velocitymin="200" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.3" scalemax="0.5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+  <bloodemitter particle="blackwaterblood" particleamount="5" velocitymin="0" velocitymax="100" anglemin="0" anglemax="360" scalemin="5" scalemax="10" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+  <gibemitter particle="blackwaterblood" particleamount="40" velocitymin="0" velocitymax="100" anglemin="0" anglemax="360" scalemin="5" scalemax="10" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+  <gibemitter particle="blackwaterblood" drawontop="True" particleamount="1" velocitymin="0" velocitymax="100" anglemin="0" anglemax="360" scalemin="3" scalemax="5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+  <gibemitter particle="blackgib" drawontop="True" particleamount="20" velocitymin="200" velocitymax="700" anglemin="0" anglemax="360" scalemin="0.5" scalemax="1.5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+  <health vitality="1850" doesbleed="True" crushdepth="Infinity" usehealthwindow="False" bleedingreduction="0.2" burnreduction="0" constanthealthregeneration="0.1" healthregenerationwheneating="0" stunimmunity="true" poisonvulnerability="0.3">
+    <Limb name="Head" />
+    <Limb name="Torso" />
+    <Limb name="LeftArm" />
+    <Limb name="RightArm" />
+    <Limb name="LeftLeg" />
+    <Limb name="RightLeg" />
+  </health>
+  <sound file="Content/Characters/Moloch/MOLOCH_attack1.ogg" state="Attack" range="20000" volume="1" dontmuffle="true" />
+  <sound file="Content/Characters/Moloch/MOLOCH_attack2.ogg" state="Attack" range="20000" volume="1" dontmuffle="true" />
+  <sound file="Content/Characters/Moloch/MOLOCH_attack3.ogg" state="Attack" range="20000" volume="1" dontmuffle="true" />
+  <sound file="Content/Characters/Moloch/MOLOCH_attack4.ogg" state="Attack" range="20000" volume="1" dontmuffle="true" />
+  <sound file="Content/Characters/Moloch/MOLOCH_attack5.ogg" state="Attack" range="20000" volume="1" dontmuffle="true" />
+  <sound file="Content/Characters/Moloch/MOLOCH_attack6.ogg" state="Attack" range="20000" volume="1" dontmuffle="true" />
+  <sound file="Content/Characters/Moloch/MOLOCH_damage1.ogg" state="Damage" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_damage2.ogg" state="Damage" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_damage3.ogg" state="Damage" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_idle1.ogg" state="Idle" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_idle2.ogg" state="Idle" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_idle3.ogg" state="Idle" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_idle4.ogg" state="Idle" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_idle5.ogg" state="Idle" range="10000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_death1.ogg" state="Die" range="20000" volume="1" />
+  <sound file="Content/Characters/Moloch/MOLOCH_death2.ogg" state="Die" range="20000" volume="1" />
+  <Inventory slots="Any, Any, Any, Any, Any, Any" accessiblewhenalive="False" commonness="1">
+    <Item identifier="molochbone" />
+    <Item identifier="paralyxis" amount="2" />
+    <Item identifier="brockite" />
+  </Inventory>
+  <Inventory slots="Any, Any, Any, Any, Any, Any" accessiblewhenalive="False" commonness="1">
+    <Item identifier="molochbone" />
+    <Item identifier="adrenalinegland" amount="2" />
+    <Item identifier="brockite" />
+  </Inventory>
+  <ai combatstrength="1850" sight="0.25" hearing="1" aggressionhurt="100" aggressiongreed="10" fleehealththreshold="0" attackwhenprovoked="True" aggressiveboarding="true" avoidgunfire="False" enforceaggressivebehaviorformissions="True" targetouterwalls="True" randomattack="True">
+    <target tag="stronger" state="Avoid" priority="200" reactdistance="2000" attackdistance="0" />
+    <target tag="decoy" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="provocative" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="weapon" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="nasonov" state="Attack" priority="100" ignoreinside="True" />
+    <target Tag="human" State="Attack" Priority="90" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreIfNotInSameSub="False" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" Offset="0,0" AttackPattern="Straight" PrioritizeSubCenter="False" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" IgnoreTargetSize="False" CircleRotationSpeed="1" DynamicCircleRotationSpeed="False" CircleRandomRotationFactor="0" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <target tag="room" state="Attack" priority="80" reactdistance="4000" attackdistance="0" />
+    <target tag="wall" state="Attack" priority="80" reactdistance="4000" attackdistance="0" />
+    <target tag="sonar" state="Attack" priority="50" reactdistance="0" attackdistance="0" />
+    <target tag="tool" state="PassiveAggressive" priority="50" reactdistance="2000" attackdistance="0" ignoreifnotinsamesub="True" />
+    <target tag="moloch" state="Protect" priority="10" reactdistance="1000" attackdistance="0" />
+    <target tag="molochbaby" state="Protect" priority="10" reactdistance="1000" attackdistance="0" />
+    <target tag="thalamus" state="Protect" priority="5" reactdistance="1000" attackdistance="0" />
+    <target tag="turret" state="Attack" priority="5" reactdistance="0" attackdistance="0" />
+  </ai>
+  <StatusEffect type="OnActive" target="this">
+    <Sound file="Content/Characters/Moloch/MOLOCH_moving.ogg" loop="true" range="5000" />
+  </StatusEffect>
+  <StatusEffect type="OnDeath" target="This" targetlimb="Torso">
+    <ParticleEmitter particle="bloodsplash" particleamount="8" anglemin="0" anglemax="360" scalemin="1" scalemax="1.5" velocitymin="0" velocitymax="100" distancemin="0" distancemax="800" />
+    <ParticleEmitter particle="waterblood" particleamount="8" anglemin="0" anglemax="360" scalemin="2" scalemax="4" velocitymin="0" velocitymax="100" distancemin="0" distancemax="800" />
+    <ParticleEmitter particle="Blightspore" particlespersecond="24" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" scalemin="1" scalemax="1.5" distancemin="0" distancemax="800" />
+    <ParticleEmitter particle="Blighttoxinmistlargefade" particlespersecond="16" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" scalemin="4.0" scalemax="5.0" distancemin="0" distancemax="800" />
+    <sound file="Content/Sounds/Damage/Gore7.ogg" range="20000" volume="1" />
+    <Explosion ignoreCover="true" range="2000" force="200" cameraShake="100" flash="false" shockwave="true" sparks="false" flames="false" smoke="false" underwaterbubble="true" structuredamage="200" itemdamage="100" flashrange="0" flashduration="0">
+      <Affliction identifier="acidburn" strength="50" />
+      <Affliction identifier="Nausea" strength="100" />
+    </Explosion>
+  </StatusEffect>
+</Character>

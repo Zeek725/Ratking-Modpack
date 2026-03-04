@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Talents>
+  // CAPTAIN
+  
+  <Talent identifier="quickdraw">
+    <Description tag="talentdescription.quickdraw">
+      <Replace tag="[seconds]" value="8" color="gui.green"/>
+      <Replace tag="[damage]" value="25" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.reducedualwieldpenalty">
+      <Replace tag="[amount]" value="50" color="gui.green"/>
+    </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.revhp" color="gui.orange" />
+      </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="1,0" sheetelementsize="128,128"/>
+    <AbilityGroupInterval interval="1">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true" disabledeltatime="true">
+              <Affliction identifier="quickdrawing" amount="1.0"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="quickdrawing" minimumpercentage="1.0"/>
+        <AbilityConditionAttackData tags="pistolammoitem"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.25"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnUseRangedWeapon">
+      <Conditions>
+        <AbilityConditionItem tags="pistolitem"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <!-- small delay so we don't remove the affliction before the attack is applied -->
+            <StatusEffect type="OnAbility" target="This" delay="0.05" stackable="false" disabledeltatime="true">
+              <ReduceAffliction identifier="quickdrawing" strength="8"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="DualWieldingPenaltyReduction" value="0.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="thg+P+revolverround"/>
+  </Talent>
+
+<Talent identifier="bigguns">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="2,4" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.bigguns">
+      <Replace tag="[amount]" value="30" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.reducedualwieldpenalty">
+      <Replace tag="[amount]" value="50" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.handcannon, entityname.handcannonround,entityname.hchp" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="handcannon"/>
+    <AddedRecipe itemidentifier="handcannonround"/>
+    <AddedRecipe itemidentifier="thghandcannon+P+round"/>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionCharacter targettypes="Enemy,Monster" />
+        <AbilityConditionAttackData tags="pistolammoitem"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.3" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="DualWieldingPenaltyReduction" value="0.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  // SECURITY
+      <Talent identifier="swole">
+      <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="6,2" sheetelementsize="128,128" />
+      <Description tag="talentdescription.additionalstattypeself">
+        <Replace tag="[amount]" value="10" color="gui.green" />
+        <Replace tag="[stattype]" value="stattypenames.maximumhealthmultiplier" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.additionalstattypeself">
+        <Replace tag="[amount]" value="25" color="gui.green" />
+        <Replace tag="[stattype]" value="stattypenames.meleeattackmultiplier" color="gui.orange" />
+      </Description>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.blade" color="gui.orange" />
+      </Description>
+      <AddedRecipe itemidentifier="blade" />
+      <AbilityGroupEffect abilityeffecttype="None">
+        <Abilities>
+          <CharacterAbilityGiveStat stattype="MaximumHealthMultiplier" value="0.1" />
+          <CharacterAbilityGiveStat stattype="MeleeAttackMultiplier" value="0.25" />
+        </Abilities>
+      </AbilityGroupEffect>
+    </Talent>
+	
+    <Talent identifier="gunrunner">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="0,4" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.gunrunner">
+      <Replace tag="[amount]" value="25" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.walkfasterwhileaiming">
+      <Replace tag="[amount]" value="20" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.arextmag" color="gui.orange"/>
+    </Description>
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionIsAiming weapontype="ranged"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="MovementSpeed" value="0.2"/>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionHoldingItem tags="ammobox,railgunammo"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="MovementSpeed" value="0.25"/>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AddedRecipe itemidentifier="thglongassaultriflemagazine"/>
+  </Talent>
+
+  <Talent identifier="stonewall">
+    <Description tag="talentdescription.stonewall">
+      <Replace tag="[physicaldamagereduction]" value="25" color="gui.green"/>
+      <Replace tag="[stunresistance]" value="25" color="gui.green"/>
+      <Replace tag="[seconds]" value="4" color="gui.green"/>
+    </Description>
+	      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.steelmaul" color="gui.orange" />
+      </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,3" sheetelementsize="128,128"/>
+    <AbilityGroupEffect abilityeffecttype="OnAttackedResult">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="This" multiplyafflictionsbymaxvitality="true">
+              <Affliction identifier="stonewall" amount="4.0"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="steelmaul"/>
+  </Talent>
+	
+  <Talent identifier="rifleman">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="7,3" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.moredamagerifles">
+      <Replace tag="[amount]" value="10" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.assaultrifle,entityname.assaultriflemagazine,entityname.rifle,entityname.riflebullet,entityname.smgextmag" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData tags="riflemanbonus"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.10"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="assaultrifle"/>
+    <AddedRecipe itemidentifier="assaultriflemagazine"/>
+    <AddedRecipe itemidentifier="rifle"/>
+    <AddedRecipe itemidentifier="riflebullet"/>
+    <AddedRecipe itemidentifier="thgextendedsmgmagazine"/>
+  </Talent>
+
+  <Talent identifier="munitionsexpertise">
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.smgmagazine,entityname.shotgunshell, entityname.arcompmag" color="gui.orange"/>
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="6,3" sheetelementsize="128,128"/>
+    <AddedRecipe itemidentifier="smgmagazine" />
+    <AddedRecipe itemidentifier="shotgunshell" />
+    <AddedRecipe itemidentifier="thgcompactassaultriflemagazine" />
+  </Talent>
+
+  <Talent identifier="tandemfire">
+    <Description tag="talentdescription.tandemfire">
+      <Replace tag="[amount]" value="20" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.shield_coilgunshotgunammobox" color="gui.orange"/>
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,3" sheetelementsize="128,128"/>
+    <AbilityGroupInterval interval="0.1">
+      <Abilities>
+        <CharacterAbilityTandemFire tag="periscope">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" multiplyafflictionsbymaxvitality="true">
+              <Affliction identifier="tandemfire" amount="10"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityTandemFire>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AddedRecipe itemidentifier="shield_coilgunshotgunammobox" />
+  </Talent>
+
+<Talent identifier="beatcop">
+    <Description tag="talentdescription.extrastunonenemies">
+      <Replace tag="[amount]" value="25" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.beatcop"/>
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.sgslgshell" color="gui.orange" />
+      </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="7,2" sheetelementsize="128,128"/>
+    <AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+      <Conditions>
+        <AbilityConditionCharacter targettypes="Enemy,InFriendlySubmarine"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAffliction afflictionidentifiers="stun,incrementalstun,progressivestun" addedmultiplier="0.5" />
+      </Abilities>
+      <FallbackAbilities>
+        <CharacterAbilityModifyAffliction afflictionidentifiers="stun,incrementalstun,progressivestun" addedmultiplier="0.25" />
+      </FallbackAbilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="thgshotgunslugshell"/>
+  </Talent>
+  
+  <Talent identifier="inordinateexsanguination">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.extrableedingdamage">
+      <Replace tag="[amount]" value="100" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.sgflcshell," color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+      <Abilities>
+        <CharacterAbilityModifyAffliction afflictionidentifiers="bleeding" addedmultiplier="1.0" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="thgshotgunflechetteshell"/>
+  </Talent>
+
+  <Talent identifier="specops">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="5,0" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.thermalgoggles" color="gui.orange"/>
+    </Description>
+    <Description tag="talentdescription.specops" />
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.rifleapround" color="gui.orange" />
+      </Description>
+    <AddedRecipe itemidentifier="thermalgoggles"/>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="Turret" invert="true"/>
+        <AbilityConditionCharacter targettype="Enemy">
+          <Conditional WasFullHealth="true"/>
+        </AbilityConditionCharacter>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="thgriflebulletap"/>
+  </Talent>
+
+  <Talent identifier="warlord">
+    <Description tag="talentdescription.warlord">
+      <Replace tag="[amount]" value="10" color="gui.green"/>
+      <Replace tag="[maxamount]" value="50" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.hmg,entityname.hmgmagazine,entityname.smghp" color="gui.orange"/>
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,4" sheetelementsize="128,128"/>
+    <AddedRecipe itemidentifier="hmg"/>
+    <AddedRecipe itemidentifier="hmgmagazine"/>
+    <AddedRecipe itemidentifier="thg+P+smgmagazine"/>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="handheldranged" />
+        <AbilityConditionNearbyCharacterCount distance="500" targettypes="Enemy" count="1"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.1" />
+      </Abilities>
+    </AbilityGroupEffect>
+
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="handheldranged" />
+        <AbilityConditionNearbyCharacterCount distance="500" targettypes="Enemy" count="2"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.1" />
+      </Abilities>
+    </AbilityGroupEffect>
+
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="handheldranged" />
+        <AbilityConditionNearbyCharacterCount distance="500" targettypes="Enemy" count="3"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.1" />
+      </Abilities>
+    </AbilityGroupEffect>
+
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="handheldranged" />
+        <AbilityConditionNearbyCharacterCount distance="500" targettypes="Enemy" count="4"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.1" />
+      </Abilities>
+    </AbilityGroupEffect>
+
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData weapontype="handheldranged" />
+        <AbilityConditionNearbyCharacterCount distance="500" targettypes="Enemy" count="5"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.1" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  // MEDICAL
+  
+    <Talent identifier="labcontacts">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="7,7" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.chemicalsboughtcheaper">
+      <Replace tag="[amount]" value="30" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.constructmedicinefaster">
+      <Replace tag="[amount]" value="100" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.shield_healthscanner" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="medical" stattype="FabricationSpeed" value="1" setvalue="true"/>
+        <CharacterAbilityGivePermanentStat statidentifier="chem" stattype="StoreBuyMultiplier" value="0.3" targetallies="true" setvalue="true" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="shield_healthscanner"/>
+  </Talent>
+  
+    <Talent identifier="geneharvester">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,6" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.geneharvester">
+      <Replace tag="[probability]" value="20" color="gui.green"/>
+    </Description>
+	  <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.huntbelt" color="gui.orange" />
+      </Description>
+    <AbilityGroupEffect abilityeffecttype="OnRoundEnd">
+      <Abilities>
+        <CharacterAbilityResetPermanentStat statidentifier="geneharvester_*" value="1" setvalue="true"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnLootCharacter">
+      <Conditions>
+        <AbilityConditionCharacter targettype="Monster">
+          <Conditional maxhealth="gt 25"/>
+          <Conditional ismachine="false" />
+          <Conditional ispet="false" />
+        </AbilityConditionCharacter>
+        <AbilityConditionCharacterNotLooted identifier="geneharvester"/>
+        <AbilityConditionServerRandom randomchance="0.2" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="UseTarget" spawnitemrandomly="true" >
+              <SpawnItem identifiers="geneticmaterial_unresearched" spawnposition="ThisInventory" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnLootCharacter">
+      <Conditions>
+        <AbilityConditionCharacter targettype="Monster" />
+        <AbilityConditionCharacterNotLooted identifier="geneharvester"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityMarkAsLooted identifier="geneharvester"/>
+      </Abilities>
+    </AbilityGroupEffect>
+      <AddedRecipe itemidentifier="huntbelt" />
+  </Talent>
+
+  // ENGINEER
+  
+      <Talent identifier="heavyhitter">
+      <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="0,7" sheetelementsize="128,128" />
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.wrenchhardened,entityname.screwdriverhardened,entityname.crowbarhardened,entityname.divingknifehardened, entityname.bladehardened" color="gui.orange" />
+      </Description>
+      <AddedRecipe itemidentifier="wrenchhardened" />
+      <AddedRecipe itemidentifier="screwdriverhardened" />
+      <AddedRecipe itemidentifier="crowbarhardened" />
+      <AddedRecipe itemidentifier="divingknifehardened" />
+      <AddedRecipe itemidentifier="bladehardened" />
+    </Talent>
+	
+	  <Talent identifier="armsrace">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="4,7" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.smgmagazinedepletedfuel,entityname.revolverrounddepletedfuel,entityname.shotgundepletedshell" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="smgmagazinedepletedfuel" />
+    <AddedRecipe itemidentifier="revolverrounddepletedfuel" />
+	<AddedRecipe itemidentifier="shotgundepletedshell" />
+  </Talent>
+	
+	  <Talent identifier="pyromaniac">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="7,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.pyromaniac">
+      <Replace tag="[burnincrease]" value="25" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.flamer,entityname.40mmincen" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnAddDamageAffliction">
+      <Abilities>
+        <CharacterAbilityModifyAffliction afflictionidentifiers="burn" addedmultiplier="0.25" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="BallastFloraDamageMultiplier" value="0.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="flamer"/>
+    <AddedRecipe itemidentifier="thg40mmgrenadeincendiary"/>
+  </Talent>
+
+  <Talent identifier="nuclearoption">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="3,7" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.nuclearoption"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.nucleargun,entityname.shield_uraniumrodcoilgunammobox" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="nucleargun" />
+    <AddedRecipe itemidentifier="nuclearshellcheap" />
+    <AddedRecipe itemidentifier="nucleardepthchargecheap" />
+    <AddedRecipe itemidentifier="nucleardepthdecoycheap" />
+    <AddedRecipe itemidentifier="shield_uraniumrodcoilgunammobox" />
+  </Talent>
+	
+  // MECHANIC
+ 
+  
+    <Talent identifier="ironman">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="6,6" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.ironhelmet,entityname.makeshiftarmor,entityname.sheathbelt" color="gui.orange"/>
+    </Description>
+    <AddedRecipe itemidentifier="ironhelmet"/>
+    <AddedRecipe itemidentifier="makeshiftarmor"/>
+	    <AddedRecipe itemidentifier="sheathbelt" />
+  </Talent>
+
+  <Talent identifier="multifunctional">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="6,1" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.multifunctional">
+      <Replace tag="[powerincrease]" value="50" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.heavyflash" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData tags="wrenchitem"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData tags="crowbaritem"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAttack">
+      <Conditions>
+        <AbilityConditionAttackData tags="flashlight"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyAttackData addeddamagemultiplier="0.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="thgflashlightheavy"/>
+  </Talent>
+
+  <Talent identifier="miner">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,3" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.miner">
+      <Replace tag="[probability]" value="20" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.gainoredetachspeed">
+      <Replace tag="[amount]" value="100" color="gui.green"/>
+    </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.electrocutter" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="RepairToolDeattachTimeMultiplier" value="1"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnItemDeconstructedMaterial">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.2"/>
+        <AbilityConditionItem tags="ore"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyValue multiplyvalue="2"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="thgelectrocutter"/>
+  </Talent>
+
+  <Talent identifier="hullfixer">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="0,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.fixfoamgrenade,entityname.handheldstatusmonitor,entityname.electrowelder" color="gui.orange"/>
+    </Description>
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="25" color="gui.green"/>
+      <Replace tag="[stattype]" value="stattypenames.repairtoolstructurerepairmultiplier" color="gui.orange"/>
+    </Description>
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGiveStat stattype="RepairToolStructureRepairMultiplier" value="0.25"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="fixfoamgrenade"/>
+    <AddedRecipe itemidentifier="handheldstatusmonitor"/>
+    <AddedRecipe itemidentifier="thgelectrowelder"/>
+  </Talent>
+  
+  // ASSISTANT
+
+  <Talent identifier="starterquest">
+    <Icon texture="Content/UI/TalentsIcons4.png" sheetindex="5,2" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.starterquest" />
+      <Description tag="talentdescription.unlockrecipe">
+        <Replace tag="[itemname]" value="entityname.sgtarget" color="gui.orange" />
+      </Description>
+    <AddedRecipe itemidentifier="thgshotguntargetshell" />
+	
+    <Description tag="talentdescription.starterquest.killcrawler">
+      <Replace tag="[xpbonus]" value="400" color="gui.green"/>
+      <Replace tag="[skillbonus]" value="10" color="gui.green"/>
+      <Replace tag="[skill]" value="stattypenames.weaponsskillbonus" color="gui.orange"/>
+    </Description>
+    <Description tag="talentdescription.starterquest.repairjunctionbox">
+      <Replace tag="[xpbonus]" value="300" color="gui.green"/>
+      <Replace tag="[skillbonus]" value="10" color="gui.green"/>
+      <Replace tag="[skill]" value="stattypenames.electricalskillbonus" color="gui.orange"/>
+    </Description>
+    <Description tag="talentdescription.starterquest.weldleak">
+      <Replace tag="[xpbonus]" value="200" color="gui.green"/>
+      <Replace tag="[skillbonus]" value="10" color="gui.green"/>
+      <Replace tag="[skill]" value="stattypenames.mechanicalskillbonus" color="gui.orange"/>
+    </Description>
+
+    <!-- Give the player stats that tracks if the rewards should be given -->
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="starterquest_killcrawler" value="1" maxvalue="1" setvalue="true" />
+        <CharacterAbilityGivePermanentStat statidentifier="starterquest_repairjunctionbox" value="1" maxvalue="1" setvalue="true" />
+        <CharacterAbilityGivePermanentStat statidentifier="starterquest_weldleak" value="1" maxvalue="1" setvalue="true" />
+      </Abilities>
+    </AbilityGroupEffect>
+
+    <!-- Give the player the rewards when the crawler is killed -->
+    <AbilityGroupEffect abilityeffecttype="OnKillCharacter">
+      <Conditions>
+        <AbilityConditionCharacter>
+          <Conditional group="eq crawler" />
+        </AbilityConditionCharacter>
+        <AbilityConditionHasPermanentStat statidentifier="starterquest_killcrawler" min="1"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveExperience amount="400"/>
+        <CharacterAbilityGivePermanentStat stattype="WeaponsSkillBonus" statidentifier="starterquest" value="10" setvalue="true" removeondeath="false" />
+        <CharacterAbilityResetPermanentStat statidentifier="starterquest_killcrawler" />
+      </Abilities>
+    </AbilityGroupEffect>
+
+    <!-- Give the player the rewards when repairing a junction box -->
+    <AbilityGroupEffect abilityeffecttype="OnRepairComplete">
+      <Conditions>
+        <AbilityConditionItem tags="junctionbox"/>
+        <AbilityConditionHasPermanentStat statidentifier="starterquest_repairjunctionbox" min="1"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveExperience amount="300"/>
+        <CharacterAbilityGivePermanentStat stattype="ElectricalSkillBonus" statidentifier="starterquest" value="10" setvalue="true" removeondeath="false" />
+        <CharacterAbilityResetPermanentStat statidentifier="starterquest_repairjunctionbox" />
+      </Abilities>
+    </AbilityGroupEffect>
+
+    <!-- Give the player the rewards when welding a leak -->
+    <AbilityGroupEffect abilityeffecttype="OnRepairedOutsideLeak">
+      <Conditions>
+        <AbilityConditionHasPermanentStat statidentifier="starterquest_weldleak" min="1"/>
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveExperience amount="200"/>
+        <CharacterAbilityGivePermanentStat stattype="MechanicalSkillBonus" statidentifier="starterquest" value="10" setvalue="true" removeondeath="false" />
+        <CharacterAbilityResetPermanentStat statidentifier="starterquest_weldleak" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+
+  <Talent identifier="peerlearning">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="0,1" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.peerlearning">
+      <Replace tag="[amount]" value="50" color="gui.green"/>
+    </Description>
+	    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.riflesurp" color="gui.orange"/>
+    </Description>
+    <!-- give XP to the character itself -->
+    <AbilityGroupEffect abilityeffecttype="OnGainMissionExperience">
+      <Conditions>
+        <AbilityConditionLowestLevel />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyValue multiplyvalue="1.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <!-- allies too -->
+    <AbilityGroupEffect abilityeffecttype="OnAllyGainMissionExperience">
+      <Conditions>
+        <AbilityConditionLowestLevel />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyValue multiplyvalue="1.5"/>
+      </Abilities>
+    </AbilityGroupEffect>
+    <AddedRecipe itemidentifier="thgriflebulletsp" />
+  </Talent>
+
+  <Talent identifier="waterprankster">
+    <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="5,5" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.clowndivingmask, entityname.clownextinguisher" color="gui.orange"/>
+    </Description>
+    <Description tag="talentdescription.clownpowerbenefits"/>
+    <Description tag="talentdescription.additionalstattype">
+      <Replace tag="[amount]" value="50" color="gui.green"/>
+      <Replace tag="[stattype]" value="stattypenames.swimmingspeed" color="gui.orange"/>
+    </Description>
+    <AbilityGroupInterval>
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="clownpower" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityModifyStat stattype="SwimmingSpeed" value="0.5"/>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AddedRecipe itemidentifier="clowndivingmask"/>
+    <AddedRecipe itemidentifier="clownextinguisher"/>
+  </Talent>
+
+  </Talents>
+</Override>

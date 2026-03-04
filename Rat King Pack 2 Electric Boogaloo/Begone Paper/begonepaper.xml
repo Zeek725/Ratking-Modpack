@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Items>
+    <Item name="" identifier="safeandsoundsecurity101" category="Misc" Tags="smallitem,traitorguidelinesforsecurity" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+      <PreferredContainer primary="secarmcab,crewcab" secondary="locker" notpvp="true" />
+      <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="218,195,37,55" origin="0.5,0.5" />
+      <Sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="367,194,12,44" origin="0.5,0.5" depth="0.8" />
+      <Body width="35" height="40" density="8" />
+      <Deconstruct time="5" />
+      <Holdable slots="Any,RightHand,LeftHand" holdangle="30" handle1="-10,0" msg="ItemMsgPickUpSelect" />
+      <Terminal canbeselected="true" msg="ItemMsgInteractSelect" AllowInGameEditing="false" AutoHideScrollbar="true" readonly="true" autoscrolltobottom="false" linestartsymbol="" marginmultiplier="1.5" drawhudwhenequipped="true" welcomemessage="securityofficer.traitor.guidelines" textcolor="50,50,50,255">
+        <GuiFrame relativesize="0.3,0.5" anchor="Center" style="Paper" hidedragicons="true" />
+      </Terminal>
+    </Item>
+  </Items>
+</Override>

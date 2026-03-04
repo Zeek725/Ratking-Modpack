@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<npcsets>
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!--                          Escort Mission NPCs                              -->
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <npcset identifier="depthescortnpcs1">
+    <!-- <npc identifier="humanguppystowaway" behavior="StayInHull">
+      <Character speciesname="Humanguppy" />
+      <ItemSet commonness="1">
+        <Item identifier="idcard" equip="true" />
+        <Item identifier="prisonerclothes" equip="false" />
+        <Item identifier="handcuffs" equip="false" />
+        <Item identifier="divingknife" equip="false" />
+        <Item identifier="divingmask">
+          <Item identifier="oxygentank" />
+        </Item>
+      </ItemSet>
+    </npc> -->
+    <npc identifier="humanguppystowawayhelper" job="assistant" moduleflags="none" behavior="Passive">
+      <Character speciesname="human" gender="male" salary="1000" personality="Tough">
+        <job name="Assistant" identifier="assistant">
+          <skill identifier="electrical" level="5" />
+          <skill identifier="mechanical" level="5" />
+          <skill identifier="weapons" level="5" />
+          <skill identifier="medical" level="5" />
+          <skill identifier="helm" level="5" />
+        </job>
+      </Character>
+      <ItemSet commonness="1">
+        <Item identifier="idcard" equip="true" />
+        <Item identifier="headset" equip="true" showpreview="false" />
+        <Item identifier="watchmanclothes" equip="true" />
+        <Item identifier="piratebandana" equip="true" />
+        <Item identifier="ethanol" equip="true" />
+        <Item identifier="weldingtool" equip="true">
+          <Item identifier="weldingfueltank" />
+        </Item>
+      </ItemSet>
+    </npc>
+  </npcset>
+</npcsets>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Boarding Blade" identifier="blade" category="Equipment" Tags="mediumitem,weapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="armcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+    <PreferredContainer secondary="wreckarmcab" minamount="0" maxamount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedarmcab,abandonedstoragecab" minamount="0" maxamount="1" spawnprobability="0.3" />
+    <Price baseprice="100" soldeverywhere="false">
+      <Price locationtype="outpost" multiplier="1.5" sold="false" />
+      <Price locationtype="city" multiplier="1.25" sold="false" />
+      <Price locationtype="research" multiplier="1.25" sold="false" />
+      <Price locationtype="military" multiplier="0.9" minavailable="1" />
+      <Price locationtype="mine" multiplier="1.25" sold="false" />
+    </Price>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="steel" amount="2" />
+      <RequiredItem identifier="carbon" />
+      <RequiredItem identifier="rubber" />
+    </Fabricate>
+    <Deconstruct time="15">
+      <Item identifier="carbon" />
+      <Item identifier="iron" />
+    </Deconstruct>
+    <InventoryIcon texture="blade\Blade_Icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="blade\blade.png" sourcerect="50,25,196,26" depth="0.65" origin="0.5,0.5" />
+    <Body width="170" height="30" density="30" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="55,32" handle1="-48,5" holdangle="35" reload="1.2" AllowHitMultiple="true" range="95" combatPriority="35" msg="ItemMsgPickUpSelect">
+      <Attack targetimpulse="3" severlimbsprobability="0.2" itemdamage="5" penetration="0.05" structuredamage="3"  structuresoundtype="StructureSlash">
+        <Affliction identifier="lacerations" strength="15" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="stun" strength="0.3" />
+        <StatusEffect type="OnUse" target="Character">
+          <Sound file="%ModDir%\Weapons\blade\Blade_Slash_1.ogg" selectionmode="random" range="500" />
+          <Sound file="%ModDir%\Weapons\blade\Blade_Slash_2.ogg" range="500" />
+          <Sound file="%ModDir%\Weapons\blade\Blade_Slash_3.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.12" />
+    </Quality>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+  </Item>
+  <Item name="Hardened Boarding Blade" identifier="bladehardened" category="Equipment" Tags="mediumitem,weapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="armcab" minamount="1" maxamount="2" spawnprobability="0" />
+    <PreferredContainer secondary="wreckarmcab" minamount="0" maxamount="1" spawnprobability="0" />
+    <PreferredContainer secondary="abandonedarmcab,abandonedstoragecab" minamount="0" maxamount="1" spawnprobability="0" />
+    <Price baseprice="200" sold="false">
+      <Price locationtype="outpost" multiplier="1.5" />
+      <Price locationtype="city" multiplier="1.25" />
+      <Price locationtype="research" multiplier="1.25" />
+      <Price locationtype="military" multiplier="0.9" />
+      <Price locationtype="mine" multiplier="1.25" />
+    </Price>
+    <!-- without recipe for now -->
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="depletedfuel" amount="2" />
+      <RequiredItem identifier="blade" />
+    </Fabricate>
+    <Deconstruct time="15">
+      <Item identifier="steel" amount="2" />
+	  <Item identifier="depletedfuel" />
+    </Deconstruct>
+    <InventoryIcon texture="blade\HBlade_Icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="blade\HBlade.png" sourcerect="50,25,196,26" depth="0.65" origin="0.5,0.5" />
+    <Body width="170" height="30" density="30" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="55,32" handle1="-48,5" holdangle="40" reload="1.15" AllowHitMultiple="true" range="95" combatPriority="35" msg="ItemMsgPickUpSelect">
+      <Attack targetimpulse="3" severlimbsprobability="0.2" itemdamage="8" penetration="0.25" structuredamage="5">
+        <Affliction identifier="lacerations" strength="17" />
+        <Affliction identifier="radiationsickness" strength="2" />
+        <Affliction identifier="bleeding" strength="8" />
+        <Affliction identifier="stun" strength="0.35" />
+        <StatusEffect type="OnUse" target="Character">
+          <Sound file="%ModDir%\Weapons\blade\Blade_Slash_1.ogg" selectionmode="random" range="500" />
+          <Sound file="%ModDir%\Weapons\blade\Blade_Slash_2.ogg" range="500" />
+          <Sound file="%ModDir%\Weapons\blade\Blade_Slash_3.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.1" />
+    </Quality>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+  </Item>
+  <Item name="Vibroblade" identifier="bladeunique" category="Equipment" Tags="mediumitem,weapon" Scale="0.5" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" hideinmenus="true" RequireAimToUse="True" allowasextracargo="true">
+    <PreferredContainer primary="armcab" />
+    <PreferredContainer secondary="abandonedsecarmcab" spawnprobability="0.03" />
+    <PreferredContainer secondary="wreckarmcab" spawnprobability="0.02" />
+    <PreferredContainer secondary="wrecksecarmcab" spawnprobability="0.04" />
+    <Price baseprice="1900" soldeverywhere="false" canbespecial="false">
+      <Price locationtype="outpost" multiplier="1.35" sold="false" />
+      <Price locationtype="city" multiplier="1.25" sold="false" />
+      <Price locationtype="research" multiplier="1.25" sold="false" />
+      <Price locationtype="military" multiplier="0.9" sold="false" />
+      <Price locationtype="mine" multiplier="1.25" sold="false" />
+    </Price>
+    <InventoryIcon texture="bladeunique\Vibroblade_Icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="bladeunique\vibroblade.png" sourcerect="50,25,196,26" depth="0.65" origin="0.5,0.5" />
+    <Body width="170" height="30" density="30" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="55,32" handle1="-48,5" holdangle="40" reload="0.95" AllowHitMultiple="true" range="105" combatPriority="49" msg="ItemMsgPickUpSelect" preferredcontaineditems="mobilebattery">
+      <Attack targetimpulse="5" severlimbsprobability="0.4" itemdamage="10" penetration="0.9" structuredamage="10" structuresoundtype="StructureSlash">
+        <Affliction identifier="lacerations" strength="19" />
+        <Affliction identifier="bleeding" strength="15" />
+        <Affliction identifier="stun" strength="0.2" />
+      </Attack>
+      <!-- keep weight check in place for now (affect targets with mass < 60) -->
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Affliction identifier="stun" strength="0.35" />
+        <Affliction identifier="lacerations" strength="26" />
+        <Affliction identifier="bleeding" strength="19" />
+        <Sound file="%ModDir%\Weapons\bladeunique\Vibroblade_Slash_1.ogg" selectionmode="random" range="500" />
+        <Sound file="%ModDir%\Weapons\bladeunique\Vibroblade_Slash_2.ogg" range="500" />
+        <Sound file="%ModDir%\Weapons\bladeunique\Vibroblade_Slash_3.ogg" range="500" />
+        <RequiredItem items="batterycell" type="Contained" msg="ItemMsgBatteryCellRequired" />
+        <Conditional mass="lt 60" />
+      </StatusEffect>
+      <!-- keep weight check in place for now (affect targets with mass < 150) -->
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Affliction identifier="stun" strength="0.55" />
+        <Affliction identifier="lacerations" strength="31" />
+        <Affliction identifier="bleeding" strength="24" />
+        <Sound file="%ModDir%\Weapons\bladeunique\Vibroblade_Slash_1.ogg" selectionmode="random" range="500" />
+        <Sound file="%ModDir%\Weapons\bladeunique\Vibroblade_Slash_2.ogg" range="500" />
+        <Sound file="%ModDir%\Weapons\bladeunique\Vibroblade_Slash_3.ogg" range="500" />
+        <RequiredItem items="fulguriumbatterycell" type="Contained" msg="ItemMsgBatteryCellRequired" />
+        <Conditional mass="lt 150" />
+      </StatusEffect>
+      <!-- 5 usages with normal battery -->
+      <StatusEffect type="OnUse" target="Contained" Condition="-20.0" disabledeltatime="true">
+        <RequiredItem items="batterycell" type="Contained" msg="ItemMsgBatteryCellRequired" />
+      </StatusEffect>
+      <!-- 4 usages with a fulgurium battery -->
+      <StatusEffect type="OnUse" target="Contained" Condition="-25.0" disabledeltatime="true">
+        <RequiredItem items="fulguriumbatterycell" type="Contained" msg="ItemMsgBatteryCellRequired" />
+      </StatusEffect>
+    </MeleeWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <Containable items="mobilebattery" />
+    </ItemContainer>
+    <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+  </Item>
+  <Item name="Steel Maul" identifier="steelmaul" category="Weapon" Tags="mediumitem,weapon" scale="0.5" allowasextracargo="true" requireaimtouse="true" impactsoundtag="impact_metal_light">
+    <PreferredContainer primary="secarmcab" secondary="armcab" />
+    <Price baseprice="350" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.25" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+    </Price>
+    <Deconstruct time="20">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <!-- without recipe for now -->
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="steel" amount="3" />
+	  <RequiredItem identifier="rubber" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/Weapons/steelmaul/Blungeon_Icon.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Weapons/steelmaul/Blungeon.png" sourcerect="36,21,184,22" depth="0.55" origin="0.5,0.2" />
+    <Body width="170" height="20" density="25" />
+    <MeleeWeapon slots="Any,RightHand+LeftHand" aimpos="35,30" handle1="-18,-2" handle2="-36,-2" holdangle="70" reload="1.6" range="140" combatPriority="40" msg="ItemMsgPickUpSelect">
+      <Attack targetimpulse="20" severlimbsprobability="0" itemdamage="16" structuredamage="16" penetration="0.85">
+        <Affliction identifier="blunttrauma" strength="36" />
+        <Affliction identifier="stun" strength="1.8" />
+        <Affliction identifier="bleeding" strength="2" />
+        <StatusEffect type="OnUse" target="Character">
+          <Sound file="%ModDir%/Weapons/steelmaul/Smack1.ogg" selectionmode="random" range="500" />
+          <Sound file="%ModDir%/Weapons/steelmaul/Smack2.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.1" />
+    </Quality>
+    <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+  </Item>
+
+  <Item name="Sheath Belt" identifier="sheathbelt" category="Equipment" tags="mediumitem,mobilecontainer,tool" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+    <Deconstruct time="15">
+      <Item identifier="ballisticfiber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="20" />
+      <Item identifier="toolbelt" />
+      <Item identifier="ballisticfiber" />
+	  <Item identifier="steel" />
+    </Fabricate>
+    <Price baseprice="65" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="4" />
+      <Price storeidentifier="merchantcity" minavailable="6" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="8" />
+      <Price storeidentifier="merchantengineering" minavailable="4" multiplier="0.9" />
+    </Price>
+    <InventoryIcon texture="%ModDir%/Weapons/belts/Sheathbelt_Icon.png" sourcerect="13,2,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Weapons/belts/Sheathbelt_Sprite.png" sourcerect="13,7,112,64" depth="0.6" />
+    <Body width="100" height="45" density="20" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="ToolBelt" texture="%ModDir%/Weapons/belts/Sheathbelt_Sprite.png" sourcerect="13,7,112,64" limb="Torso" inherittexturescale="true" origin="0.4,-0.2" />
+      <StatValue stattype="MeleeAttackSpeed" value="0.15" />
+      <StatValue stattype="MeleeAttackMultiplier" value="0.15" />
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="6" depth="0.5">
+      <Containable items="smallitem" excludeditems="toolbelt,toolbox,bandolier,backpack" />
+      <SubContainer capacity="1" maxstacksize="1" containedstateindicatorslot="0" containedspritedepth="0.56">
+        <Containable items="weapon" excludeditems="gun" canbeselected="true" />
+      </SubContainer>
+    </ItemContainer>
+  </Item>
+
+  <Item name="Hunting Belt" identifier="huntbelt" category="Equipment" tags="mediumitem,mobilecontainer,tool" cargocontaineridentifier="metalcrate" showcontentsintooltip="true" Scale="0.5" fireproof="true" description="" impactsoundtag="impact_soft">
+    <Deconstruct time="15">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="20" />
+      <Item identifier="toolbelt" />
+      <Item identifier="organicfiber" />
+      <Item identifier="divingknife" />
+    </Fabricate>
+    <Price baseprice="65" sold="false">
+      <Price storeidentifier="merchantoutpost" minavailable="4" />
+      <Price storeidentifier="merchantcity" minavailable="6" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" minavailable="8" />
+      <Price storeidentifier="merchantengineering" minavailable="4" multiplier="0.9" />
+    </Price>
+    <InventoryIcon texture="%ModDir%/Weapons/belts/Huntbelt_Icon.png" sourcerect="13,2,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/Weapons/belts/Huntbelt_Sprite.png" sourcerect="13,7,112,64" depth="0.6" />
+    <Body width="100" height="45" density="20" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="ToolBelt" texture="%ModDir%/Weapons/belts/Huntbelt_Sprite.png" sourcerect="13,7,112,64" limb="Torso" inherittexturescale="true" origin="0.4,-0.2" />
+    </Wearable>
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-70" handle1="-5,0" handle2="10,-20" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false" />
+    <ItemContainer capacity="6" depth="0.5" hideitems="true">
+      <Containable items="smallitem" excludeditems="toolbelt,toolbox,bandolier,backpack" />
+    </ItemContainer>
+  </Item>
+</Items>

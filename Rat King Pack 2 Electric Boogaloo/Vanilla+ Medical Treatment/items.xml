@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <BloodPack name="Medium Blood Pack" identifier="bloodpackmedium" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medcab" minamount="2" maxamount="3" notcampaign="true" />
+    <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="medcontainer" />
+    <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+    <Price baseprice="240">
+      <Price storeidentifier="merchantmedical" multiplier="0.9" />
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" amount="1">
+      <RequiredSkill identifier="medical" level="31" />
+      <RequiredItem identifier="bloodpacksmall" amount="2" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="sodium" />
+      <Item identifier="stabilozine" />
+    </Deconstruct>
+    <SuitableTreatment type="bloodloss" suitability="120" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,640,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="1,217,82,44" depth="0.6" origin="0.5,0.5" />
+    <Body width="80" height="42" density="11" />
+    <!--  characterusable="false" because the "Use" action is triggered via a status effect when the bottle is empty, can't be done just by hitting E  -->
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" characterusable="false" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <RequiredSkill identifier="medical" level="40" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnSuccess" target="UseTarget, This" duration="30">
+        <ReduceAffliction identifier="bloodloss" amount="2" />
+        <ReduceAffliction identifier="radiationsickness" amount="1" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnFailure" target="UseTarget, This" duration="30">
+        <ReduceAffliction identifier="bloodloss" amount="1.5" />
+        <ReduceAffliction identifier="radiationsickness" amount="0.75" />
+      </StatusEffect>
+      <!--  Remove the item when fully used  -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <AiTarget sightrange="1000" static="true" />
+    <SkillRequirementHint identifier="medical" level="40" />
+  </BloodPack>
+  <BloodPack name="Small Blood Pack" identifier="bloodpacksmall" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medcab" minamount="2" maxamount="3" notcampaign="true" />
+    <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="medcontainer" />
+    <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+    <Price baseprice="240">
+      <Price storeidentifier="merchantmedical" multiplier="0.9" />
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+    </Price>
+    <SuitableTreatment type="bloodloss" suitability="120" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,640,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="1,217,82,44" depth="0.6" origin="0.5,0.5" />
+    <Body width="80" height="42" density="11" />
+    <!--  characterusable="false" because the "Use" action is triggered via a status effect when the bottle is empty, can't be done just by hitting E  -->
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" characterusable="false" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <RequiredSkill identifier="medical" level="40" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnSuccess" target="UseTarget, This" duration="15">
+        <ReduceAffliction identifier="bloodloss" amount="2" />
+        <ReduceAffliction identifier="radiationsickness" amount="1" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnFailure" target="UseTarget, This" duration="15">
+        <ReduceAffliction identifier="bloodloss" amount="1.5" />
+        <ReduceAffliction identifier="radiationsickness" amount="0.75" />
+      </StatusEffect>
+      <!--  Remove the item when fully used  -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <AiTarget sightrange="1000" static="true" />
+    <SkillRequirementHint identifier="medical" level="40" />
+  </BloodPack>
+  <Item name="Blood Siphon" identifier="bmbloodsiphon" category="Medical" maxstacksize="1" maxstacksizecharacterinventory="1" cargocontaineridentifier="mediccrate" Tags="smallitem" description="Used to collect blood which can be saved for a later time. Requires an individual to be bleeding to utilize on them. Skilled users can fill a blood pack while inflicting less blood loss." useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <PreferredContainer primary="medcab" secondary="medcontainer" amount="1" spawnprobability="0.98" />
+    <Price baseprice="300" minavailable="1">
+      <Price storeidentifier="merchantoutpost" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" />
+      <Price storeidentifier="merchantmilitary" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantmedical" multiplier="0.9" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="40">
+      <RequiredSkill identifier="medical" level="45" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+      <RequiredItem identifier="steel" amount="2" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Map/Outposts/Art/FactionItems.png" sourcerect="419,268,16,46" depth="0.6" origin="0.5,0.5" />
+    <Body width="25" height="65" density="10.2" waterdragcoefficient="1" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+      <RequiredSkill identifier="medical" level="40" />
+      <StatusEffect type="OnSuccess" target="UseTarget,This" disabledeltatime="True" comparison="And">
+        <SpawnItem identifier="bloodpacksmall" spawnposition="SameInventory" count="1" />
+        <Conditional IsHuman="True" />
+        <Conditional bloodloss="lt 10" />
+        <Affliction identifier="bloodloss" strength="35" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnFailure" target="UseTarget,This" disabledeltatime="True" comparison="And">
+        <SpawnItem identifier="bloodpacksmall" spawnposition="SameInventory" count="1" />
+        <Conditional IsHuman="True" />
+        <Conditional bloodloss="lt 10" />
+        <Affliction identifier="bloodloss" strength="45" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="Contained" Condition="-100" />
+    </MeleeWeapon>
+    <SkillRequirementHint identifier="medical" level="40" />
+  </Item>
+</Items>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- Orange Boy  -->
+  <Item name="Orange Boy's Hat" identifier="orangeboy_hat" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" description="A hat crafted with love, tailored for Orange Boy!" scale="0.4">
+    <PreferredContainer primary="crewcab" />
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="1" />
+      <RequiredItem identifier="chitin" amount="1" />
+    </Fabricate>
+    <Sprite name="Orange Boy's Hat" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" depth="0.6" sourcerect="0,0,71,52" origin="0.5,0.5" />
+    <Body width="70" height="45" density="15" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Orange Boy's Hat" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="1" hidelimb="false" sourcerect="0,0,71,70" origin="0.61,0.67" />
+    </Wearable>
+  </Item>
+  <!-- Psilotoad -->
+  <Item name="Psilotoad's Hat" identifier="psilotoad_hat" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" description="A hat crafted with love, tailored for Psilotoad!" scale="0.4">
+    <PreferredContainer primary="crewcab" />
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="1" />
+      <RequiredItem identifier="hallucinogenicbufotoxin" amount="1" />
+    </Fabricate>
+    <Sprite name="Psilotoad's Hat" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" depth="0.6" sourcerect="128,0,93,58" origin="0.5,0.5" />
+    <Body width="70" height="45" density="15" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Psilotoad's Hat" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="1.01" hidelimb="false" sourcerect="144,0,78,48" origin="0.62,0.90" />
+    </Wearable>
+  </Item>
+  <!-- Peanut -->
+  <Item name="Peanut's Costume" identifier="peanut_costume" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" description="A costume crafted with love, tailored for Peanut!" scale="0.4">
+    <PreferredContainer primary="crewcab" />
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="1" />
+      <RequiredItem identifier="mucusball" amount="1" />
+    </Fabricate>
+    <Sprite name="Peanut's Costume" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" depth="0.6" sourcerect="0,128,61,94" origin="0.5,0.5" />
+    <Body width="70" height="45" density="15" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Peanut's Costume" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="1" hidelimb="false" sourcerect="0,128,61,94" origin="0.59,0.39" />
+    </Wearable>
+  </Item>
+  <!-- Cthulhu -->
+  <Item name="Cthulhu's Basket" identifier="cthulhu_basket" category="Equipment" tags="smallitem" cargocontaineridentifier="metalcrate" description="A costume crafted with love, tailored for Cthulhu!" scale="0.4">
+    <PreferredContainer primary="crewcab" />
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="10">
+      <RequiredItem identifier="organicfiber" amount="1" />
+      <RequiredItem identifier="dementonite" amount="1" />
+    </Fabricate>
+    <Sprite name="Cthulhu's Basket" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" depth="0.6" scale="4" sourcerect="128,128,128,128" origin="0.5,0.5" />
+    <Body width="70" height="45" density="15" />
+    <Wearable limbtype="Head" slots="Any,Head" msg="ItemMsgPickUpSelect">
+      <sprite name="Cthulhu's Basket" texture="%ModDir%/TougherHealablePetsWithHats/Items/PetHats.png" limb="Head" hidewearablesoftype="Hair" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="1" hidelimb="false" sourcerect="128,128,128,128" origin="0.3,-0.35" />
+    </Wearable>
+  </Item>
+</Items>

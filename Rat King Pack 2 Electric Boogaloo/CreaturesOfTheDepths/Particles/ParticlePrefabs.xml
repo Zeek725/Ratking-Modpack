@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prefabs>
+  <Blightspore LifeTime="10" LifeTimeMin="0" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="-4" AngularVelocityMax="4" StartRotationMin="10" StartRotationMax="360" RotateToDirection="False" Drag="0" WaterDrag="0" VelocityChange="0,0" VelocityChangeWater="0,0" CollisionRadius="10" InvariantCollisionSize="False" UseCollision="False" DeleteOnCollision="False" Friction="0" Restitution="0.5" StartSizeMin="2,2" StartSizeMax="2.5,2.5" SizeChangeMin="-0.1,-0.1" SizeChangeMax="-0.2,-0.2" GrowTime="0" StartColor="0,100,150,1" MiddleColor="80,200,150,150" EndColor="0,100,150,0" UseMiddleColor="True" DrawTarget="Both" DrawOnTop="True" DrawAlways="False" BlendState="AlphaBlend" Priority="0" AnimDuration="3" LoopAnim="True">
+    <animatedsprite texture="Content/Particles/ballastfloraSpore.png" sourcerect="0,0,1024,512" columns="8" rows="4" origin="0.5,0.5" />
+  </Blightspore>
+  <Blighttoxinmistlargefade LifeTime="8" LifeTimeMin="4" StartDelayMin="0" StartDelayMax="0" AngularVelocityMin="-50" AngularVelocityMax="10" StartRotationMin="0" StartRotationMax="360" RotateToDirection="False" Drag="1" WaterDrag="1" VelocityChange="0,0" VelocityChangeWater="0,0" CollisionRadius="1" InvariantCollisionSize="False" UseCollision="False" DeleteOnCollision="False" Friction="0.5" Restitution="0.5" StartSizeMin="0.8,0.8" StartSizeMax="1,1" SizeChangeMin="0.2,0.2" SizeChangeMax="0.5,0.8" GrowTime="0" StartColor="80,100,40,1" MiddleColor="0,40,20,150" EndColor="0,40,20,0" UseMiddleColor="True" DrawTarget="Both" DrawOnTop="True" DrawAlways="False" BlendState="AlphaBlend" Priority="0" AnimDuration="1" LoopAnim="True">
+    <sprite texture="Content/Particles/ParticleAtlas.png" sourcerect="384,254,128,128" />
+  </Blighttoxinmistlargefade>
+</prefabs>

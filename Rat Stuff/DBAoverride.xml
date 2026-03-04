@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Items>
+    <Item name="" identifier="defensebotround" category="Weapon,Weapons,Machine" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem" impactsoundtag="impact_metal_light" hideinmenus="true" scale="0.5">
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,960,64,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="195,282,17,6" depth="0.55" origin="0.5,0.5" />
+      <Body width="40" height="14" density="30" />
+      <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+      <Projectile characterusable="false" hitscan="true" removeonhit="true">
+        <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,255,115,175" scalemultiplier="0.4,0.4" />
+        <Attack structuredamage="1" targetforce="2" itemdamage="1" severlimbsprobability="0">
+          <Affliction identifier="gunshotwound" strength="5" />
+          <Affliction identifier="bleeding" strength="5" />
+          <Affliction identifier="stun" strength="0.025" />
+        </Attack>
+        <StatusEffect type="OnImpact" target="UseTarget">
+          <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="0,5" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="UseTarget">
+          <Conditional entitytype="eq Structure" />
+          <Conditional hastag="eq door" />
+          <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+        </StatusEffect>
+      </Projectile>
+    </Item>
+    <Item name="" identifier="defensebotammobox" maxstacksize="8" maxstacksizecharacterinventory="2" scale="0.3" category="Weapon,Weapons,Machine" cargocontaineridentifier="metalcrate" linkable="true" tags="smallitem,defensebotammo" impactsoundtag="impact_metal_light">
+      <PreferredContainer primary="defensebot,secarmcab" secondary="armcab" />
+      <Price baseprice="200" displaynonempty="true" sold="false">
+        <Price storeidentifier="merchantmilitary" sold="true" multiplier="0.9" minavailable="0" maxavailable="2" />
+        <Price storeidentifier="merchantarmory" sold="true" multiplier="0.9" minavailable="0" maxavailable="2" />
+      </Price>
+      <Fabricate suitablefabricators="fabricator" requiredtime="25" requiresrecipe="true">
+        <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+        <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+        <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+        <RequiredItem identifier="aluminium" />
+      </Fabricate>
+      <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" displayname="recycleitem">
+        <RequiredItem tag="munition_propulsion" description="fabricationdescription.munition_propulsion" />
+        <RequiredItem tag="munition_core" description="fabricationdescription.munition_core" />
+        <RequiredItem tag="munition_jacket" description="fabricationdescription.munition_jacket" />
+        <RequiredItem tag="defensebotammo" mincondition="0.0" maxcondition="0.1" usecondition="false" description="entitydescription.defensebotammobox" header="fabricationheader.ammoboxrecycle" defaultitem="defensebotammobox" />
+      </Fabricate>
+      <Deconstruct time="10">
+        <Item identifier="aluminium" />
+      </Deconstruct>
+      <Sprite texture="Content/Characters/Defensebot/Defensebot.png" depth="0.54" sourcerect="135,189,115,58" origin="0.5,0.5" />
+      <Body width="90" height="60" density="25" />
+      <ItemContainer hideitems="true" capacity="1" drawinventory="false" canbeselected="false" ShowConditionInContainedStateIndicator="true" SpawnWithId="defensebotround" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet">
+        <Containable items="defensebotround" />
+        <StatusEffect type="OnUse" target="This" condition="-0.5" disabledeltatime="true">
+          <SpawnItem identifiers="defensebotround" spawnposition="ThisInventory" />
+        </StatusEffect>
+      </ItemContainer>
+      <Holdable canBeCombined="true" slots="LeftHand,RightHand,Any" holdpos="0,-80" handle1="-40,30" handle2="40,30" aimable="false" msg="ItemMsgPickUpSelect" />
+    </Item>
+  </Items>
+</Override>

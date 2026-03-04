@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Affliction name="Husk Communion" identifier="ritualhuskresistance" description="Any husk parasite within you has been tranquilized, slowing it's development and rendering it docile temporarily." type="resistance" isbuff="true" limbspecific="false" maxstrength="600" affectmachines="false" MedicalSkillGain="0.01">
+  <Effect minstrength="0" maxstrength="300" strengthchange="-1" resistancefor="huskinfection" minresistance="0.9" maxresistance="0.9" />
+  <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,896,128,128" color="10,193,114,255" origin="0,0" />
+  <AbilityFlag flagtype="ImmuneToPressure" />
+  <StatusEffect target="Character" type="OnActive">
+    <Conditional huskinfection="gt 50" />
+    <ReduceAffliction type="damage" amount="0.25" />
+    <ReduceAffliction type="bleeding" amount="0.1" />
+  </StatusEffect>
+</Affliction>

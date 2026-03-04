@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Polish" nowhitespace="false" translatedname="Polski">
+  <!-- Event Texts -->
+  <eventtext.humanguppystowaway.c1>Liczyłeś pasażerów, gdy jeden z zamaskowanych ludzi mówi do ciebie: "Przyjacielu, mam dobrą i złą wiadomość. Dobrą wiadomością jest to, że zapłacę ci dodatkowe 1 000 marek. Złą wiadomością jest to, że są tu pewni pasażerowie na gapę, którzy muszą dotrzeć do następnej stacji." 
+Zdziwiłeś się, gdy kilku Humanguppych wyszło drżąc z tyłu za nim, i rozpoznałeś ich jako uciekinierów poszukiwanych przez Koalicję.</eventtext.humanguppystowaway.c1>
+  <eventtext.humanguppystowaway.o1>"Co do-!"</eventtext.humanguppystowaway.o1>
+  <eventtext.humanguppystowaway.o1.c1>Jesteś niezdecydowany, ponieważ nie chcesz łamać praw Koalicji, ale kto nie chciałby zarobić trochę dodatkowych pieniędzy? Poza tym, dopóki nikt się nie dowie...</eventtext.humanguppystowaway.o1.c1>
+  <eventtext.humanguppystowaway.c1.c1>Kilku pasażerów na gapę Humanguppy wślizgnęło się na pokład, wyglądają na nieszczęśliwych i bezradnych. Nie znasz ich pochodzenia, ale czujesz dla nich współczucie. Może możesz pomóc im uciec przed pościgiem Koalicji.</eventtext.humanguppystowaway.c1.c1>
+</infotexts>

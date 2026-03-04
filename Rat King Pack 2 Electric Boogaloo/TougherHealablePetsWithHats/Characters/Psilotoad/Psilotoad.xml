@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Character speciesname="Psilotoad" humanoid="False" blooddecal="blood" group="human" husk="False" needsair="False" canspeak="True" noise="100" visiblity="100" eatingspeed="5" displayname="" visibility="100" pathfinderpriority="1" hasinfo="False" usehuskappendage="False" speciestranslationoverride="" needswater="False" bleedparticleair="blooddrop" bleedparticlewater="waterblood" hideinsonar="False" sonardisruption="0" soundinterval="30" DespawnContainer="Petduffelbag">
+    <ragdolls folder="default" />
+    <animations folder="Content/Characters/Psilotoad/Animations/" />
+    <damageemitter particle="gib" drawontop="True" particleamount="10" velocitymin="50" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.25" scalemax="0.5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+    <bloodemitter particle="blood" particleamount="10" anglemin="0" anglemax="0" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+    <bloodemitter particle="waterblood" particleamount="1" anglemin="0" anglemax="0" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+    <gibemitter particle="gib" particleamount="20" velocitymin="200" velocitymax="700" anglemin="0" anglemax="360" scalemin="1" scalemax="1" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+    <health vitality="100" minvitality="-100" doesbleed="True" crushdepth="Infinity" usehealthwindow="True" bleedingreduction="0.2" burnreduction="0.2" constanthealthregeneration="0.2" healthregenerationwheneating="10" poisonvulnerability="3">
+      <Limb name="Torso">
+        <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,0,126,374" highlightarea="29,56,70,134" />
+        <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,515,126,374" />
+        <VitalityMultiplier type="damage" multiplier="0.5" />
+      </Limb>
+    </health>
+    <Inventory slots="Any, Any, Card, Head, HealthInterface" accessiblewhenalive="True" commonness="1" />
+    <ai combatstrength="50" sight="1" hearing="1" fleehealththreshold="25" aggressiveboarding="True" aggressiongreed="10" aggressionhurt="200" attackwhenprovoked="False" avoidgunfire="True" enforceaggressivebehaviorformissions="True" targetouterwalls="True" randomattack="False" avoidtime="3" minfleetime="20">
+      <!-- <target tag="owner" state="Protect" threshold="3" priority="90" reactdistance="200" attackdistance="0" timer="0" /> -->
+      <target tag="hostile" state="PassiveAggressive" priority="80" reactdistance="1000" attackdistance="0" timer="0" />
+      <target tag="stronger" state="Avoid" priority="50" reactdistance="1000" attackdistance="0" timer="0" />
+      <target tag="weaker" state="Avoid" priority="50" reactdistance="1000" attackdistance="0" timer="0" />
+      <target tag="human" state="Follow" priority="10" reactdistance="200" attackdistance="0" timer="0" />
+      <petbehavior maxhappiness="100" unhappythreshold="50" happythreshold="80" happinessdecreaserate="0.0175" hungerincreaserate="0.03" playforce="4.5">
+        <eat tag="petfood2" ignorecontained="true" requiredhunger="45-100" hunger="-50" happiness="5" priority="100" />
+        <eat tag="dead" requiredhunger="70-100" hunger="-100" happiness="10" priority="100" />
+        <itemproduction rate="0.0" invhungerrate="0.002" requiredhunger="0-30">
+          <item identifier="poop" commonness="100" />
+        </itemproduction>
+        <itemproduction rate="0.0015" requiredhappiness="50-100" requiredhunger="0-30">
+          <item identifier="hallucinogenicbufotoxin" />
+        </itemproduction>
+        <itemproduction rate="0.0015" requiredhappiness="80-100" requiredhunger="0-30">
+          <item identifier="psilotoadegg" commonness="30" />
+          <item identifier="" commonness="70" />
+        </itemproduction>
+      </petbehavior>
+    </ai>
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_idle1.ogg" state="Idle" range="1000" volume="1" />
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_idle2.ogg" state="Idle" range="1000" volume="1" />
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_takeDamage1.ogg" state="Damage" range="1000" volume="1" />
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_takeDamage2.ogg" state="Damage" range="1000" volume="1" />
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_takeDamage1.ogg" state="Die" range="2000" volume="1" frequencymultiplier="1.5" />
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_takeDamage2.ogg" state="Die" range="2000" volume="1" frequencymultiplier="1.5" />
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_positive.ogg" state="Happy" range="1000" volume="1" />
+    <sound file="Content/Characters/Psilotoad/PSILOTOAD_negative.ogg" state="Unhappy" range="1000" volume="1" />
+    <!-- Starvation Affliction ( Using hardcoded internaldamage 8/s instead as idk how to directly target pet hunger ) -->
+    <StatusEffect type="Always" target="This" interval="4" disabledeltatime="True" setValue="True">
+      <Conditional InternalDamage="eq 200" />
+      <Affliction identifier="petstarvation" strength="100" />
+    </StatusEffect>
+    <StatusEffect type="OnEating" target="This" interval="2" disabledeltatime="True" setValue="True">
+      <Conditional InternalDamage="lt 175.0" />
+      <ReduceAffliction identifier="petstarvation" strength="100" />
+    </StatusEffect>
+    <!---->
+  </Character>
+</Override>

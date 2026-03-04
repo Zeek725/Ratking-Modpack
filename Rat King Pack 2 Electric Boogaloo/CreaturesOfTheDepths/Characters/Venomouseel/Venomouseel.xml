@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Character speciesname="VenomousEel" speciestranslationoverride="" displayname="" group="venomouseel" humanoid="False" hasinfo="False" CanInteract="False" husk="False" usehuskappendage="False" needsair="False" needswater="True" canspeak="False" UseBossHealthBar="false" blooddecal="blood" bleedparticleair="blooddrop" bleedparticlewater="waterblood" visibility="100" noise="100" CanEat="True" eatingspeed="10" pathfinderpriority="1" hideinsonar="False" HideInThermalGoggles="False" sonardisruption="0">
+  <ragdolls folder="%ModDir%/CreaturesOfTheDepths/Characters/venomouseel/Ragdolls/" />
+  <animations folder="%ModDir%/CreaturesOfTheDepths/Characters/venomouseel/Animations/" />
+  <health vitality="480" doesbleed="True" crushdepth="Infinity" usehealthwindow="False" bleedingreduction="0" burnreduction="0" constanthealthregeneration="0" healthregenerationwheneating="0.5" stunimmunity="true" PoisonImmunity="False" poisonvulnerability="0.5" EmpVulnerability="0" ApplyAfflictionColors="True">
+    <Limb>
+      <VitalityMultiplier identifier="sufforinpoisoning" multiplier="0" />
+    </Limb>
+  </health>
+  <ai combatstrength="650" sight="0.25" hearing="4" aggressionhurt="100" aggressiongreed="0" fleehealththreshold="10" DamageThreshold="20" attackwhenprovoked="True" aggressiveboarding="False" avoidgunfire="True" enforceaggressivebehaviorformissions="True" targetinnerwalls="False" randomattack="True" avoidtime="6" minfleetime="20" targetouterwalls="True">
+    <target Tag="dead" State="Eat" Priority="150" ReactDistance="0" AttackDistance="0" Timer="0" IgnoreContained="False" IgnoreInside="False" IgnoreOutside="False" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="False" Threshold="0" ThresholdMin="-1" ThresholdMax="-1" Offset="0,0" AttackPattern="Straight" SweepDistance="0" SweepStrength="10" SweepSpeed="1" CircleStartDistance="5000" CircleRotationSpeed="1" CircleStrikeDistanceMultiplier="5" CircleMaxRandomOffset="0" />
+    <target tag="decoy" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="provocative" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="weapon" state="Attack" priority="100" ignoreifnotinsamesub="True" />
+    <target tag="nasonov" state="Attack" priority="100" ignoreinside="True" />
+    <target tag="sonar" state="Attack" priority="90" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" />
+    <target tag="human" state="Aggressive" priority="80" reactdistance="0" attackdistance="0" timer="0" ignorecontained="False" />
+    <target tag="chun" state="idle" priority="60" reactdistance="1000" attackdistance="0" timer="0" ignorecontained="False" />
+    <target tag="stronger" state="Aggressive" priority="50" reactdistance="2000" attackdistance="0" timer="0" ignorecontained="False" />
+    <target tag="equal" state="Aggressive" priority="50" reactdistance="2000" attackdistance="0" timer="0" ignorecontained="False" />
+    <target tag="weaker" state="Aggressive" priority="50" reactdistance="2000" attackdistance="0" timer="0" ignorecontained="False" />
+  </ai>
+  <sound file="%ModDir%/CreaturesOfTheDepths/Characters/venomouseel/VENOMOUSEEL_idle1.ogg" state="Idle" range="4000" volume="3" />
+  <sound file="%ModDir%/CreaturesOfTheDepths/Characters/venomouseel/VENOMOUSEEL_idle2.ogg" state="Idle" range="4000" volume="3" />
+  <sound file="%ModDir%/CreaturesOfTheDepths/Characters/venomouseel/VENOMOUSEEL_attack1.ogg" state="Attack" range="5000" volume="3" />
+  <sound file="%ModDir%/CreaturesOfTheDepths/Characters/venomouseel/VENOMOUSEEL_attack2.ogg" state="Attack" range="5000" volume="3" />
+  <sound file="%ModDir%/CreaturesOfTheDepths/Characters/venomouseel/VENOMOUSEEL_death1.ogg" state="Die" range="4000" volume="3" />
+  <Inventory slots="Any, Any, Any, Any, Any, Any" accessiblewhenalive="False" commonness="2">
+    <Item identifier="alienblood" />
+    <Item identifier="spinelingspikeloot" />
+    <Item identifier="eelmeat" amount="2" />
+  </Inventory>
+  <Inventory slots="Any, Any, Any, Any, Any, Any" accessiblewhenalive="False" commonness="2">
+    <Item identifier="alienblood" />
+    <Item identifier="diversremains" />
+    <Item identifier="eelmeat" amount="2" />
+  </Inventory>
+  <Inventory slots="Any, Any, Any, Any, Any, Any" accessiblewhenalive="False" commonness="3">
+    <Item identifier="alienblood" />
+    <Item identifier="scrap" />
+    <Item identifier="eelmeat" amount="2" />
+  </Inventory>
+  <Inventory slots="Any, Any, Any, Any, Any, Any" accessiblewhenalive="False" commonness="2">
+    <Item identifier="alienblood" />
+    <Item identifier="smallcrawleregg" />
+    <Item identifier="eelmeat" amount="2" />
+  </Inventory>
+  <Inventory slots="Any, Any, Any, Any, Any, Any" accessiblewhenalive="False" commonness="1">
+    <Item identifier="alienblood" />
+    <Item identifier="huskstinger" />
+    <Item identifier="eelmeat" amount="2" />
+  </Inventory>
+  <bloodemitter particle="blood" anglemin="1" anglemax="2" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" particleamount="10" highqualitycollisiondetection="False" copyentityangle="False" />
+  <bloodemitter particle="waterblood" anglemin="1" anglemax="2" scalemin="1" scalemax="1" velocitymin="0" velocitymax="0" emitinterval="0" particlespersecond="0" particleamount="1" highqualitycollisiondetection="False" copyentityangle="False" />
+  <gibemitter particle="gib" anglemin="0" anglemax="360" scalemin="1" scalemax="2" velocitymin="200" velocitymax="1500" emitinterval="0" particlespersecond="0" particleamount="30" highqualitycollisiondetection="False" copyentityangle="False" />
+  <gibemitter particle="heavygib" anglemin="0" anglemax="360" scalemin="1" scalemax="1.2" velocitymin="50" velocitymax="500" emitinterval="0" particlespersecond="0" particleamount="5" highqualitycollisiondetection="False" copyentityangle="False" />
+  <damageemitter particle="gib" particleamount="10" velocitymin="50" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.25" scalemax="0.5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" />
+</Character>

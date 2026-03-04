@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <Affliction name="Opiate Influence" identifier="opiatebuff" description="The patient's pain receptors are numbed due to a strong opioid, leaving them to feel little to no pain at this time." type="buff" isbuff="true" limbspecific="false" maxstrength="120" Medicalskillgainonapplied="1.0">
+    <Effect minstrength="0" maxstrength="120" strengthchange="-0.4" resistancefor="stun" minresistance="0" maxresistance="0.9" minvitalitydecrease="0" maxvitalitydecrease="-200" minscreendistort="0.1" maxscreendistort="1.5" minscreenblur="0.1" maxscreenblur="1.5" minradialdistort="0.1" maxradialdistort="1.5" />
+    <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,768,128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

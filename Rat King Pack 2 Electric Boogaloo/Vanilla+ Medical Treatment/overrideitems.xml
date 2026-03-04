@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <BloodPack name="" identifier="antibloodloss2" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,petfood1" useinhealthinterface="true" description="" scale="0.5" impactsoundtag="impact_soft">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medcab" minamount="2" maxamount="3" notcampaign="true" />
+    <PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.05" />
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="medcontainer" />
+    <PreferredContainer secondary="researchcontainer" spawnprobability="0.02" />
+    <Price baseprice="240">
+      <Price storeidentifier="merchantmedical" multiplier="0.9" />
+      <Price storeidentifier="merchanthusk" minavailable="0" maxavailable="2" />
+    </Price>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="25" amount="2">
+      <RequiredSkill identifier="medical" level="31" />
+      <RequiredItem identifier="alienblood" amount="2" />
+      <RequiredItem identifier="antibloodloss1" amount="2" />
+      <RequiredItem identifier="stabilozine" amount="1" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+      <RequiredSkill identifier="medical" level="31" />
+      <RequiredItem identifier="bloodpackmedium" amount="2" />
+    </Fabricate>
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="25">
+      <RequiredSkill identifier="medical" level="31" />
+      <RequiredItem identifier="bloodpacksmall" amount="4" />
+    </Fabricate>
+    <Deconstruct time="20">
+      <Item identifier="sodium" />
+      <Item identifier="stabilozine" />
+    </Deconstruct>
+    <SuitableTreatment type="bloodloss" suitability="120" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="896,640,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="1,217,82,44" depth="0.6" origin="0.5,0.5" />
+    <Body width="80" height="42" density="11" />
+    <!--  characterusable="false" because the "Use" action is triggered via a status effect when the bottle is empty, can't be done just by hitting E  -->
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" characterusable="false" handle1="0,0" msg="ItemMsgPickUpSelect">
+      <RequiredSkill identifier="medical" level="40" />
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnSuccess" target="UseTarget, This" duration="60">
+        <ReduceAffliction identifier="bloodloss" amount="2" />
+        <ReduceAffliction identifier="radiationsickness" amount="1" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnFailure" target="UseTarget, This" duration="60">
+        <ReduceAffliction identifier="bloodloss" amount="1.5" />
+        <ReduceAffliction identifier="radiationsickness" amount="0.75" />
+      </StatusEffect>
+      <!--  Remove the item when fully used  -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+    <AiTarget sightrange="1000" static="true" />
+    <SkillRequirementHint identifier="medical" level="40" />
+  </BloodPack>
+  <pomegrenadeextract name="Mutated Pomegrenade Extract" identifier="mutatedpomegrenadeextract" category="Medical" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" description="" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medcab" minamount="2" maxamount="4" spawnprobability="0.5" notcampaign="true" notpvp="true" />
+    <PreferredContainer secondary="wrecksupplycab,beaconsupplycab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" minamount="1" maxamount="2" spawnprobability="0.2" />
+    <PreferredContainer secondary="medcontainer" />
+    <Price baseprice="80" minavailable="4">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.2" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.2" />
+      <Price storeidentifier="merchantmine" multiplier="0.75" />
+    </Price>
+    <SuitableTreatment identifier="organdamage" suitability="8" />
+    <SuitableTreatment type="burn" suitability="8" />
+    <SuitableTreatment identifier="oxygenlow" suitability="-25" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="15">
+      <RequiredSkill identifier="medical" level="20" />
+      <RequiredItem identifier="badcreepingorange" amount="3" />
+    </Fabricate>
+    <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="115" fabricationlimitmin="0" fabricationlimitmax="10" />
+    <Deconstruct time="30">
+      <Item identifier="badcreepingorange" amount="2" />
+    </Deconstruct>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="0,384,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="228,379,37,69" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="65" density="10.2" waterdragcoefficient="1" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+      <RequiredSkill identifier="medical" level="25" />
+      <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true" />
+      <StatusEffect type="OnFailure" target="This" Condition="-100.0" setvalue="true" />
+      <StatusEffect statuseffecttags="medical" type="OnSuccess" target="UseTarget" duration="1">
+        <Affliction identifier="oxygenlow" amount="20" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnSuccess" target="UseTarget" duration="60">
+        <ReduceAffliction type="damage" amount="0.5" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnFailure" target="UseTarget" duration="1">
+        <Affliction identifier="oxygenlow" amount="20" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnFailure" target="UseTarget" duration="60">
+        <ReduceAffliction type="damage" amount="0.25" />
+      </StatusEffect>
+      <StatusEffect type="OnSuccess" target="UseTarget">
+        <Conditional entitytype="eq Character" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnFailure" target="UseTarget">
+        <Conditional entitytype="eq Character" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" multiplyafflictionsbymaxvitality="true" AllowWhenBroken="true">
+        <Affliction identifier="stun" amount="0.1" />
+      </StatusEffect>
+      <!--  Remove the item when fully used  -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+    <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    <SkillRequirementHint identifier="medical" level="25" />
+  </pomegrenadeextract>
+  <Adrenaline name="" identifier="adrenaline" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer primary="medfabcab" secondary="medcontainer" />
+    <PreferredContainer secondary="abandonedmedcab,piratemedcab,wreckmedcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+    <Price baseprice="60">
+      <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantcity" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="4" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="2" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.1" />
+      <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="4" />
+    </Price>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="129,448,62,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="301,209,37,72" depth="0.6" origin="0.5,0.5" />
+    <Body width="25" height="55" density="10.2" waterdragcoefficient="1" />
+    <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+      <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true" />
+      <StatusEffect type="OnSuccess" target="UseTarget">
+        <Conditional entitytype="eq Character" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" multiplyafflictionsbymaxvitality="true" AllowWhenBroken="true">
+        <Affliction identifier="stun" amount="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnSuccess" target="UseTarget" disabledeltatime="true" duration="4" allowwhenbroken="true">
+        <Affliction identifier="adrenalinerush" amount="8" />
+      </StatusEffect>
+      <StatusEffect statuseffecttags="medical" type="OnSuccess" delay="8" target="UseTarget" duration="10.0">
+        <Affliction identifier="nausea" amount="4.0" />
+        <Affliction identifier="organdamage" amount="2.0" />
+      </StatusEffect>
+      <!--  Remove the item when fully used  -->
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+    <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="true" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+  </Adrenaline>
+  <!-- BED OVERRIDES -->
+  <Item name="" identifier="opdeco_bunkbeds" width="356" height="264" texturescale="1.0,1.0" scale="0.5" category="Decorative" subcategory="generic" spritecolor="255,255,255,255">
+    <Upgrade gameversion="0.12.0.0" noninteractable="false" />
+    <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1600,1760,384,264" depth="0.85" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true" noninteractablewhenflippedy="true">
+      <!--  don't allow laying in bed when wearing an exosuit  -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      <limbposition limb="Head" position="-26,-170" />
+      <limbposition limb="Torso" position="84,-140" />
+      <limbposition limb="Waist" position="224,-160" />
+      <limbposition limb="RightFoot" position="444,-160" />
+      <limbposition limb="LeftFoot" position="444,-160" />
+      <limbposition limb="RightHand" position="224,-160" allowusinglimb="false" />
+      <limbposition limb="LeftHand" position="224,-160" allowusinglimb="false" />
+      <StatusEffect type="OnActive" target="Character">
+        <reduceaffliction type="damage" strength="0.02" />
+        <reduceaffliction identifier="internaldamage" strength="0.05" />
+        <reduceaffliction identifier="organdamage" strength="0.05" />
+        <reduceaffliction identifier="blunttrauma" strength="0.05" />
+        <reduceaffliction identifier="concussion" strength="0.04" />
+        <reduceaffliction identifier="infection" strength="0.02" />
+        <reduceaffliction identifier="bloodloss" strength="0.05" />
+        <reduceaffliction identifier="bleeding" strength="0.05" />
+        <reduceaffliction identifier="nausea" strength="0.5" />
+        <reduceaffliction identifier="drunk" strength="0.5" />
+        <reduceaffliction identifier="opiatewithdrawal" strength="0.06" />
+        <reduceaffliction identifier="opiateaddiction" strength="0.06" />
+        <reduceaffliction identifier="chemwithdrawal" strength="0.06" />
+        <reduceaffliction identifier="chemaddiction" strength="0.06" />
+      </StatusEffect>
+    </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
+  </Item>
+  <Item name="" identifier="opdeco_bunks1" nameidentifier="opdeco_bunks1" allowattachitems="false" width="463" height="398" texturescale="1.0,1.0" scale="0.5" category="Decorative" subcategory="generic">
+    <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1296,1289,463,387" depth="0.85" premultiplyalpha="false" origin="0.5,0.5" />
+    <DecorativeSprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1390,1126,320,160" depth="0.86" origin="0.5,0.5" offset="40,-95" />
+    <DecorativeSprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1390,1126,320,160" depth="0.86" origin="0.5,0.5" offset="40,105" />
+    <Controller UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true" drawuserbehind="true" noninteractablewhenflippedy="true">
+      <!--  don't allow laying in bed when wearing an exosuit  -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      <limbposition limb="Head" position="14,-300" />
+      <limbposition limb="Torso" position="124,-270" />
+      <limbposition limb="Waist" position="264,-290" />
+      <limbposition limb="RightFoot" position="484,-290" />
+      <limbposition limb="LeftFoot" position="484,-290" />
+      <limbposition limb="RightHand" position="264,-290" allowusinglimb="false" />
+      <limbposition limb="LeftHand" position="264,-290" allowusinglimb="false" />
+      <StatusEffect type="OnActive" target="Character">
+        <reduceaffliction type="damage" strength="0.02" />
+        <reduceaffliction identifier="internaldamage" strength="0.05" />
+        <reduceaffliction identifier="organdamage" strength="0.05" />
+        <reduceaffliction identifier="blunttrauma" strength="0.05" />
+        <reduceaffliction identifier="concussion" strength="0.04" />
+        <reduceaffliction identifier="infection" strength="0.02" />
+        <reduceaffliction identifier="bloodloss" strength="0.05" />
+        <reduceaffliction identifier="bleeding" strength="0.05" />
+        <reduceaffliction identifier="nausea" strength="0.5" />
+        <reduceaffliction identifier="drunk" strength="0.5" />
+        <reduceaffliction identifier="opiatewithdrawal" strength="0.06" />
+        <reduceaffliction identifier="opiateaddiction" strength="0.06" />
+        <reduceaffliction identifier="chemwithdrawal" strength="0.06" />
+        <reduceaffliction identifier="chemaddiction" strength="0.06" />
+      </StatusEffect>
+    </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
+  </Item>
+  <Item name="" identifier="opdeco_hospitalbed" width="416" height="192" texturescale="1.0,1.0" scale="0.5" noninteractable="false" category="Decorative" subcategory="researchmedical">
+    <Upgrade gameversion="0.12.0.0" noninteractable="false" />
+    <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,304,416,192" depth="0.97" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="0,-300" direction="Right" hidehud="false" issecondaryitem="true" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
+      <!--  don't allow laying in bed when wearing an exosuit  -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      <limbposition limb="Head" position="-6,-10" />
+      <limbposition limb="Torso" position="104,0" />
+      <limbposition limb="Waist" position="244,-80" />
+      <limbposition limb="RightFoot" position="380,-20" />
+      <limbposition limb="LeftFoot" position="380,-20" />
+      <limbposition limb="RightHand" position="234,-10" allowusinglimb="false" />
+      <limbposition limb="LeftHand" position="234,-10" allowusinglimb="false" />
+      <StatusEffect type="OnActive" target="Character">
+        <reduceaffliction type="damage" strength="0.025" />
+        <reduceaffliction identifier="internaldamage" strength="0.05" />
+        <reduceaffliction identifier="organdamage" strength="0.05" />
+        <reduceaffliction identifier="blunttrauma" strength="0.05" />
+        <reduceaffliction identifier="concussion" strength="0.06" />
+        <reduceaffliction identifier="infection" strength="0.025" />
+        <reduceaffliction identifier="bloodloss" strength="0.075" />
+        <reduceaffliction identifier="bleeding" strength="0.075" />
+        <reduceaffliction identifier="nausea" strength="0.75" />
+        <reduceaffliction identifier="drunk" strength="0.75" />
+        <reduceaffliction identifier="opiatewithdrawal" strength="0.08" />
+        <reduceaffliction identifier="opiateaddiction" strength="0.08" />
+        <reduceaffliction identifier="chemwithdrawal" strength="0.08" />
+        <reduceaffliction identifier="chemaddiction" strength="0.08" />
+      </StatusEffect>
+    </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
+  </Item>
+  <Item name="" identifier="opdeco_prisonbed" allowattachitems="true" width="384" height="96" texturescale="1.0,1.0" scale="0.5" category="Decorative" subcategory="generic">
+    <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="864,1888,384,96" depth="0.98" premultiplyalpha="false" origin="0.5,0.5" />
+    <Controller UserPos="0,-300" direction="Right" hidehud="false" issecondaryitem="true" canbeselected="true" noninteractablewhenflippedy="true" drawuserbehind="true">
+      <!--  don't allow laying in bed when wearing an exosuit  -->
+      <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      <limbposition limb="Head" position="-6,-10" />
+      <limbposition limb="Torso" position="104,20" />
+      <limbposition limb="Waist" position="244,-60" />
+      <limbposition limb="RightFoot" position="380,0" />
+      <limbposition limb="LeftFoot" position="380,0" />
+      <limbposition limb="RightHand" position="234,10" allowusinglimb="false" />
+      <limbposition limb="LeftHand" position="234,10" allowusinglimb="false" />
+      <StatusEffect type="OnActive" target="Character">
+        <reduceaffliction type="damage" strength="0.02" />
+        <reduceaffliction identifier="internaldamage" strength="0.03" />
+        <reduceaffliction identifier="organdamage" strength="0.03" />
+        <reduceaffliction identifier="blunttrauma" strength="0.03" />
+        <reduceaffliction identifier="concussion" strength="0.04" />
+        <reduceaffliction identifier="infection" strength="0.02" />
+        <reduceaffliction identifier="bloodloss" strength="0.05" />
+        <reduceaffliction identifier="bleeding" strength="0.05" />
+        <reduceaffliction identifier="nausea" strength="0.5" />
+        <reduceaffliction identifier="drunk" strength="0.5" />
+        <reduceaffliction identifier="opiatewithdrawal" strength="0.06" />
+        <reduceaffliction identifier="opiateaddiction" strength="0.06" />
+        <reduceaffliction identifier="chemwithdrawal" strength="0.06" />
+        <reduceaffliction identifier="chemaddiction" strength="0.06" />
+      </StatusEffect>
+    </Controller>
+    <Upgrade gameversion="0.20.8.0">
+      <Controller>
+        <RequiredItem items="deepdivinglarge" type="Picked" requireempty="true" />
+      </Controller>
+    </Upgrade>
+  </Item>
+</Override>

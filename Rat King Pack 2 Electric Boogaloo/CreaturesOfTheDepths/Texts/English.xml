@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!--Characters-->
+  <character.chun>Chun</character.chun>
+  <character.venomouseel>Venomous Eel</character.venomouseel>
+  <character.blightmoloch>Blight Moloch</character.blightmoloch>
+  <character.bombshark>Bomb Shark</character.bombshark>
+  <character.ancientmudraptor>Ancient Mudraptor</character.ancientmudraptor>
+  <character.fractalsquid>Fractal Squid</character.fractalsquid>
+  <character.humanguppy>Human Guppy</character.humanguppy>
+  <character.guppy>Guppy</character.guppy>
+  <character.infusedspineling>Infused Spineling</character.infusedspineling>
+  <character.seaurchin>Seaurchin</character.seaurchin>
+  <character.seaurchinqueen>Seaurchin Queen</character.seaurchinqueen>
+  <character.seaurchindocile>Seaurchin Docile</character.seaurchindocile>
+  <character.nightraptor>Nightraptor</character.nightraptor>
+  <!-- Event Texts -->
+  <eventtext.humanguppystowaway.c1>You are counting the number of passengers, and this is when one of the masked people says to you, "Friend, I have good news and bad news. The good news is that I will pay you an extra 1,000 marks. The bad news is that there are some stowaways here who need to get to the next station". 
+You were surprised when several humanguppys came out tremblingly from behind him, and you recognized them as fugitives wanted by the Coalition.</eventtext.humanguppystowaway.c1>
+  <eventtext.humanguppystowaway.o1>"What th-!"</eventtext.humanguppystowaway.o1>
+  <eventtext.humanguppystowaway.o1.c1>You're hesitant, because you don't want to break Coalition's laws, but who doesn't want to make some extra money? Besides, as long as no one knows...</eventtext.humanguppystowaway.o1.c1>
+  <eventtext.humanguppystowaway.c1.c1>Some humanguppy stowaways have sneaked on board, they look pitiful and helpless. You don’t know their origins, but you empathize with them. Maybe you can help them escape from the Coalition’s pursuit.</eventtext.humanguppystowaway.c1.c1>
+  <!-- Monster Missions -->
+  <missionname.killbombsharks1>Getting rid of Bomb Sharks</missionname.killbombsharks1>
+  <missiondescription.killbombsharks1>A pack of Bomb Sharks has been terrorizing vessels traveling between [location1] and [location2]. A reward of [reward] marks has been promised to any crew that can neutralize it.</missiondescription.killbombsharks1>
+  <missionsonarlabel.killbombsharks1>Bomb Sharks</missionsonarlabel.killbombsharks1>
+  <missionsuccess.killbombsharks1>The Bomb Sharks have been terminated.</missionsuccess.killbombsharks1>
+  <missionheader0.killbombsharks1>Targets terminated</missionheader0.killbombsharks1>
+  <missionmessage0.killbombsharks1>The Bomb Sharks have been killed. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.killbombsharks1>
+  <missionname.killseaurchins1>Getting rid of Sea Urchins!</missionname.killseaurchins1>
+  <missiondescription.killseaurchins1>A pack of Sea Urchins led by a queen has been terrorizing vessels traveling between [location1] and [location2]. A reward of [reward] marks has been promised to any crew that can neutralize it.</missiondescription.killseaurchins1>
+  <missionsonarlabel.killseaurchins1>Sea Urchins</missionsonarlabel.killseaurchins1>
+  <missionsuccess.killseaurchins1>The Sea Urchins have been terminated.</missionsuccess.killseaurchins1>
+  <missionheader0.killseaurchins1>Targets terminated</missionheader0.killseaurchins1>
+  <missionmessage0.killseaurchins1>The Sea Urchins have been killed. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.killseaurchins1>
+  <missionname.killchuns1>Terminate a Chun swarm</missionname.killchuns1>
+  <missiondescription.killchuns1>There have been several reports of a large swarm of Chuns assaulting vessels traveling between [location1] and [location2]. A reward of [reward] marks has been promised to any crew who can get rid of them.</missiondescription.killchuns1>
+  <missionsonarlabel.killchuns1>Chuns</missionsonarlabel.killchuns1>
+  <missionsuccess.killchuns1>The Chuns have been terminated.</missionsuccess.killchuns1>
+  <missionheader0.killchuns1>Targets terminated</missionheader0.killchuns1>
+  <missionmessage0.killchuns1>The Chun swarm is terminated. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.killchuns1>
+  <missionname.killvenomouseel1>Hidden Venomous Eels</missionname.killvenomouseel1>
+  <missiondescription.killvenomouseel1>Some divers have discovered traces of Venomous eels in nearby caves between [location1] and [location2]. Getting rid of these creatures will greatly improve the survival rate of these poor divers!</missiondescription.killvenomouseel1>
+  <missionsonarlabel.killvenomouseel1>Venomous Eels</missionsonarlabel.killvenomouseel1>
+  <missionsuccess.killvenomouseel1>The Venomous eels have been killed.</missionsuccess.killvenomouseel1>
+  <missionheader0.killvenomouseel1>Targets terminated</missionheader0.killvenomouseel1>
+  <missionmessage0.killvenomouseel1>The Venomous eels are terminated. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.killvenomouseel1>
+  <missionname.killblightmoloch1>End its misery</missionname.killblightmoloch1>
+  <missiondescription.killblightmoloch1>According to related reports, a Moloch parasitized by the thalamus is wandering around, attacking vessels traveling between [location1] and [location2]. End its misery, a reward of [reward] marks has been promised to those who kill the creature.</missiondescription.killblightmoloch1>
+  <missionsonarlabel.killblightmoloch1>Blight Moloch</missionsonarlabel.killblightmoloch1>
+  <missionsuccess.killblightmoloch1>The Blight Moloch has been killed.</missionsuccess.killblightmoloch1>
+  <missionheader0.killblightmoloch1>Targets terminated</missionheader0.killblightmoloch1>
+  <missionmessage0.killblightmoloch1>The Blight Moloch is dead. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.killblightmoloch1>
+  <missionname.killblightmoloch2>The Three Molochs</missionname.killblightmoloch2>
+  <missiondescription.killblightmoloch2>According to related reports, three Molochs are wandering around, attacking vessels traveling between [location1] and [location2]. Destroy them! A reward of [reward] marks has been promised to those who kill the creatures.</missiondescription.killblightmoloch2>
+  <missionsonarlabel.killblightmoloch2>Molochs</missionsonarlabel.killblightmoloch2>
+  <missionsuccess.killblightmoloch2>The Molochs have been killed.</missionsuccess.killblightmoloch2>
+  <missionheader0.killblightmoloch2>Targets terminated</missionheader0.killblightmoloch2>
+  <missionmessage0.killblightmoloch2>The Molochs are dead. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.killblightmoloch2>
+  <missionname.killinfusedspineling1>Traces of the mysterious Spineling</missionname.killinfusedspineling1>
+  <missiondescription.killinfusedspineling1>Some researchers have traced a source of high-energy radiation between [location1] and [location2], it turns out to be a mysterious spineling. A reward of [reward] marks has been promised to whoever brings the creature's sample to them.</missiondescription.killinfusedspineling1>
+  <missionsonarlabel.killinfusedspineling1>Mysterious Spineling</missionsonarlabel.killinfusedspineling1>
+  <missionsuccess.killinfusedspineling1>The mysterious spineling have been killed.</missionsuccess.killinfusedspineling1>
+  <missionheader0.killinfusedspineling1>Targets terminated</missionheader0.killinfusedspineling1>
+  <missionmessage0.killinfusedspineling1>The mysterious Spineling is dead. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.killinfusedspineling1>
+  <missionname.surpriseinfusedspineling>Salvaging an artifact</missionname.surpriseinfusedspineling>
+  <missiondescription.surpriseinfusedspineling>Researchers of [location1] have picked up an radiation signal highly similar to those emitted by alien artifacts previously discovered on Europa. Investigate the signal and retrieve the potential artifact.</missiondescription.surpriseinfusedspineling>
+  <missionsonarlabel.surpriseinfusedspineling>Radiation Signal</missionsonarlabel.surpriseinfusedspineling>
+  <missionsuccess.surpriseinfusedspineling>It turns out the signal was emitted by some massive spinelings. The researchers of [location1] have agreed to pay you the reward of [reward] marks nevertheless for getting rid of the problem.</missionsuccess.surpriseinfusedspineling>
+  <missionheader0.surpriseinfusedspineling>Targets terminated</missionheader0.surpriseinfusedspineling>
+  <missionmessage0.surpriseinfusedspineling>Turns out the signal was emitted by some massive spinelings! You should navigate out of the cavern and inform the researchers.</missionmessage0.surpriseinfusedspineling>
+  <!-- Nest Missions -->
+  <missionname.seaurchinnest>Destroy a Sea Urchin nest</missionname.seaurchinnest>
+  <missiondescription.seaurchinnest>A sea urchin nest was recently discovered in a cave near [location1]. A reward of [reward] marks has been promised to any crew that can get rid of the nest.</missiondescription.seaurchinnest>
+  <missionsonarlabel.seaurchinnest>Sea Urchin nest</missionsonarlabel.seaurchinnest>
+  <missionsuccess.seaurchinnest>The nest has been destroyed.</missionsuccess.seaurchinnest>
+  <missionname.seaurchinnesthard>Destroy a Sea Urchin nest</missionname.seaurchinnesthard>
+  <missiondescription.seaurchinnesthard>A sea urchin nest was recently discovered in a cave near [location1]. A reward of [reward] marks has been promised to any crew that can get rid of the nest.</missiondescription.seaurchinnesthard>
+  <missionsonarlabel.seaurchinnesthard>Sea Urchin nest</missionsonarlabel.seaurchinnesthard>
+  <missionsuccess.seaurchinnesthard>The nest has been destroyed.</missionsuccess.seaurchinnesthard>
+  <missionmessage0.seaurchinnest>The nest has been wiped out. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.seaurchinnest>
+  <missionname.bombsharknest>Destroy a Bombshark nest</missionname.bombsharknest>
+  <missiondescription.bombsharknest>A bombshark nest was recently discovered in a cave near [location1]. A reward of [reward] marks has been promised to any crew that can get rid of the nest.</missiondescription.bombsharknest>
+  <missionsonarlabel.bombsharknest>Bombshark nest</missionsonarlabel.bombsharknest>
+  <missionsuccess.bombsharknest>The nest has been destroyed.</missionsuccess.bombsharknest>
+  <missionname.bombsharknesthard>Destroy a Bombshark nest</missionname.bombsharknesthard>
+  <missiondescription.bombsharknesthard>A bombshark nest was recently discovered in a cave near [location1]. A reward of [reward] marks has been promised to any crew that can get rid of the nest.</missiondescription.bombsharknesthard>
+  <missionsonarlabel.bombsharknesthard>Bombshark nest</missionsonarlabel.bombsharknesthard>
+  <missionsuccess.bombsharknesthard>The nest has been destroyed.</missionsuccess.bombsharknesthard>
+  <missionmessage0.bombsharknest>The nest has been wiped out. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.bombsharknest>
+  <missionname.chunnest>Destroy a Chun nest</missionname.chunnest>
+  <missiondescription.chunnest>A chun nest was recently discovered in a cave near [location1]. A reward of [reward] marks has been promised to any crew that can get rid of the nest. Chun's attack paralyzing its target, so remember to bring some Anaparalyzants!</missiondescription.chunnest>
+  <missionsonarlabel.chunnest>Chun nest</missionsonarlabel.chunnest>
+  <missionsuccess.chunnest>The nest has been destroyed.</missionsuccess.chunnest>
+  <missionmessage0.chunnest>The nest has been wiped out. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.chunnest>
+  <!-- Other Missions -->
+  <missionname.depthclearruin1>Clear ruin</missionname.depthclearruin1>
+  <missiondescription.depthclearruin1>Local residents complained that monsters kept appearing in the ruins near [location1], which being a major threat to the outpost. Destroy all of them and the incubation bubbles there.</missiondescription.depthclearruin1>
+  <missionmessage0.depthclearruin1>Ruin creatures have been wiped out. Navigate the submarine out of the cavern to claim the reward.</missionmessage0.depthclearruin1>
+  <missionsuccess.depthclearruin1>Ruin creatures have been wiped out.</missionsuccess.depthclearruin1>
+  <!--Items-->
+  <entityname.seaurchinegg>Sea Urchin Egg</entityname.seaurchinegg>
+  <entityname.seaurchindocileegg>Sea Urchin Docile Egg</entityname.seaurchindocileegg>
+  <entitydescription.seaurchindocileegg>A scaly, partially opened sea urchin egg, not yet hatched... Maybe with some cares, you would have an extra pet?</entitydescription.seaurchindocileegg>
+  <entityname.bombsharkegg>Bombshark Egg</entityname.bombsharkegg>
+  <entitydescription.bombsharkegg>A hideous, grotesque Bombshark Egg. Littered with boils and seems to be slightly moving... as if breathing.</entitydescription.bombsharkegg>
+  <entityname.chunegg>Chun egg</entityname.chunegg>
+  <entityname.caveeellatch>Cave Eel latch</entityname.caveeellatch>
+  <entityname.eelmeat>Eel Meat</entityname.eelmeat>
+  <entitydescription.eelmeat>A cut piece of eel meat, a delicacy that everyone in Europa craving for. It should be sold at a good price in the colony!</entitydescription.eelmeat>
+  <entityname.infusedspinelingspikeloot>Infused Spineling Spike</entityname.infusedspinelingspikeloot>
+  <entitydescription.infusedspinelingspikeloot>A detached bone spike that once belonged to a Infused Spineling. It glows with a faint blue light, there is a slight discomfort when holding it...</entitydescription.infusedspinelingspikeloot>
+</infotexts>

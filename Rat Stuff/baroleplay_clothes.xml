@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <!-- UNIFORMS START -->
+  <Item name="" identifier="brpengineeruniform" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,eng" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="engcab" />
+	    <Price baseprice="100" minavailable="1">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" minavailable="1" />
+      <Price storeidentifier="merchantmine" minavailable="1" />
+    </Price>
+      <Deconstruct time="10">
+      <Item identifier="organicfiber"/>
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/baroleplay_outfiticons.png" sourcerect="0,102,128,100" />
+    <Sprite name="Engineer's Uniform" texture="%ModDir%/baroleplay_jobgear.png" sourcerect="0,87,208,87" depth="0.6" origin="0.5,0.5" />
+    <Body width="180" height="50" density="30" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Engineer Torso" texture="%ModDir%/baroleplay_Engineer.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Right Hand" texture="%ModDir%/baroleplay_Engineer.png" limb="RightHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Left Hand" texture="%ModDir%/baroleplay_Engineer.png" limb="LeftHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Right Lower Arm" texture="%ModDir%/baroleplay_Engineer.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Left Lower Arm" texture="%ModDir%/baroleplay_Engineer.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Right Upper Arm" texture="%ModDir%/baroleplay_Engineer.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Left Upper Arm" texture="%ModDir%/baroleplay_Engineer.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Waist" texture="%ModDir%/baroleplay_Engineer.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Right Thigh" texture="%ModDir%/baroleplay_Engineer.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Left Thigh" texture="%ModDir%/baroleplay_Engineer.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Right Leg" texture="%ModDir%/baroleplay_Engineer.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Left Leg" texture="%ModDir%/baroleplay_Engineer.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Left Shoe" texture="%ModDir%/baroleplay_Engineer.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Engineer Right Shoe" texture="%ModDir%/baroleplay_Engineer.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,lacerations,bitewounds,burn" damagemultiplier="0.85" />
+    </Wearable>
+  </Item>
+  <Item name="" identifier="brpmechanicuniform" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,mec" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="engcab" />
+	    <Price baseprice="100" minavailable="1">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" minavailable="1" />
+      <Price storeidentifier="merchantmine" minavailable="1" />
+    </Price>
+      <Deconstruct time="10">
+      <Item identifier="organicfiber"/>
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/baroleplay_outfiticons.png" sourcerect="0,1,128,100" />
+    <Sprite name="Mechanic's Uniform" texture="%ModDir%/baroleplay_jobgear.png" sourcerect="0,174,208,87" depth="0.6" origin="0.5,0.5" />
+    <Body width="180" height="50" density="30" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Mechanic Torso" texture="%ModDir%/baroleplay_Mechanic.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Right Hand" texture="%ModDir%/baroleplay_Mechanic.png" limb="RightHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Left Hand" texture="%ModDir%/baroleplay_Mechanic.png" limb="LeftHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Right Lower Arm" texture="%ModDir%/baroleplay_Mechanic.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Left Lower Arm" texture="%ModDir%/baroleplay_Mechanic.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Right Upper Arm" texture="%ModDir%/baroleplay_Mechanic.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Left Upper Arm" texture="%ModDir%/baroleplay_Mechanic.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Waist" texture="%ModDir%/baroleplay_Mechanic.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Right Thigh" texture="%ModDir%/baroleplay_Mechanic.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Left Thigh" texture="%ModDir%/baroleplay_Mechanic.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Right Leg" texture="%ModDir%/baroleplay_Mechanic.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Left Leg" texture="%ModDir%/baroleplay_Mechanic.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Left Shoe" texture="%ModDir%/baroleplay_Mechanic.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Mechanic Right Shoe" texture="%ModDir%/baroleplay_Mechanic.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,lacerations,bitewounds,burn" damagemultiplier="0.85" />
+    
+    </Wearable>
+  </Item>
+  <Item name="" identifier="brpassistantuniform" category="Equipment" cargocontaineridentifier="metalcrate" tags="smallitem,clothing,ass" scale="0.5" impactsoundtag="impact_soft">
+    <PreferredContainer primary="engcab" />
+	    <Price baseprice="100" minavailable="1">
+      <Price storeidentifier="merchantoutpost" minavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="0.9" minavailable="1" />
+      <Price storeidentifier="merchantresearch" minavailable="1" />
+      <Price storeidentifier="merchantmilitary" minavailable="1" />
+      <Price storeidentifier="merchantmine" minavailable="1" />
+    </Price>
+      <Deconstruct time="10">
+      <Item identifier="organicfiber"/>
+    </Deconstruct>
+    <InventoryIcon texture="%ModDir%/baroleplay_outfiticons.png" sourcerect="0,203,128,100" />
+    <Sprite name="Assistant's Uniform" texture="%ModDir%/baroleplay_jobgear.png" sourcerect="0,261,208,87" depth="0.6" origin="0.5,0.5" />
+    <Body width="180" height="50" density="30" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Assistant Torso" texture="%ModDir%/baroleplay_Assistant.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Right Hand" texture="%ModDir%/baroleplay_Assistant.png" limb="RightHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Left Hand" texture="%ModDir%/baroleplay_Assistant.png" limb="LeftHand" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Right Lower Arm" texture="%ModDir%/baroleplay_Assistant.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Left Lower Arm" texture="%ModDir%/baroleplay_Assistant.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Right Upper Arm" texture="%ModDir%/baroleplay_Assistant.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Left Upper Arm" texture="%ModDir%/baroleplay_Assistant.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Waist" texture="%ModDir%/baroleplay_Assistant.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Right Thigh" texture="%ModDir%/baroleplay_Assistant.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Left Thigh" texture="%ModDir%/baroleplay_Assistant.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Right Leg" texture="%ModDir%/baroleplay_Assistant.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Left Leg" texture="%ModDir%/baroleplay_Assistant.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Left Shoe" texture="%ModDir%/baroleplay_Assistant.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Assistant Right Shoe" texture="%ModDir%/baroleplay_Assistant.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,lacerations,bitewounds,burn" damagemultiplier="0.85" />
+    </Wearable>
+  </Item>
+  <!-- UNIFORMS END -->
+</Items>

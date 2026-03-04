@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <entityname.shield_coilgunshotgunammobox>Coilgun Shotshell Ammo Box</entityname.shield_coilgunshotgunammobox>
+  <entitydescription.shield_coilgunshotgunammobox>This handcrafted ammunition is intended to shred soft targets at close range.</entitydescription.shield_coilgunshotgunammobox>
+  <entityname.shield_uraniumrodcoilgunammobox>Coilgun Fuel Rod Ammo Box</entityname.shield_uraniumrodcoilgunammobox>
+  <entitydescription.shield_uraniumrodcoilgunammobox>This handcrafted ammunition allows the coilgun to fire high-energy radiation pulses.</entitydescription.shield_uraniumrodcoilgunammobox>
+  <entityname.shield_healthscanner>Smart O2 mask with integrated Health Scanner</entityname.shield_healthscanner>
+  <entitydescription.shield_healthscanner>Allows the user to benefit from the Health Scanner while wearing a smart-breathing diving mask, not to mention the adjustable strap on the back to hold any small items you wish to keep close.</entitydescription.shield_healthscanner>
+</infotexts>

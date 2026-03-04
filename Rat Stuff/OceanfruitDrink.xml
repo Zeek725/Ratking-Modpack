@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <OceanfruitDrink name="Oceanfruit Mix Drink" identifier="oceanfruitdrink" description="Made with the finest oceanfruit mix! May contain adrenaline." category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="chemicalcrate" Tags="smallitem,chem,medical" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    <PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.1" />
+    <PreferredContainer secondary="abandonedcrewcab,piratecrewcab" minamount="1" maxamount="2" spawnprobability="0.1" />
+    <PreferredContainer primary="crewcab" />
+    <Fabricate suitablefabricators="vendingmachine" requiredtime="1" requiredmoney="90" fabricationlimitmin="5" fabricationlimitmax="10" />
+    <InventoryIcon texture="%ModDir%/OceanfruitDrinkUI.png" sourcerect="0,0,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/OceanfruitDrink.png" sourcerect="1,1,29,56" depth="0.6" origin="0.5,0.5" />
+    <Body width="35" height="65" density="20" />
+    <Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" Condition="-30.0" />
+      <StatusEffect type="OnSecondaryUse" target="This,Character">
+        <Conditional Condition="lte 1" />
+        <Use />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" setvalue="true">
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Affliction identifier="strengthen" amount="70" />
+        <Affliction identifier="nausea" amount="50.0" probability="0.35" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnUse" target="UseTarget" duration="10">
+        <Affliction identifier="chemaddiction" amount="0.6" />
+        <ReduceAffliction identifier="chemwithdrawal" amount="0.7" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </Holdable>
+  </OceanfruitDrink>
+</Items>

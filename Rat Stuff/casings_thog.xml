@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<prefabs>
+  <assaultshell lifetime="3.5" startdelaymin="0" startdelaymax="0" angularvelocitymin="200" angularvelocitymax="250" startrotationmin="45" startrotationmax="115" rotatetodirection="false" drag="0" waterdrag="1" velocitychange="0,-12" velocitychangewater="0,-6" collisionradius="1" usecollision="true" deleteoncollision="False" friction="0.1" restitution="0.4" startsizemin="1,1" startsizemax="1,1" growtime="0.0" startcolor="255,255,255,255" endcolor="255,255,255,0" drawtarget="Both" drawontop="True" blendstate="AlphaBlend" animduration="1" loopanim="false" lifetimemin="0" sizechangemin="0,0" sizechangemax="0,0" middlecolor="255,255,255,255" usemiddlecolor="False" priority="10">
+    <sprite name="spent casing" texture="%ModDir%/bulletcasing_assault.png" sourcerect="0,0,20,7" origin="0.5,1" depth="0.565" />
+  </assaultshell>
+</prefabs>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Character SpeciesName="Balloon" SpeciesTranslationOverride="Cthulhu" humanoid="False" canclimb="True" blooddecal="blood" group="human" husk="False" needsair="False" canspeak="True" caninteract="True" noise="100" visiblity="100" eatingspeed="5" displayname="" visibility="100" pathfinderpriority="1" hasinfo="False" usehuskappendage="False" speciestranslationoverride="" needswater="False" bleedparticleair="blooddrop" bleedparticlewater="waterblood" hideinsonar="False" sonardisruption="0" soundinterval="30" DespawnContainer="Petduffelbag">
+    <ragdolls folder="default" />
+    <animations folder="Content/Characters/Balloon/Animations/" />
+    <damageemitter drawontop="True" Particle="gib" AngleMin="0" AngleMax="360" ScaleMin="0.25" ScaleMax="0.5" VelocityMin="50" VelocityMax="300" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="10" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+    <bloodemitter Particle="blood" AngleMin="0" AngleMax="0" ScaleMin="1" ScaleMax="1" VelocityMin="0" VelocityMax="0" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="10" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+    <bloodemitter Particle="waterblood" AngleMin="0" AngleMax="0" ScaleMin="1" ScaleMax="1" VelocityMin="0" VelocityMax="0" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="1" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+    <gibemitter Particle="gib" AngleMin="0" AngleMax="360" ScaleMin="1" ScaleMax="1" VelocityMin="200" VelocityMax="700" EmitInterval="0" ParticlesPerSecond="0" ParticleAmount="20" HighQualityCollisionDetection="False" CopyEntityAngle="False" />
+    <health Vitality="100" minvitality="-100" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="True" BleedingReduction="0.2" BurnReduction="0.2" ConstantHealthRegeneration="0.2" HealthRegenerationWhenEating="10" StunImmunity="False" PoisonImmunity="False" PoisonVulnerability="1" EmpVulnerability="0" ApplyAfflictionColors="False">
+      <Limb name="Torso">
+        <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,0,126,374" highlightarea="29,56,70,134" />
+        <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,515,126,374" />
+        <VitalityMultiplier type="damage" multiplier="0.5" />
+      </Limb>
+    </health>
+    <Inventory Slots="Any, Any, Card, Head, HealthInterface" AccessibleWhenAlive="True" Commonness="1" />
+    <ai CombatStrength="10" Sight="1" Hearing="1" AggressionHurt="200" AggressionGreed="10" FleeHealthThreshold="25" AttackWhenProvoked="False" AvoidGunfire="True" DamageThreshold="0" AvoidTime="3" MinFleeTime="20" AvoidAbyss="True" StayInAbyss="False" PatrolFlooded="False" PatrolDry="False" StartAggression="0" MaxAggression="100" AggressionCumulation="0">
+      <!-- <target Tag="owner" State="Protect" Priority="90" ReactDistance="200" AttackDistance="0" Timer="0"  Threshold="3" />  -->
+      <target Tag="hostile" State="PassiveAggressive" Priority="80" ReactDistance="1000" AttackDistance="0" Timer="0" Threshold="0" />
+      <target Tag="stronger" State="Avoid" Priority="50" ReactDistance="1000" AttackDistance="0" Timer="0" Threshold="0" />
+      <target Tag="weaker" State="Avoid" Priority="50" ReactDistance="1000" AttackDistance="0" Timer="0" Threshold="0" />
+      <target Tag="human" State="Follow" Priority="10" ReactDistance="200" AttackDistance="0" Timer="0" Threshold="0" />
+      <petbehavior maxhappiness="100" unhappythreshold="20" happythreshold="80" happinessdecreaserate="0.0175" hungerincreaserate="0.03" playforce="6.0">
+        <eat tag="petfood2" ignorecontained="true" requiredhunger="45-100" hunger="-50" happiness="5" priority="100" />
+        <eat tag="dead" requiredhunger="70-100" hunger="-100" happiness="10" priority="100" />
+        <itemproduction rate="0.0" invhungerrate="0.002" requiredhunger="0-30">
+          <item identifier="poop" commonness="100" />
+        </itemproduction>
+        <itemproduction rate="0.001" requiredhappiness="50-100" requiredhunger="0-30">
+          <item identifier="dementonite" />
+        </itemproduction>
+        <itemproduction rate="0.0015" requiredhappiness="80-100" requiredhunger="0-30">
+          <item identifier="balloonegg" commonness="30" />
+          <item identifier="" commonness="70" />
+        </itemproduction>
+      </petbehavior>
+    </ai>
+    <!-- Starvation Affliction ( Using hardcoded internaldamage 8/s instead as idk how to directly target pet hunger ) -->
+    <StatusEffect type="Always" target="This" interval="4" disabledeltatime="True" setValue="True">
+      <Conditional InternalDamage="eq 200" />
+      <Affliction identifier="petstarvation" strength="100" />
+    </StatusEffect>
+    <StatusEffect type="OnEating" target="This" interval="2" disabledeltatime="True" setValue="True">
+      <Conditional InternalDamage="lt 175.0" />
+      <ReduceAffliction identifier="petstarvation" strength="100" />
+    </StatusEffect>
+    <!---->
+  </Character>
+</Override>

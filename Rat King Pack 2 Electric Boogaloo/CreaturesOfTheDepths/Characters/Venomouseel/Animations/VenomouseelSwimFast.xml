@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VenomouseelSwimFast animationtype="SwimFast" usesinemovement="False" flip="True" mirror="False" mirrorlerp="False" waveamplitude="42" wavelength="56" rotatetowardsmovement="True" torsotorque="50" headtorque="40" tailtorque="25" foottorque="25" footangles="" tailangle="90" steertorque="5" movementspeed="7" cyclespeed="1" headangle="90" torsoangle="NaN" tailtorquemultiplier="1" flipcooldown="1" flipdelay="0.2" />

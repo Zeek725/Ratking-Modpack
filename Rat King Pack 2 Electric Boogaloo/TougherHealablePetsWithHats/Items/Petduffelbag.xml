@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Item name="Pet Duffel Bag" identifier="Petduffelbag" variantof="duffelbag" category="Equipment" tags="mobilecontainer" fireproof="true" descriptionidentifier="duffelbag" impactsoundtag="impact_soft" scale="0.32" spritecolor="163,149,137">
+  <ItemContainer capacity="6" keepopenwhenequipped="false" movableframe="true">
+    <Containable items="smallitem" excludeditems="largemobilecontainer,toolbelt,toolbox,bandolier" />
+  </ItemContainer>
+</Item>

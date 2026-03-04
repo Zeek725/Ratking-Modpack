@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Item name="" identifier="sonarbeacon" category="Equipment" Tags="smallitem,sonar,provocative,grenade" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_heavy">
+    <PreferredContainer primary="divingcab" amount="1" spawnprobability="1" notcampaign="true" />
+    <PreferredContainer secondary="wreckstoragecab" amount="1" spawnprobability="0.05" />
+    <Price baseprice="150" minavailable="1">
+      <Price storeidentifier="merchantoutpost" sold="false" />
+      <Price storeidentifier="merchantcity" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="1.25" />
+      <Price storeidentifier="merchantmine" />
+      <Price storeidentifier="merchantengineering" multiplier="0.9" minavailable="2" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="copper" />
+      <Item identifier="plastic" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="15">
+      <RequiredSkill identifier="mechanical" level="30" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="plastic" />
+    </Fabricate>
+    <MemoryComponent Value="a" canbeselected="false" />
+    <InventoryIcon texture="%ModDir%/nokia/InventoryIconAtlas.png" sourcerect="832,320,64,64" origin="0.5,0.5" />
+    <Sprite texture="%ModDir%/nokia/tools.png" sourcerect="473,1,29,65" depth="0.55" origin="0.5,0.5" />
+    <Body width="27" height="60" density="12" />
+    <AiTarget soundrange="50000" sonarlabel="entityname.sonarbeacon" sight="500" staticsight="true" />
+    <LightComponent LightColor="0.0,1.0,0.0,1.0" range="50" powerconsumption="10" blinkfrequency="2" IsOn="false" canbeselected="false">
+      <StatusEffect type="OnActive" targettype="Contained" Condition="-0.1">
+        <RequiredItem items="mobilebattery" type="Contained" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" SoundRange="50000">
+        <Conditional Value="a" />
+        <sound file="%ModDir%/nokia/nokia.ogg" range="1000.0" loop="true" volume="0.40" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" SoundRange="50000">
+        <Conditional Value="b" />
+        <sound file="%ModDir%/nokia/nokia2.ogg" range="1000.0" loop="true" volume="0.40" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" SoundRange="50000">
+        <Conditional Value="c" />
+        <sound file="%ModDir%/nokia/nokia3.ogg" range="1000.0" loop="true" volume="0.90" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" SoundRange="50000">
+        <Conditional Value="d" />
+        <sound file="%ModDir%/nokia/nokia4.ogg" range="1000.0" loop="true" volume="0.50" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" SoundRange="50000">
+        <Conditional Value="e" />
+        <sound file="%ModDir%/nokia/nokia5.ogg" range="1000.0" loop="true" volume="0.80" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" SoundRange="50000">
+        <Conditional Value="f" />
+        <sound file="%ModDir%/nokia/toy.ogg" range="1000.0" loop="true" volume="0.80" />
+      </StatusEffect>
+    </LightComponent>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.20,0.42" anchor="CenterLeft" style="ItemUI" />
+      <TickBox text="Active">
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <TextBox text="sonarbeacon.beaconsignal" propertyname="SonarLabel" maxtextlength="32" />
+      <Button text="ESPIONAGE">
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" Value="a" LightColor="0.0,1.0,0.0,1.0" />
+      </Button>
+      <Button text="NOKIA">
+        <StatusEffect type="OnUse" targettype="This" Value="b" LightColor="1.0,0.0,0.0,1.0" />
+      </Button>
+      <Button text="NOCTURNAL">
+        <StatusEffect type="OnUse" targettype="This" Value="c" LightColor="0.0,0.0,1.0,1.0" />
+      </Button>
+      <Button text="MOZART">
+        <StatusEffect type="OnUse" targettype="This" Value="d" LightColor="1.0,1.0,0.0,1.0" />
+      </Button>
+      <Button text="COM VOCE">
+        <StatusEffect type="OnUse" targettype="This" Value="e" LightColor="1.0,0.0,1.0,1.0" />
+      </Button>
+      <Button text="TOY">
+        <StatusEffect type="OnUse" targettype="This" Value="f" LightColor="1.0,1.0,1.0,1.0" />
+      </Button>
+    </CustomInterface>
+    <Throwable canBeCombined="false" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true" checkconditionalalways="true" />
+    </Throwable>
+    <Projectile launchimpulse="12.0" sticktocharacters="false">
+      <Attack structuredamage="10" severlimbsprobability="5">
+        <Affliction identifier="blunttrauma" strength="20" />
+        <Affliction identifier="stun" strength="2" />
+      </Attack>
+      <sound file="Content/Items/Weapons/FragGrenade40mmShot1.ogg" type="OnImpact" range="3000" selectionmode="Random" />
+      <sound file="Content/Items/Weapons/FragGrenade40mmShot2.ogg" type="OnImpact" range="3000" />
+      <StatusEffect type="OnImpact" target="This" disabledeltatime="true" />
+    </Projectile>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
+      <Containable items="mobilebattery">
+        <StatusEffect type="OnContaining" targettype="This" Voltage="1.0" setvalue="true" />
+      </Containable>
+    </ItemContainer>
+  </Item>
+</Override>

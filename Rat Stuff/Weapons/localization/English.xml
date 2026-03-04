@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <!-- weapons -->
+  <entityname.blade>Boarding Blade</entityname.blade>
+  <entitydescription.blade>A long steel blade, designed for indoor fighting.</entitydescription.blade>
+  <entityname.bladeunique>Vibroblade</entityname.bladeunique>
+  <entitydescription.bladeunique>A rare prototype, this high-frequency blade can cut through nearly anything when powered.</entitydescription.bladeunique>
+  <entityname.bladehardened>Hardened Boarding Blade</entityname.bladehardened>
+  <entitydescription.bladehardened>A boarding blade that has been treated with a hardened coating of depleted uranium, strengthening the blade's cutting edge and enhancing its weight.</entitydescription.bladehardened>
+  <entityname.steelmaul>Steel Maul</entityname.steelmaul>
+  <entitydescription.steelmaul>A heavy steel maul on a long handle, smashes easily through most forms of armor.</entitydescription.steelmaul>
+  <entityname.huntbelt>Autopsy Belt</entityname.huntbelt>
+  <entitydescription.huntbelt>A belt with a small knife that increases the yield from harvesting corpses. </entitydescription.huntbelt>
+  <entityname.sheathbelt>Weapon Belt</entityname.sheathbelt>
+  <entitydescription.sheathbelt>A sturdy belt with a magnetic carry system that can comfortably hold most melee weapons. </entitydescription.sheathbelt>
+<!-- ammo -->
+  <entityname.revsnakeshot>Revolver Snakeshot Round</entityname.revsnakeshot>
+  <entityname.revhp>Revolver +P+ Round</entityname.revhp>
+  <entityname.hchp>Handcannon +P+ Round</entityname.hchp>
+  <entityname.sgtarget>Shotgun Target Shell</entityname.sgtarget>
+  <entityname.riflesurp>Rifle Surplus Round</entityname.riflesurp>
+  <entityname.arcompmag>Sportsman Rifle Magazine</entityname.arcompmag>
+  <entityname.arextmag>Assault Rifle Extended Magazine</entityname.arextmag>
+  <entityname.sgflcshell>Shotgun Flechette Shell</entityname.sgflcshell>
+  <entityname.sgslgshell>Shotgun Slug Shell</entityname.sgslgshell>
+  <entityname.smgextmag>Submachine Gun Extended Magazine</entityname.smgextmag>
+  <entityname.rifleapround>Armor Piercing Rifle Round</entityname.rifleapround>
+  <entityname.smghp>Submachine Gun +P+ Magazine</entityname.smghp>
+  <entityname.40mmincen>40mm Incendiary Grenade</entityname.40mmincen>
+  <entityname.electrocutter>Electro-Cutter</entityname.electrocutter>
+  <entityname.electrowelder>Electro-Welder</entityname.electrowelder>
+  <entityname.heavyflash>Heavy Flashlight</entityname.heavyflash>
+  <entityname.clownextinguisher>Clown Fire Extinguisher</entityname.clownextinguisher>
+  <entitydescription.clownextinguisher>A modified fire extinguisher that lasts longer and propels the user with more force. Can be stored in the inventory.</entitydescription.clownextinguisher>
+  <entityname.shotgundepletedshell>Shotgun Depleted Shell</entityname.shotgundepletedshell>
+</infotexts>

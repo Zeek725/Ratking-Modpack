@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Randomevents>
+  <EventSprites>
+    <Sprite identifier="HumanGuppyStowaway" texture="Content/Map/Outposts/Art/Event_pic4.png" sourcerect="512,768,256,256" origin="0.5,0.5" />
+  </EventSprites>
+  <EventPrefabs>
+    <ScriptedEvent identifier="humanguppystowaway" commonness="0">
+      <TagAction criteria="player" tag="player" />
+      <TagAction criteria="humanprefabidentifier:humanguppystowawayhelper" tag="humanguppystowawayhelper" />
+      <TriggerAction target1tag="player" target2tag="humanguppystowawayhelper" applytotarget1="triggerer_player" waitforinteraction="true" />
+      <ConversationAction text="EventText.humanguppystowaway.c1" targettag="triggerer_player" eventsprite="HumanGuppyStowaway">
+        <Option text="EventText.humanguppystowaway.o1">
+          <MoneyAction amount="1000" />
+          <SpawnAction speciesname="humanguppy" spawnpointtag="humanguppystowawayhelper" Amount="3" targettag="humanguppystowaway" />
+          <ConversationAction text="EventText.humanguppystowaway.o1.c1" targettag="triggerer_player" />
+        </Option>
+      </ConversationAction>
+      <ConversationAction text="EventText.humanguppystowaway.c1.c1" speakertag="humanguppystowaway" endeventifinterrupted="false" dialogtype="Small" />
+    </ScriptedEvent>
+  </EventPrefabs>
+</Randomevents>

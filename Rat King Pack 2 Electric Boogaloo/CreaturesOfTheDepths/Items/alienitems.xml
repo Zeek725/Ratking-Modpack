@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Cave Eel tongue" identifier="caveeellatch" nameidentifier="caveeellatch" tags="mediumitem,harpoonammo" health="180" hideinmenus="true" category="" sonarsize="0" scale="1" damagedbyexplosions="True" damagedbyprojectiles="True" damagedbyrepairtools="True" damagedbymeleeweapons="True" impactsoundtag="impact_soft">
+    <Sprite texture="%ModDir%/CreaturesOfTheDepths/Characters/Guppy/Fishes.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Body radius="60" density="10" />
+    <Rope sourcepullforce="50" targetpullforce="250" projectilepullforce="1" maxlength="900" snaponcollision="false" spritewidth="48" tile="true" snapanimduration="1" breakfrommiddle="false" maxangle="360" lerpforces="true" SnapWhenNotAimed="False">
+      <Sprite name="tongue" texture="%ModDir%/Characters/Guppy/Fishes.png" sourcerect="4,98,240,48" depth="0.57" origin="0.5,0.5" />
+      <EndSprite texture="%ModDir%/CreaturesOfTheDepths/Characters/Guppy/Fishes.png" sourcerect="256,96,48,48" depth="0.56" origin="0.5,0.5" />
+      <!-- Automatically snap after 6 seconds -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="6" />
+      <!-- Remove 1 second after snapping -->
+      <StatusEffect type="Always" target="This" delay="1" checkconditionalalways="true">
+        <Conditional Snapped="true" />
+        <Conditional condition="0" />
+        <Remove />
+      </StatusEffect>
+      <!-- Snap after 3 seconds if not stuck to anything -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="3" checkconditionalalways="true">
+        <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" Snapped="true">
+        <ParticleEmitter particle="bloodsplashwater" anglemin="-180" anglemax="-180" particleamount="3" velocitymin="50" velocitymax="100" scalemin="0.5" scalemax="1.0" />
+      </StatusEffect>
+    </Rope>
+    <Projectile characterusable="false" launchimpulse="60.0" sticktostructures="false" sticktoitems="false" sticktodoors="false" sticktodeflective="true" sticktocharacters="true" maxtargetstohit="1" sticktolighttargets="true" prismatic="false">
+      <Attack structuredamage="10">
+        <Affliction identifier="concussion" strength="5" />
+        <Affliction identifier="stun" strength="2" />
+      </Attack>
+      <StatusEffect type="OnActive" target="UseTarget,This" checkconditionalalways="true">
+        <Conditional Snapped="false" />
+        <Affliction identifier="slow" strength="60" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This">
+        <particleemitter drawontop="true" particle="tonguehitsplash" particleamount="20" scalemin="1" scalemax="3" anglemin="0" anglemax="360" />
+        <particleemitter drawontop="false" particle="damagebubbles" particleamount="20" scalemin="1" scalemax="3" anglemin="0" anglemax="360" />
+        <particleemitter drawontop="true" particle="damagebubbles" particleamount="10" scalemin="1" scalemax="3" anglemin="0" anglemax="360" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This">
+        <Conditional Snapped="true" />
+        <sound file="Content/Characters/Latcher/ABYSSM_tongueMove_1.ogg" range="2000" volume="1" dontmuffle="false" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+  <!-- Copied from UberPendragon -->
+  <!-- <Item name="Latch test gun" identifier="latchgun" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,203,181,39" depth="0.55" origin="0.5,0.5" />
+    <Body width="180" height="30" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="35,-10" aimpos="45,-10" handle1="-20,-6" handle2="30,10" holdangle="-40" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon reload="1.75" launchimpulse="20.0" barrelpos="85,14" spread="1" unskilledspread="10" combatPriority="60" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun2.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun3.ogg" type="OnUse" range="1000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+        <SpawnItem identifier="caveeellatch" spawnposition="Thisinventory" count="1" rotationtype="Collider" rotation="0" />
+      </StatusEffect>
+      <ItemContainer hideitems="true" drawinventory="true" capacity="1" maxstacksize="1" canbeselected="false" characterusable="true" spawnwithid="caveeellatch">
+        <Containable items="caveeellatch" />
+      </ItemContainer>
+      <RequiredSkill identifier="weapons" level="30" />
+    </RangedWeapon>
+  </Item> -->
+  <Item name="Blight emitter" identifier="blightemitter" Scale="1" tags="" sonarsize="0" hideinmenus="true" depth="0.1" health="30" isdangerous="true">
+    <Body width="40" height="40" />
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <Projectile CharacterUsable="false" DoesStick="true" StickToStructures="true" StickToDoors="true">
+      <StatusEffect type="Always" target="This">
+        <ParticleEmitter particle="Blightspore" particlespersecond="24" position="0,0" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" scalemin="1" scalemax="1.5" distancemin="0" distancemax="1200" />
+        <ParticleEmitter particle="Blighttoxinmistlargefade" particlespersecond="16" position="0,0" anglemin="0" anglemax="360" scalemin="4.0" scalemax="5.0" distancemin="0" distancemax="1200" velocitymin="0" velocitymax="10" />
+      </StatusEffect>
+      <StatusEffect type="OnSpawn" target="This" delay="6">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" targets="human" range="1200" interval="1" stackable="false" disabledeltatime="true" CheckConditionalAlways="true">
+        <!-- <Conditional IsHuman="true" /> -->
+        <Affliction identifier="acidburn" strength="0.15" />
+        <Affliction identifier="acidreaction" strength="6" />
+      </StatusEffect>
+    </Projectile>
+    <!-- <Trigger triggeredby="Submarine" radius="800" infectidentifier="ballastflora" infectionchance="0.1" /> -->
+  </Item>
+  <Item name="Infused Spineling Spike" identifier="infusedspinelingspike" nameidentifier="spinelingspike" translationidentifier="spinelingspike" tags="mediumitem,harpoonammo" category="Misc" scale="0.5" sonarsize="6" hideinmenus="true">
+    <Sprite texture="%ModDir%/CreaturesOfTheDepths/Characters/InfusedSpineling/InfusedSpineling.png" sourcerect="0,860,720,72" depth="0.55" />
+    <Body width="600" height="35" density="20" />
+    <Projectile characterusable="false" launchimpulse="400" maxtargetstohit="6" sticktocharacters="true" sticktoitems="false" sticktodoors="false" sticktostructures="true" StickToDeflective="true" friendlyfire="false" damagedoors="true">
+      <Attack structuredamage="150" itemdamage="120" severlimbsprobability="2.0" penetration="0.5">
+        <!--Hits up to 6 limbs, so the actual damage can be 6x-->
+        <Affliction identifier="internaldamage" strength="10" />
+        <Affliction identifier="bleeding" strength="10" />
+        <Affliction identifier="radiationsickness" strength="10" />
+        <Affliction identifier="stun" strength="1" />
+      </Attack>
+      <StatusEffect type="OnActive" target="This" lifetime="0.5">
+        <ParticleEmitter particle="ammotrailwater" copyentityangle="true" anglemin="0" anglemax="0" particleamount="10" velocitymin="-10" velocitymax="-100" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" stackable="false" delay="6" Condition="0" setvalue="true" />
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="5" velocitymin="100" velocitymax="2000" scalemin="0.1" scalemax="0.2" />
+        <!--Add some impact effect-->
+        <Explosion ignorecover="true" onlyinside="true" range="600" force="10" playtinnitus="false" showeffects="false" applyfireeffects="false">
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Explosion ignorecover="true" onlyinside="true" range="250" force="10" structuredamage="20" itemdamage="5" BallastFloraDamage="20" decal="explosion" decalsize="0.3">
+          <Affliction identifier="explosiondamage" strength="50" />
+          <Affliction identifier="radiationsickness" strength="25" />
+          <Affliction identifier="stun" strength="1" />
+        </Explosion>
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" selectionmode="Random" range="2000" volume="1" dontmuffle="true" />
+        <sound file="Content/Items/Weapons/ExplosionMedium2.ogg" selectionmode="Random" range="2000" volume="1" dontmuffle="true" />
+        <sound file="Content/Items/Weapons/ExplosionMedium3.ogg" selectionmode="Random" range="2000" volume="1" dontmuffle="true" />
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+    <LightComponent range="250" castshadows="False" drawbehindsubs="False" ison="True" blinkfrequency="1" lightcolor="132,231,255,192" isactive="True" minvoltage="0" powerconsumption="0" vulnerabletoemp="False" pickingtime="0" canbepicked="False" allowingameediting="False" msg="">
+      <lighttexture Texture="Content/Lights/pointlight_bright.png" Origin="0.5,0.5" />
+      <!-- <Sprite texture="Content/Characters/Spineling_giant/Spineling_giant.png" sourcerect="0,940,720,72" origin="0.55,0.5" alpha="0.5" /> -->
+      <StatusEffect type="OnActive" target="NearbyCharacters" range="250" interval="1" disabledeltatime="true">
+        <Affliction identifier="radiationsickness" strength="0.5" />
+      </StatusEffect>
+    </LightComponent>
+  </Item>
+  <!-- <Item name="Spike test gun" identifier="spikegun" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Sprite texture="Content/Items/Weapons/weapons_new.png" sourcerect="0,203,181,39" depth="0.55" origin="0.5,0.5" />
+    <Body width="180" height="30" density="25" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="35,-10" aimpos="45,-10" handle1="-20,-6" handle2="30,10" holdangle="-40" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon reload="1.75" launchimpulse="20.0" barrelpos="85,14" spread="1" unskilledspread="10" combatPriority="60" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun2.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun3.ogg" type="OnUse" range="1000" />
+      <StatusEffect type="OnUse">
+        <Explosion range="150.0" force="5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+        <SpawnItem identifier="infusedspinelingspike" spawnposition="Thisinventory" count="1" rotationtype="Collider" rotation="0" />
+      </StatusEffect>
+      <ItemContainer hideitems="true" drawinventory="true" capacity="1" maxstacksize="1" canbeselected="false" characterusable="true" spawnwithid="infusedspinelingspike">
+        <Containable items="infusedspinelingspike" />
+      </ItemContainer>
+      <RequiredSkill identifier="weapons" level="30" />
+    </RangedWeapon>
+  </Item> -->
+</Items>

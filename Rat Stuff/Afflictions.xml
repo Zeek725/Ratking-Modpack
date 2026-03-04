@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Afflictions>
+  <Affliction name="Aspirin overdose" identifier="aspirinoverdose" description="" type="debuff" causeofdeathdescription="Died of aspirin overdose" selfcauseofdeathdescription="You have died of aspirin overdose." limbspecific="false" indicatorlimb="Head" showiconthreshold="5" showinhealthscannerthreshold="5" treatmentthreshold="20" karmachangeonapplied="-1" maxstrength="100" affectmachines="false" healcostmultiplier="1.25">
+    <Description textidentifier="afflictiondescription.aspirinoverdose.self" target="Self" />
+    <Description textidentifier="afflictiondescription.aspirinoverdose" target="OtherCharacter" />
+    <Effect minstrength="0" maxstrength="10" strengthchange="-0.075"></Effect>
+    <Effect minstrength="10" maxstrength="50" minvitalitydecrease="0" maxvitalitydecrease="25" strengthchange="-0.075" minspeedmultiplier="1.0" maxspeedmultiplier="0.75">
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="nausea" strength="10" probability="0.05" />
+        <Affliction identifier="organdamage" strength="2" probability="0.02" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="50" maxstrength="75" minvitalitydecrease="25" maxvitalitydecrease="50" strengthchange="-0.075" minspeedmultiplier="1.0" maxspeedmultiplier="0.7">
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="nausea" strength="15" probability="0.1" />
+        <Affliction identifier="organdamage" strength="2.5" probability="0.05" />
+      </StatusEffect>
+    </Effect>
+    <Effect minstrength="75" maxstrength="200" minvitalitydecrease="50" maxvitalitydecrease="200" strengthchange="-0.075" minspeedmultiplier="1.0" maxspeedmultiplier="0.65">
+      <StatusEffect target="Character" interval="1" disabledeltatime="true">
+        <Affliction identifier="nausea" strength="15" probability="0.15" />
+        <Affliction identifier="organdamage" strength="2.5" probability="0.08" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%ModDir%/Textures/aspirinoverdose.png" sourcerect="0,0,127,127" color="103,103,103,255" origin="0,0" />
+  </Affliction>
+</Afflictions>

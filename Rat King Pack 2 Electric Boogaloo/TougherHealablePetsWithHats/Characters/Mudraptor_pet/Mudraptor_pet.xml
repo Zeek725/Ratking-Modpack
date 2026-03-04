@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Charactervariant inherit="Mudraptor_unarmored" speciesname="Mudraptor_pet" speciestranslationoverride="Mudraptor_pet" texture="Content/Characters/Variants/Mudraptor_pet/Mudraptorpet.png" eatingspeed="5" group="human" DespawnContainer="Petduffelbag">
+    <health Vitality="100" minvitality="-100" DoesBleed="True" CrushDepth="Infinity" UseHealthWindow="True" BleedingReduction="0.2" BurnReduction="0.2" ConstantHealthRegeneration="0.2" HealthRegenerationWhenEating="10">
+      <Limb name="Torso">
+        <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,0,126,374" highlightarea="29,56,70,134" />
+        <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="631,515,126,374" />
+        <VitalityMultiplier type="damage" multiplier="0.5" />
+      </Limb>
+      <Limb name="Head">
+        <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="1,0,126,374" highlightarea="41,0,45,54" />
+        <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="1,515,126,374" />
+        <VitalityMultiplier type="damage" multiplier="0.5" />
+      </Limb>
+      <Limb name="LeftLeg">
+        <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="505,0,126,374" highlightarea="3,180,57,194" />
+        <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="505,515,126,374" />
+        <VitalityMultiplier type="damage" multiplier="0.5" />
+      </Limb>
+      <Limb name="RightLeg">
+        <Sprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="253,0,126,374" highlightarea="68,180,57,194" />
+        <Highlightsprite texture="Content/UI/Health/MedUIAtlas.png" sourcerect="253,515,126,374" />
+        <VitalityMultiplier type="damage" multiplier="0.5" />
+      </Limb>
+      <!--Tail-->
+      <Limb>
+        <VitalityMultiplier type="damage" multiplier="0.5" />
+      </Limb>
+    </health>
+    <ragdoll scalemultiplier="0.7" />
+    <attack damagemultiplier="0.7" rangemultiplier="0.7" impactmultiplier="0.7" />
+    <animations folder="Content/Characters/Variants/Mudraptor_pet/Animations/" />
+    <Inventory slots="Any, Any, Any, Any, Card, Head, HealthInterface" accessiblewhenalive="True">
+      <Item identifier="smallmudraptoregg" />
+    </Inventory>
+    <ai combatstrength="105" sight="1" hearing="1" fleehealththreshold="0" aggressiveboarding="True" aggressiongreed="20" aggressionhurt="300" attackwhenprovoked="True" avoidgunfire="False" enforceaggressivebehaviorformissions="False" targetouterwalls="True" randomattack="True">
+      <target tag="owner" state="Protect" priority="10" reactdistance="200" />
+      <!--Override inherited targets-->
+      <target Tag="hostile" State="Aggressive" Priority="100" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" />
+      <target Tag="stronger" State="Aggressive" Priority="100" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" />
+      <target Tag="weaker" State="Aggressive" Priority="100" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" />
+      <target Tag="equal" State="Aggressive" Priority="100" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" />
+      <target Tag="tigerthresher" State="Aggressive" Priority="100" IgnoreIfNotInSameSub="True" IgnoreIncapacitated="True" />
+      <target tag="human" state="Follow" priority="10" reactdistance="200" />
+      <target tag="dead" state="Idle" priority="1" />
+      <target tag="monsterfood" state="Idle" priority="1" />
+      <target tag="watcher" state="Idle" priority="1" />
+      <target tag="mudraptor_veteran" state="Idle" priority="1" />
+      <target tag="door" state="Idle" priority="1" />
+      <target tag="wall" state="Idle" priority="1" />
+      <target tag="room" state="Idle" priority="1" />
+      <target tag="sonar" state="Idle" priority="1" />
+      <target tag="turret" state="Idle" priority="1" />
+      <target tag="searchlight" state="Idle" priority="1" />
+      <target tag="decoy" state="Idle" priority="1" />
+      <target tag="weapon" state="Idle" priority="1" />
+      <target tag="nasonov" state="Idle" priority="1" />
+      <target tag="provocative" state="Idle" priority="1" />
+      <target tag="tool" state="Idle" priority="1" />
+      <petbehavior maxhappiness="100" unhappythreshold="50" happythreshold="80" happinessdecreaserate="0.0175" hungerincreaserate="0.03" playforce="6.0">
+        <eat tag="monsterfood" ignorecontained="true" requiredhunger="45-100" hunger="-50" happiness="5" priority="80" />
+        <eat tag="dead" requiredhunger="10-100" hunger="-100" happiness="10" priority="80" />
+        <itemproduction rate="0.0015" invhungerrate="0.002" requiredhunger="0-30">
+          <item identifier="poop" commonness="100" />
+        </itemproduction>
+        <itemproduction rate="0.0015" requiredhappiness="80-100" requiredhunger="0-30">
+          <item identifier="smallmudraptoregg" commonness="30" />
+          <item identifier="" commonness="70" />
+        </itemproduction>
+      </petbehavior>
+    </ai>
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHappy1.ogg" state="Happy" range="2000" volume="1" />
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHappy2.ogg" state="Happy" range="2000" volume="1" />
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHappy3.ogg" state="Happy" range="2000" volume="1" />
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHappy4.ogg" state="Happy" range="2000" volume="1" />
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHappy5.ogg" state="Happy" range="2000" volume="1" />
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHungry1.ogg" state="Unhappy" range="2000" volume="1" />
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHungry2.ogg" state="Unhappy" range="2000" volume="1" />
+    <sound file="Content/Characters/Variants/Mudraptor_pet/MUDRAPTOR_petHungry3.ogg" state="Unhappy" range="2000" volume="1" />
+    <!-- Starvation Affliction ( Using hardcoded internaldamage 8/s instead as idk how to directly target pet hunger ) -->
+    <StatusEffect type="Always" target="This" interval="4" disabledeltatime="True" setValue="True">
+      <Conditional InternalDamage="eq 200" />
+      <Affliction identifier="petstarvation" strength="100" />
+    </StatusEffect>
+    <StatusEffect type="OnEating" target="This" interval="2" disabledeltatime="True" setValue="True">
+      <Conditional InternalDamage="lt 175.0" />
+      <ReduceAffliction identifier="petstarvation" strength="100" />
+    </StatusEffect>
+    <!---->
+  </Charactervariant>
+</Override>
