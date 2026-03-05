@@ -1,0 +1,12 @@
+
+1: Latcher does not have a replacement so a variant skin or a lookalike will be needed, otherwise the morb spikes will either be pulled out or cooked into the vanilla creature
+
+2: Possibly add doomworm with reduced stats (rarer and lategame spawns but hopefully a decent scare for veteran players. Editing the spawn chances will likely be done in the biome file? unsure)
+
+3: Charybdis does have a legacy variant we could possibly use if needed, but a preferred approach would also be a sprite redesign, maybe make it darker or add a purple tint to scales
+
+
+
+Possible name ideas (feel free to suggest others, not set on these names and the rhyme is a bit off)
+Nox Charybdis
+Pox Latcher 
