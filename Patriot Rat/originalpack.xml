@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Items>
+	<Item name="Coalition Ration" identifier="ration" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" Tags="smallitem,medical" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft" description="A common ration made and distributed by the Coalition. Contains a bulk of nutrients recommended for a sailor's life.">
+<!--  和蛋白质棒子一样的生成  -->
+<PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1"/>
+<PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.15"/>
+<PreferredContainer primary="crewcab"/>
+<Price baseprice="150">
+<Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="10"/>
+<Price storeidentifier="merchantcity" multiplier="0.85" minavailable="15"/>
+<Price storeidentifier="merchantresearch" minavailable="5"/>
+<Price storeidentifier="merchantmilitary" minavailable="6"/>
+<Price storeidentifier="merchantmine" multiplier="1.25" minavailable="5"/>
+</Price>
+<!--  售货机可以买点吃  -->
+<InventoryIcon texture="%ModDir%/stalker_med_icon.png" sourcerect="448,0,64,64" origin="0.5,0.5"/>
+<Sprite texture="%ModDir%/stalker_med.png" sourcerect="400,38,76,36" depth="0.6" origin="0.5,0.5"/>
+<Body width="45" height="95" density="10.1"/>
+<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect">
+<StatusEffect type="OnSecondaryUse" target="This" Condition="-5.0"/>
+<!--  效果很慢，但是略微提升，物理伤害、烧伤  -->
+<StatusEffect type="OnSecondaryUse" target="Character">
+<Affliction identifier="wellfed" amount="30"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</Holdable>
+</Item>
+<Item name="Sausage" identifier="sausage" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" Tags="smallitem,medical" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+<!--  和蛋白质棒子一样的生成  -->
+<PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1"/>
+<PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.15"/>
+<PreferredContainer primary="crewcab"/>
+<Price baseprice="50">
+<Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="8"/>
+<Price storeidentifier="merchantcity" multiplier="0.85" minavailable="10"/>
+<Price storeidentifier="merchantresearch" minavailable="5"/>
+<Price storeidentifier="merchantmilitary" minavailable="6"/>
+<Price storeidentifier="merchantmine" multiplier="1.25" minavailable="8"/>
+</Price>
+<!--  售货机可以买点吃  -->
+<InventoryIcon texture="%ModDir%/stalker_med_icon.png" sourcerect="384,0,64,64" origin="0.5,0.5"/>
+<Sprite texture="%ModDir%/stalker_med.png" sourcerect="264,0,45,95" depth="0.6" origin="0.5,0.5"/>
+<Body width="45" height="95" density="10.1"/>
+<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect">
+<StatusEffect type="OnSecondaryUse" target="This" Condition="-10.0"/>
+<!--  效果很慢，但是略微提升，物理伤害、烧伤  -->
+<StatusEffect type="OnSecondaryUse" target="Character">
+<Affliction identifier="wellfed" amount="18"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</Holdable>
+</Item>
+<Item name="Bread Roll" identifier="bread" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="metalcrate" description="" Tags="smallitem,medical" useinhealthinterface="true" scale="0.3" impactsoundtag="impact_soft">
+<!--  和蛋白质棒子一样的生成  -->
+<PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.1"/>
+<PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="2" spawnprobability="0.15"/>
+<PreferredContainer primary="crewcab"/>
+<Price baseprice="25">
+<Price storeidentifier="merchantoutpost" multiplier="0.9" minavailable="10"/>
+<Price storeidentifier="merchantcity" multiplier="0.85" minavailable="20"/>
+<Price storeidentifier="merchantresearch" minavailable="5"/>
+<Price storeidentifier="merchantmilitary" minavailable="6"/>
+<Price storeidentifier="merchantmine" multiplier="1.25" minavailable="8"/>
+</Price>
+<!--  售货机可以买点吃  -->
+<InventoryIcon texture="%ModDir%/stalker_med_icon.png" sourcerect="320,0,64,64" origin="0.5,0.5"/>
+<Sprite texture="%ModDir%/stalker_med.png" sourcerect="328,0,52,106" depth="0.6" origin="0.5,0.5"/>
+<Body width="45" height="95" density="10.1"/>
+<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,15" holdangle="0" aimangle="90" aimable="false" msg="ItemMsgPickUpSelect">
+<StatusEffect type="OnSecondaryUse" target="This" Condition="-10.0"/>
+<!--  效果很慢，但是略微提升，物理伤害、烧伤  -->
+<StatusEffect type="OnSecondaryUse" target="Character">
+<Affliction identifier="wellfed" amount="6"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</Holdable>
+</Item>
+<Vodka name="Cossacks Vodka" identifier="vodka" category="Medical,Misc" maxstacksize="32" maxstacksizecharacterinventory="1" cargocontaineridentifier="mediccrate" description="Just like they made it back in the Zone." Tags="smallitem" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light">
+<PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.01"/>
+<PreferredContainer secondary="abandonedcrewcab,piratecrewcab" minamount="1" maxamount="1" spawnprobability="0.01"/>
+<PreferredContainer secondary="crewcab" amount="1" spawnprobability="0.02" notcampaign="true"/>
+<PreferredContainer primary="medfabcab" secondary="medcab"/>
+<Price baseprice="400" sold="true">
+<Price storeidentifier="merchantclown" minavailable="0" maxavailable="3" sold="true">
+<Reputation faction="clowns" min="30"/>
+</Price>
+<Price storeidentifier="merchantoutpost" minavailable="3" sold="true">
+<Reputation faction="separatists" min="40"/>
+</Price>
+<Price storeidentifier="merchantnightclub" minavailable="2" maxavailable="10" sold="true"/>
+</Price>
+<InventoryIcon texture="%ModDir%/stalker_med_icon.png" sourcerect="128,64,64,64" origin="0.5,0.5"/>
+<Sprite texture="%ModDir%/stalker_med.png" sourcerect="104,176,37,116" depth="0.6" origin="0.5,0.5"/>
+<SuitableTreatment type="infection" suitability="30"/>
+<SuitableTreatment type="burn" suitability="-3"/>
+<Body width="27" height="66" density="20"/>
+<Holdable canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+<StatusEffect type="OnSecondaryUse" target="This" Condition="-5.0"/>
+<StatusEffect type="OnUse" target="This" Condition="-10.0" disabledeltatime="true"/>
+<!--  When Vodka is drunk  -->
+<StatusEffect tags="medical" type="OnSecondaryUse" target="Character" delay="10">
+<ReduceAffliction identifier="psychosis" amount="3"/>
+<ReduceAffliction identifier="hallucinating" amount="3"/>
+<ReduceAffliction identifier="radiationsickness" amount="5"/>
+<ReduceAffliction identifier="huskinfection" amount="2"/>
+<Affliction identifier="drunk" amount="5"/>
+<Affliction identifier="psychosisresistance" amount="30"/>
+<Affliction identifier="strengthen" amount="20"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+<!--  When Vodka is used in Health GUI  -->
+<StatusEffect type="OnUse" target="This, Limb" duration="5">
+<ReduceAffliction identifier="infection" amount="6"/>
+<Affliction identifier="burn" amount="0.5"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</Holdable>
+</Vodka>
+<Item name="Medkit" identifier="stalkermedkit" category="Medical" maxstacksize="8" maxstacksizecharacterinventory="1" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical" description="Contains five syringes filled with copious amounts of opiates and adrenaline. Will keep you alive in a fight, provided you don't overdose. " useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+<!--   生成概率，为吗啡的0.1倍   -->
+<PreferredContainer secondary="supplycab" minamount="1" maxamount="2" spawnprobability="0.05" notcampaign="true"/>
+<PreferredContainer secondary="wrecksupplycab,beaconsupplycab" amount="1" spawnprobability="0.03"/>
+<PreferredContainer secondary="wreckmedcab,abandonedmedcab" minamount="1" maxamount="2" spawnprobability="0.1"/>
+<PreferredContainer secondary="outpostmedcab" minamount="1" maxamount="3" spawnprobability="0.25"/>
+<PreferredContainer secondary="outpostmedcompartment" amount="1" spawnprobability="0.1"/>
+<PreferredContainer secondary="outposttrashcan" amount="1" spawnprobability="0.01"/>
+<PreferredContainer primary="medcab" secondary="medcontainer"/>
+<!--   售价，为吗啡的3倍   -->
+<Price baseprice="1250" minavailable="3">
+<Price storeidentifier="merchantoutpost"/>
+<Price storeidentifier="merchantcity"/>
+<Price storeidentifier="merchantresearch"/>
+<Price storeidentifier="merchantmilitary"/>
+<Price storeidentifier="merchantmine"/>
+<Price storeidentifier="merchantmedical" multiplier="0.9"/>
+</Price>
+<!--   AI的使用优先级   -->
+<SuitableTreatment type="damage" suitability="20"/>
+<SuitableTreatment type="burn" suitability="20"/>
+<InventoryIcon texture="%ModDir%/stalker_med_icon.png" sourcerect="0,0,64,64" origin="0.5,0.5"/>
+<Sprite texture="%ModDir%/stalker_med.png" sourcerect="12,6,55,57" depth="0.6" origin="0.5,0.5"/>
+<Body width="35" height="65" density="10.2"/>
+<!--   作为近战武器使用   -->
+<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+<!--   使用减少耐久和音效   -->
+<RequiredSkill identifier="medical" level="40"/>
+<StatusEffect tags="medical" type="OnUse" target="This" Condition="-20.0" disabledeltatime="true">
+<Sound file="Content/Items/Medical/Syringe.ogg" range="500"/>
+</StatusEffect>
+<!--   使用成功的效果，物理伤害、烧伤，引起缺氧和成瘾   -->
+<StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="10">
+<Affliction identifier="opiatebuff" amount="12"/>
+<ReduceAffliction type="burn" amount="2.5"/>
+<Affliction identifier="oxygenlow" amount="10"/>
+<Affliction identifier="opiateaddiction" amount="2.5"/>
+<Affliction identifier="opiateoverdose" amount="3"/>
+<Affliction identifier="adrenalinerush" amount="3"/>
+<ReduceAffliction identifier="opiatewithdrawal" amount="6"/>
+</StatusEffect>
+<!--   使用失败的效果，疗效不变，成瘾翻倍   -->
+<StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="10">
+<Affliction identifier="opiatebuff" amount="12"/>
+<ReduceAffliction type="burn" amount="2.5"/>
+<Affliction identifier="oxygenlow" amount="10"/>
+<Affliction identifier="opiateaddiction" amount="5"/>
+<Affliction identifier="opiateoverdose" amount="4"/>
+<Affliction identifier="adrenalinerush" amount="3"/>
+<ReduceAffliction identifier="opiatewithdrawal" amount="6"/>
+</StatusEffect>
+<StatusEffect type="OnImpact" target="UseTarget" multiplyafflictionsbymaxvitality="false" AllowWhenBroken="true">
+<Affliction identifier="stun" amount="0.1"/>
+</StatusEffect>
+<!--    无耐久移除   -->
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</MeleeWeapon>
+<SkillRequirementHint identifier="medical" level="40"/>
+</Item>
+<Item name="Party Poppers" identifier="partypoppers" category="Medical" description="Submarine life cutting you up and breaking you down? Not anymore with a visit to the doctors for one of these bad boys. Note: This product may induce cardiac instability, consult your crew's doctor to determine if this medication is right for you." Tags="smallitem,medical" maxstacksize="8" maxstacksizecharacterinventory="1" MaxStackSizeHoldableOrWearableInventory="1" cargocontaineridentifier="mediccrate" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+<Upgrade gameversion="0.10.0.0" scale="0.5"/>
+<PreferredContainer primary="medcab" secondary="medcontainer"/>
+<PreferredContainer secondary="wreckmedcab,abandonedmedcab,piratemedcab" amount="1" spawnprobability="0.3"/>
+<Price baseprice="2000">
+<Price storeidentifier="merchantclown" multiplier="1.0" minavailable="1" maxavailable="3" minleveldifficulty="40"/>
+<Reputation faction="clowns" min="40"/>
+<Price storeidentifier="merchantmedical" multiplier="1.25" minavailable="0" maxavailable="5" minleveldifficulty="40"/>
+<Reputation faction="separatists" min="60"/>
+<Price storeidentifier="merchanthusk" sold="false" multiplier="2.50"/>
+</Price>
+<Fabricate suitablefabricators="medicalfabricator" requiredtime="35" amount="1">
+<RequiredSkill identifier="medical" level="70"/>
+<RequiredItem identifier="hyperzine" amount="1"/>
+<RequiredItem identifier="combatstimulantsyringe" amount="1"/>
+<RequiredItem identifier="deusizine" amount="1"/>
+<RequiredItem identifier="tonicliquid" amount="1"/>
+</Fabricate>
+<Deconstruct time="10">
+<Item identifier="combatstimulantsyringe" amount="1"/>
+</Deconstruct>
+<InventoryIcon texture="%ModDir%/bottles.png" sourcerect="26,59,59,59" origin="0.5,0.5"/>
+<Sprite texture="%ModDir%/bottles.png" sourcerect="0,59,24,42" depth="0.55" origin="0.5,0.5"/>
+<Body width="20" height="34" density="10"/>
+<SuitableTreatment type="bleeding" suitability="-10"/>
+<SuitableTreatment type="burn" suitability="-10"/>
+<SuitableTreatment type="damage" suitability="-20"/>
+<MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="10" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+<RequiredSkill identifier="medical" level="50"/>
+<StatusEffect type="OnUse" target="This" Condition="-12.5">
+<Sound file="%ModDir%/pills.ogg" range="500"/>
+</StatusEffect>
+<StatusEffect tags="medical" type="OnSuccess" target="UseTarget" duration="60">
+<Affliction identifier="opiatebuff" amount="5"/>
+<ReduceAffliction identifier="oxygenlow" amount="10"/>
+<ReduceAffliction identifier="burn" amount="0.5"/>
+<ReduceAffliction identifier="stun" amount="1"/>
+<ReduceAffliction identifier="infection" amount="1"/>
+<Affliction identifier="psychosis" amount="0.4"/>
+<Affliction identifier="chemaddiction" amount="0.5"/>
+<Affliction identifier="hallucinating" amount="2.5"/>
+<Affliction identifier="acidreaction" amount="1.5"/>
+<ReduceAffliction identifier="chemwithdrawal" amount="1.5"/>
+</StatusEffect>
+<StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
+<Affliction identifier="haste" amount="400"/>
+<Affliction identifier="strengthen" amount="400"/>
+<Affliction identifier="combatstimulant" amount="25"/>
+</StatusEffect>
+<StatusEffect tags="medical" type="OnFailure" target="UseTarget" duration="60">
+<Affliction identifier="opiatebuff" amount="5"/>
+<ReduceAffliction identifier="oxygenlow" amount="10"/>
+<ReduceAffliction identifier="stun" amount="0.5"/>
+<ReduceAffliction identifier="burn" amount="0.25"/>
+<ReduceAffliction identifier="infection" amount="0.5"/>
+<Affliction identifier="psychosis" amount="1"/>
+<Affliction identifier="chemaddiction" amount="1"/>
+<Affliction identifier="hallucinating" amount="2.5"/>
+<Affliction identifier="acidreaction" amount="2"/>
+<ReduceAffliction identifier="chemwithdrawal" amount="0.5"/>
+</StatusEffect>
+<StatusEffect tags="medical" type="OnFailure" target="UseTarget" disabledeltatime="true">
+<Affliction identifier="haste" amount="400"/>
+<Affliction identifier="strengthen" amount="400"/>
+<Affliction identifier="combatstimulant" amount="15"/>
+</StatusEffect>
+<StatusEffect type="OnSuccess" target="UseTarget">
+<Conditional entitytype="eq Character"/>
+<Sound file="%ModDir%/pills.ogg" range="500"/>
+</StatusEffect>
+<StatusEffect type="OnFailure" target="UseTarget">
+<Conditional entitytype="eq Character"/>
+<Sound file="%ModDir%/pills.ogg" range="500"/>
+</StatusEffect>
+<StatusEffect type="OnImpact" target="UseTarget" multiplyafflictionsbymaxvitality="true" AllowWhenBroken="true">
+<Affliction identifier="stun" amount="0.1"/>
+</StatusEffect>
+<!--   Remove the item when fully used   -->
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</MeleeWeapon>
+<SkillRequirementHint identifier="medical" level="50"/>
+</Item>
+<Item name="Opium Cigar" identifier="opiumcigar" category="Misc" health="120" Tags="smallitem,cigar" scale="0.5" cargocontaineridentifier="metalcrate" allowasextracargo="true" impactsoundtag="impact_soft" isshootable="true" requireaimtouse="true" description="A fine hand-crafted cigar, made from aquatic poppy. It burns longer than your average cigar, and still smells of the ocean. Due to it's potency, it is quite addictive.">
+<PreferredContainer primary="crewcab"/>
+<Price baseprice="1000" sold="false"/>
+<Fabricate suitablefabricators="fabricator" requiredtime="5" requiresrecipe="false">
+<RequiredSkill identifier="helm" level="45"/>
+<RequiredItem identifier="aquaticpoppy"/>
+<RequiredItem identifier="cigar"/>
+</Fabricate>
+<InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="174,234,42,50" origin="0.5,0.5"/>
+<Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,60,50,12" depth="0.55" origin="0.5,0.5"/>
+<Body width="45" height="10" density="9.9"/>
+<Holdable slots="Any,RightHand,LeftHand" aimable="false" aimpos="30,14" handle1="0,-10" swingamount="0,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+<StatusEffect type="OnSecondaryUse" target="This" Condition="-0.55"/>
+<StatusEffect type="OnSecondaryUse" target="This">
+<Conditional InWater="false"/>
+<ParticleEmitter particle="swirlysmoke" particlespersecond="1" scalemin="1" scalemax="2" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10" colormultiplier="17,17,135,0"/>
+</StatusEffect>
+<StatusEffect type="OnSecondaryUse" target="This">
+<Conditional InWater="true"/>
+<ParticleEmitter particle="bubbles" particlespersecond="3" scalemin="0.3" scalemax="0.5" anglemin="0" anglemax="360" velocitymin="0" velocitymax="10"/>
+</StatusEffect>
+<StatusEffect tags="medical" type="OnSecondaryUse" target="Character">
+<Affliction identifier="psychosisresistance" amount="20"/>
+<Affliction identifier="opiateaddiction" amount="1"/>
+<Affliction identifier="opiateoverdose" amount="2"/>
+<ReduceAffliction identifier="psychosis" amount="3"/>
+<ReduceAffliction identifier="hallucinating" amount="5"/>
+<ReduceAffliction identifier="watchersgaze" amount="2.5"/>
+<ReduceAffliction identifier="opiatewithdrawal" amount="2"/>
+<Affliction identifier="opiatebuff" amount="5"/>
+<ReduceAffliction identifier="burn" amount="0.5"/>
+<Affliction identifier="oxygenlow" amount="15"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</Holdable>
+</Item>
+<Item name="Cigar Bag" identifier="cigarbag" category="Misc" Tags="smallitem" scale="0.5" description="A Refitted Seed bag, now used for comfortably storing hand crafted cigars. Doesn't fit your normal tobacco based cigar, though.">
+<PreferredContainer primary="crewcab"/>
+<PreferredContainer primary="wreckstoragecab,abandonedstoragecab,piratestoragecab,wreckcrewcab,abandonedcrewcab,piratecrewcab,outpostcrewcabinet" amount="1" spawnprobability="0.1"/>
+<Sprite texture="Content/Items/Gardening/GrowablePlants_Temp.png" sourcerect="841,704,49,65" depth="0.55" origin="0.5,0.5"/>
+<Body width="45" height="60" density="12"/>
+<Price baseprice="60" minleveldifficulty="1">
+<Price storeidentifier="merchantoutpost"/>
+<Price storeidentifier="merchantcity" multiplier="1.2"/>
+<Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="2"/>
+<Price storeidentifier="merchantmilitary" sold="false" multiplier="1.2"/>
+<Price storeidentifier="merchantmine" sold="false" multiplier="0.75"/>
+</Price>
+<Fabricate suitablefabricators="fabricator" requiredtime="25">
+<RequiredSkill identifier="helm" level="15"/>
+<RequiredItem identifier="organicfiber" amount="2"/>
+</Fabricate>
+<Deconstruct time="15">
+<RequiredItem identifier="organicfiber"/>
+</Deconstruct>
+<Holdable slots="RightHand+LeftHand,Any" msg="ItemMsgPickUpSelect" holdangle="40" handle1="0,10"/>
+<ItemContainer capacity="6" keepopenwhenequipped="true" movableframe="true">
+<Containable items="cigar"/>
+</ItemContainer>
+</Item>
+<Item name="Blahaj" identifier="blahajPlaceable" category="Material" Tags="mediumitem" scale="0.5" isshootable="true" description="Sailor's best friend">
+<Sprite texture="%ModDir%/blahaj.png" sourcerect="0,0,200,200" depth="0.75" premultiplyalpha="false" origin="0.5,0.5"/>
+<Body width="95" height="106" density="40"/>
+<Price baseprice="500" minleveldifficulty="1">
+<Price storeidentifier="merchantoutpost"/>
+<Price storeidentifier="merchantcity"/>
+<Price storeidentifier="merchantresearch" sold="false"/>
+<Price storeidentifier="merchantmilitary" sold="false"/>
+<Price storeidentifier="merchantmine" sold="false"/>
+</Price>
+<MeleeWeapon slots="Any,RightHand,LeftHand" controlpose="true" aimpos="45,10" handle1="-20,0" handle2="-10,5" holdangle="60" reload="1" range="100" combatpriority="5" msg="ItemMsgPickUpSelect">
+<StatusEffect type="OnUse" target="This" disabledeltatime="true">
+<Sound file="%ModDir%/squeak1.ogg" type="OnUse" range="500"/>
+<Sound file="%ModDir%/squeak2.ogg" type="OnUse" range="500"/>
+<Sound file="%ModDir%/squeak3.ogg" type="OnUse" range="500"/>
+<Sound file="%ModDir%/squeak4.ogg" type="OnUse" range="500"/>
+<Sound file="%ModDir%/squeak5.ogg" type="OnUse" range="500"/>
+</StatusEffect>
+</MeleeWeapon>
+<Deconstruct time="10">
+<Item identifier="organicfiber" mincondition="1"/>
+<Item identifier="organicfiber" mincondition="1"/>
+<Item identifier="organicfiber" mincondition="1"/>
+<Item identifier="organicfiber" mincondition="1"/>
+</Deconstruct>
+</Item>
+<Item name="Boarding Blade" identifier="blade" category="Equipment" Tags="mediumitem,weapon" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+<PreferredContainer primary="armcab" minamount="1" maxamount="2" spawnprobability="0.5"/>
+<PreferredContainer secondary="wreckarmcab" minamount="0" maxamount="1" spawnprobability="0.1"/>
+<PreferredContainer secondary="abandonedarmcab,abandonedstoragecab" minamount="0" maxamount="1" spawnprobability="0.3"/>
+<Price baseprice="100" soldeverywhere="false">
+<Price locationtype="outpost" multiplier="1.5" sold="false"/>
+<Price locationtype="city" multiplier="1.25" sold="false"/>
+<Price locationtype="research" multiplier="1.25" sold="false"/>
+<Price locationtype="military" multiplier="0.9" minavailable="1"/>
+<Price locationtype="mine" multiplier="1.25" sold="false"/>
+</Price>
+<Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="false">
+<RequiredSkill identifier="weapons" level="50"/>
+<RequiredItem identifier="steel" amount="2"/>
+<RequiredItem identifier="titaniumaluminiumalloy"/>
+<RequiredItem identifier="rubber"/>
+</Fabricate>
+<Deconstruct time="15">
+<Item identifier="titaniumaluminiumalloy"/>
+<Item identifier="rubber"/>
+</Deconstruct>
+<InventoryIcon texture="Blade_Icon.png" sourcerect="0,0,64,64" origin="0.5,0.5"/>
+<Sprite texture="blade.png" sourcerect="50,25,196,26" depth="0.65" origin="0.5,0.5"/>
+<Body width="170" height="30" density="30"/>
+<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="55,32" handle1="-48,5" holdangle="35" reload="1.2" AllowHitMultiple="true" range="95" combatPriority="35" msg="ItemMsgPickUpSelect">
+<Attack targetimpulse="3" severlimbsprobability="0.2" itemdamage="5" penetration="0.20" structuredamage="3" structuresoundtype="StructureSlash">
+<Affliction identifier="lacerations" strength="18"/>
+<Affliction identifier="bleeding" strength="5"/>
+<Affliction identifier="stun" strength="0.3"/>
+<StatusEffect type="OnUse" target="Character">
+<Sound file="%ModDir%\Blade_Slash_1.ogg" selectionmode="random" range="500"/>
+<Sound file="%ModDir%\Blade_Slash_2.ogg" range="500"/>
+<Sound file="%ModDir%\Blade_Slash_3.ogg" range="500"/>
+</StatusEffect>
+</Attack>
+</MeleeWeapon>
+<Quality>
+<QualityStat stattype="StrikingPowerMultiplier" value="0.12"/>
+</Quality>
+<aitarget sightrange="500" soundrange="250" fadeouttime="1"/>
+</Item>	
+<Item name="Vibroblade" identifier="bladeunique" category="Equipment" Tags="mediumitem,weapon" Scale="0.5" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light" hideinmenus="true" RequireAimToUse="True" allowasextracargo="true">
+<PreferredContainer primary="armcab"/>
+<PreferredContainer primary="ruinstorage,ruinstoragesmall" amount="1" spawnprobability="0.2"/>
+<PreferredContainer primary="ruinstoragelarge" minamount="2" maxamount="4" spawnprobability="0.02"/>
+<Price baseprice="1900" soldeverywhere="false" canbespecial="false">
+<Price locationtype="outpost" multiplier="1.35" sold="false"/>
+<Price locationtype="city" multiplier="1.25" sold="false"/>
+<Price locationtype="research" multiplier="1.25" sold="false"/>
+<Price locationtype="military" multiplier="0.9" sold="false"/>
+<Price locationtype="mine" multiplier="1.25" sold="false"/>
+</Price>
+<InventoryIcon texture="Vibroblade_Icon.png" sourcerect="0,0,64,64" origin="0.5,0.5"/>
+<Sprite texture="vibroblade.png" sourcerect="50,25,196,26" depth="0.65" origin="0.5,0.5"/>
+<Body width="170" height="30" density="30"/>
+<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="55,32" handle1="-48,5" holdangle="40" reload="0.95" AllowHitMultiple="true" range="105" combatPriority="49" msg="ItemMsgPickUpSelect" preferredcontaineditems="alienpowercell">
+<Attack targetimpulse="5" severlimbsprobability="0.4" itemdamage="10" penetration="0.5" structuredamage="10" structuresoundtype="StructureSlash">
+<Affliction identifier="lacerations" strength="10"/>
+<Affliction identifier="bleeding" strength="5"/>
+<Affliction identifier="stun" strength="0.2"/>
+</Attack>
+<!--  keep weight check in place for now (affect targets with mass < 60)  -->
+<StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+<Affliction identifier="stun" strength="0.2"/>
+<Affliction identifier="lacerations" strength="5"/>
+<Affliction identifier="bleeding" strength="10"/>
+<Sound file="%ModDir%\Vibroblade_Slash_1.ogg" selectionmode="random" range="500"/>
+<Sound file="%ModDir%\Vibroblade_Slash_2.ogg" range="500"/>
+<Sound file="%ModDir%\Vibroblade_Slash_3.ogg" range="500"/>
+<RequiredItem items="fulguriumbatterycell" type="Contained" msg="ItemMsgBatteryCellRequired"/>
+<Conditional mass="lt 60"/>
+</StatusEffect>
+<!--  keep weight check in place for now (affect targets with mass < 150)  -->
+<StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+<Affliction identifier="stun" strength="0.55"/>
+<Affliction identifier="lacerations" strength="31"/>
+<Affliction identifier="bleeding" strength="24"/>
+<Sound file="%ModDir%\Vibroblade_Slash_1.ogg" selectionmode="random" range="500"/>
+<Sound file="%ModDir%\Vibroblade_Slash_2.ogg" range="500"/>
+<Sound file="%ModDir%\Vibroblade_Slash_3.ogg" range="500"/>
+<RequiredItem items="alienpowercell" type="Contained" msg="ItemMsgBatteryCellRequired"/>
+<Conditional mass="lt 150"/>
+</StatusEffect>
+<!--  5 usages with alien battery  -->
+<StatusEffect type="OnUse" target="Contained" Condition="-20.0" disabledeltatime="true">
+<RequiredItem items="fulguriumbatterycell" type="Contained" msg="ItemMsgBatteryCellRequired"/>
+</StatusEffect>
+<!--  5 usages with alien battery  -->
+<StatusEffect type="OnUse" target="Contained" Condition="-8.0" disabledeltatime="true">
+<RequiredItem items="alienpowercell" type="Contained" msg="ItemMsgBatteryCellRequired"/>
+</StatusEffect>
+</MeleeWeapon>
+<ItemContainer capacity="1" maxstacksize="1" hideitems="true" containedstateindicatorstyle="battery">
+<Containable items="alienpowercell,fulguriumbatterycell"/>
+</ItemContainer>
+<aitarget sightrange="500" soundrange="500" fadeouttime="1"/>
+</Item>
+<Item name="Emergency Hand-Operated Generator" identifier="thgcellcharger" category="Equipment" Tags="smallitem,tool,provocative" cargocontaineridentifier="metalcrate" Scale="0.5" impactsoundtag="impact_metal_light" description="A bulky, yet extremely useful hand-operated combination flashlight and battery cell charger. It is capable of generating light via manual crank power for an almost indefinite period of time thanks to its highly effecient lightbulb, and it's charger can simultaneously provide charge to cells, so long as they still have a residual battery life and are not completely drained.">
+<PreferredContainer primary="divingcab" minamount="1" maxamount="2" spawnprobability="1" notcampaign="true"/>
+<PreferredContainer secondary="wreckstoragecab,abandonedstoragecab,wrecksupplycab,beaconsupplycab" amount="1" spawnprobability="0.05"/>
+<PreferredContainer secondary="outpostcrewcabinet" amount="1" spawnprobability="0.1"/>
+<Price baseprice="250" sold="true"/>
+<Deconstruct time="15">
+<Item identifier="aluminium"/>
+</Deconstruct>
+<InventoryIcon texture="%ModDir%/crankcharger.png" sourcerect="0,0,64,58" origin="0.5,0.5"/>
+<Sprite texture="%ModDir%/crankcharger.png" sourcerect="0,0,64,58" depth="0.54" origin="0.5,0.5"/>
+<Body width="64" height="64" density="15"/>
+<Holdable slots="Any,RightHand+LeftHand" holdpos="30,-42" aimpos="55,-26" handle1="-25,-7" handle2="-28,10" msg="ItemMsgPickUpSelect">
+<LightComponent LightColor="0.8,0.75,0.57,.7" Flicker="0.115" range="500" powerconsumption="0" IsOn="true">
+<LightTexture texture="Content/Lights/lightcone.png" origin="0.0, 0.517" size=".8,.7"/>
+</LightComponent>
+<StatusEffect type="Always" targettype="Contained" Condition="+0.4">
+<IsActive targetcontaineditem="true"/>
+<RequiredItem items="mobilebattery" type="Contained"/>
+</StatusEffect>
+<StatusEffect type="OnActive" targettype="Contained" Condition="1">
+<RequiredItem items="mobilebattery" type="Contained"/>
+<IsActive targetcontaineditem="true" condition="eq 0"/>
+</StatusEffect>
+<!--  the child LightComponent is only active when the Holdable is active, i.e. when the item is being held  -->
+</Holdable>
+<ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorstyle="battery" containedspritedepth=".56">
+<SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5"/>
+<Containable items="mobilebattery" containedspritedepth=".56" itempos="-17,-2" rotation="0"/>
+</ItemContainer>
+<AiTarget sightrange="3000"/>
+<Upgrade gameversion="0.10.0.0" scale="0.5"/>
+</Item>
+
+<Item name="4-Inch Rocket" identifier="4inrocket" category="Weapon" maxstacksize="1" maxstacksizecharacterinventory="1" condition="100" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="smallitem,rocket" Scale="0.5" impactsoundtag="impact_metal_light">
+<PreferredContainer primary="rocketlauncher" amount="1" spawnprobability="1"/>
+<PreferredContainer secondary="wreckarmcab,abandonedarmcab" minamount="1" maxamount="2" spawnprobability="0.2"/>
+<PreferredContainer primary="secarmcab" secondary="armcab"/>
+<Price baseprice="100" sold="false">
+<Price storeidentifier="merchantoutpost" multiplier="1.5"/>
+<Price storeidentifier="merchantcity" sold="true" multiplier="1.25" minavailable="1"/>
+<Price storeidentifier="merchantresearch" multiplier="1.25"/>
+<Price storeidentifier="merchantmilitary" sold="true" multiplier="0.9" minavailable="4"/>
+<Price storeidentifier="merchantmine" multiplier="1.25"/>
+<Price storeidentifier="merchantarmory" sold="true" multiplier="0.9" minavailable="4"/>
+</Price>
+<Deconstruct time="5">
+<Item identifier="iron"/>
+<Item identifier="detonator"/>
+<Item identifier="sodium"/>
+</Deconstruct>
+<Fabricate suitablefabricators="fabricator" requiredtime="10">
+<RequiredSkill identifier="weapons" level="30"/>
+<RequiredItem identifier="steel"/>
+<RequiredItem identifier="detonator"/>
+<RequiredItem identifier="uex"/>
+</Fabricate>
+<Sprite texture="%ModDir%/weaponsprites.png" sourcerect="116,0,58,27" depth="0.55" origin="0.5,0.5"/>
+<Body width="38" height="15" density="30"/>
+<Pickable slots="Any" msg="ItemMsgPickUpSelect"/>
+<Projectile characterusable="false" launchimpulse="30" sticktocharacters="false" maxtargetstohit="1" damagedoors="true">
+<Attack structuredamage="40" penetration="1" severlimbsprobability="5">
+<Affliction identifier="explosiondamage" strength="50"/>
+</Attack>
+<sound file="Content/Items/Weapons/FragGrenade40mmShot1.ogg" type="OnImpact" range="3000" selectionmode="Random"/>
+<sound file="Content/Items/Weapons/FragGrenade40mmShot2.ogg" type="OnImpact" range="3000"/>
+<StatusEffect type="OnImpact" target="This" Condition="-100.0" disabledeltatime="true">
+<sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="2000"/>
+<Explosion range="300.0" ballastfloradamage="80" structuredamage="20" levelwalldamage="120" itemdamage="400" force="5.0" severlimbsprobability="0.4" debris="true" decal="explosion" decalsize="0.3">
+<Affliction identifier="burn" strength="100"/>
+<Affliction identifier="bleeding" strength="400" probability="0.05"/>
+<Affliction identifier="stun" strength="5"/>
+</Explosion>
+<Remove/>
+</StatusEffect>
+<StatusEffect type="OnImpact" target="Contained">
+<Use/>
+</StatusEffect>
+<StatusEffect type="OnImpact" target="This">
+<Remove/>
+</StatusEffect>
+</Projectile>
+<ItemContainer hideitems="true" capacity="1" maxstacksize="1" canbeselected="false" containedstateindicatorstyle="explosive">
+<GuiFrame relativesize="0.2,0.25" anchor="Center" minsize="140,170" maxsize="280,280" style="ItemUI"/>
+<Containable items="explosive"/>
+</ItemContainer>
+<Upgrade gameversion="0.10.0.0" scale="0.5"/>
+</Item>
+
+<Item name="Rocket Launcher" identifier="rocketlauncher" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light" description="A portable rocket launcher for 4in rockets.">
+<PreferredContainer primary="secarmcab" amount="1" spawnprobability="0.2" notcampaign="true"/>
+<PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" spawnprobability="0.1"/>
+<PreferredContainer secondary="armcab"/>
+<Price baseprice="1000" sold="false" minleveldifficulty="30">
+<Price storeidentifier="merchantoutpost" multiplier="1.5" sold="false"/>
+<Price storeidentifier="merchantcity" sold="true" multiplier="1.25" minavailable="1"/>
+<Price storeidentifier="merchantresearch" multiplier="1.25" sold="false"/>
+<Price storeidentifier="merchantmilitary" sold="true" multiplier="0.9" minavailable="1"/>
+<Price storeidentifier="merchantmine" multiplier="1.25" sold="false"/>
+<Price storeidentifier="merchantarmory" sold="true" multiplier="0.9" minavailable="1"/>
+</Price>
+<Deconstruct time="10">
+<Item identifier="steel"/>
+<Item identifier="titaniumaluminiumalloy"/>
+</Deconstruct>
+<Sprite texture="%ModDir%/weaponsprites.png" sourcerect="0,105,232,61" depth="0.55" origin="0.5,0.5"/>
+<Body width="170" height="40" density="25"/>
+<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="40,-25" aimpos="15,10" handle1="38,-20" handle2="85,-5" holdangle="-25"/>
+<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+<sprite name="Rocket Launcher Worn" texture="%ModDir%/textures/itemsprites/weaponsprites.png" canbehiddenbyotherwearables="false" sourcerect="0,105,232,61" rotation="90" depth="0.6" limb="Torso" depthlimb="LeftArm" scale="0.5" origin="0.5,0.8"/>
+</Wearable>
+<RangedWeapon barrelpos="80,11" spread="1" unskilledspread="10" combatPriority="75" drawhudwhenequipped="true" crosshairscale="0.2">
+<Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256"/>
+<CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256"/>
+<ParticleEmitter particle="muzzleflashchaingun" particleamount="1" velocitymin="0" velocitymax="0" scalemin="0.5" scalemax="0.6"/>
+<ParticleEmitter particle="explosionsmoke" particleamount="1" velocitymin="0" velocitymax="0" scalemin="0.5" scalemax="0.6"/>
+<Sound file="Content/Items/Weapons/Railgun1.ogg" type="OnUse" range="500"/>
+<Sound file="Content/Items/Weapons/Railgun2.ogg" type="OnUse" range="500"/>
+<Sound file="Content/Items/Weapons/Railgun3.ogg" type="OnUse" range="500"/>
+<StatusEffect type="OnUse" target="This">
+<Explosion range="150.0" force="2" shockwave="false" smoke="true" flames="false" flash="true" sparks="false" underwaterbubble="false" applyfireeffects="false" camerashake="6.0"/>
+</StatusEffect>
+<RequiredItems items="rocket" type="Contained" msg="ItemMsgAmmoRequired"/>
+<RequiredSkill identifier="weapons" level="60"/>
+</RangedWeapon>
+<ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
+<Containable items="rocket" hide="true"/>
+<SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5"/>
+<SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5"/>
+<SubContainer capacity="1" maxstacksize="1">
+<Containable items="flashlight" hide="false" itempos="22,-1" setactive="true"/>
+</SubContainer>
+</ItemContainer>
+<aitarget sightrange="500" soundrange="500" fadeouttime="3"/>
+<Upgrade gameversion="0.10.0.0" scale="0.5"/>
+<SkillRequirementHint identifier="weapons" level="60"/>
+</Item>
+
+<Item name="punch" identifier="punchclownrocket" category="Weapon" maxstacksize="6" interactthroughwalls="true" cargocontaineridentifier="metalcrate" tags="mediumitem,punch" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="false" allowasextracargo="true" noninteractable="true">
+<Sprite texture="%ModDir%/punchgun.png" sourcerect="371,70,50,53" depth="0.55" origin="0.5,0.5"/>
+<Body width="50" height="50" radius="0" friction="10" density="10"/>
+<Projectile characterusable="false" launchimpulse="5.0" maxtargetstohit="1" HitOnlyCharacters="true">
+<Attack structuredamage="1" penetration="1" itemdamage="1" targetforce="40" severlimbsprobability="0">
+<Affliction identifier="blunttrauma" strength="5"/>
+<Affliction identifier="stun" strength="5"/>
+<Affliction identifier="concussion" strength="1"/>
+<sound file="Content/Sounds/Impact/SoftImpact1.ogg" range="500"/>
+<sound file="Content/Sounds/Impact/SoftImpact2.ogg" range="500"/>
+<sound file="Content/Sounds/Impact/SoftImpact3.ogg" range="500"/>
+</Attack>
+<StatusEffect type="OnUse" target="This" delay="0.8">
+<Remove/>
+</StatusEffect>
+<StatusEffect type="OnImpact" target="This" delay="0.5">
+<Remove/>
+</StatusEffect>
+</Projectile>
+<Rope sourcepullforce="1" targetpullforce="1" projectilepullforce="15" maxlength="1000" snaponcollision="false" SnapWhenNotAimed="false" spritewidth="10" tile="true" origin="0.05,0.5" snapanimduration="1">
+<Sprite texture="%ModDir%/punchgun.png" sourcerect="132,65,230,51" depth="0.57" origin="0.5,0.5"/>
+<StatusEffect type="OnUse" target="This" delay="0.5" projectilepullforce="30" setvalue="True"/>
+</Rope>
+</Item>
+
+
+
+
+<Item name="Rocket Launcher" identifier="rocketlauncherclown" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light" description="A portable rocket launcher for 4in rockets.">
+<PreferredContainer primary="secarmcab" amount="1" spawnprobability="0.2" notcampaign="true"/>
+<PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" spawnprobability="0.1"/>
+<PreferredContainer secondary="armcab"/>
+<Price baseprice="1000" sold="false" minleveldifficulty="30">
+<Price storeidentifier="merchantoutpost" multiplier="1.5" sold="false"/>
+<Price storeidentifier="merchantcity" sold="true" multiplier="1.25" minavailable="1"/>
+<Price storeidentifier="merchantresearch" multiplier="1.25" sold="false"/>
+<Price storeidentifier="merchantmilitary" sold="true" multiplier="0.9" minavailable="1"/>
+<Price storeidentifier="merchantmine" multiplier="1.25" sold="false"/>
+<Price storeidentifier="merchantarmory" sold="true" multiplier="0.9" minavailable="1"/>
+</Price>
+<Deconstruct time="10">
+<Item identifier="steel"/>
+<Item identifier="titaniumaluminiumalloy"/>
+</Deconstruct>
+<Sprite texture="%ModDir%/weaponsprites.png" sourcerect="0,105,232,61" depth="0.55" origin="0.5,0.5"/>
+<Body width="170" height="40" density="25"/>
+<Holdable slots="RightHand+LeftHand" controlpose="true" holdpos="40,-25" aimpos="15,10" handle1="38,-20" handle2="85,-5" holdangle="-25"/>
+<Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+<sprite name="Rocket Launcher Worn" texture="%ModDir%/weaponsprites.png" canbehiddenbyotherwearables="false" sourcerect="0,105,232,61" rotation="90" depth="0.6" limb="Torso" depthlimb="LeftArm" scale="0.5" origin="0.5,0.8"/>
+</Wearable>
+<RangedWeapon reload="10" launchimpulse="10.0" barrelpos="50,15" spread="0" drawhudwhenequipped="true" crosshairscale="0.2">
+<!--  <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />  -->
+<StatusEffect type="OnUse" target="This">
+<Explosion range="150.0" force="0" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="3"/>
+</StatusEffect>
+<StatusEffect type="OnUse" target="This" delay="0.8" checkconditionalalways="true">
+<SpawnItem identifier="punchclownrocket" spawnposition="ThisInventory"/>
+</StatusEffect>
+</RangedWeapon>
+<ItemContainer capacity="1" maxstacksize="1" itempos="50,15" containedspritedepths="0.55" hideitems="false" drawinventory="true" canbeselected="false" removecontaineditemsondeconstruct="true" containedstateindicatorslot="0" containedstateindicatorstyle="bullet">
+<Containable items="punch" hide="false"/>
+<SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5"/>
+<SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5"/>
+<SubContainer capacity="1" maxstacksize="1">
+<Containable items="flashlight" hide="false" itempos="22,-1" setactive="true"/>
+</SubContainer>
+</ItemContainer>
+<ItemContainer capacity="1" maxstacksize="1" itempos="50,15" containedspritedepths="0.55" hideitems="false" drawinventory="false" canbeselected="false" removecontaineditemsondeconstruct="true" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" spawnwithid="punch">
+<Containable items="punch" hide="true"/>
+<SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5"/>
+<SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5"/>
+</ItemContainer>
+<aitarget sightrange="500" soundrange="500" fadeouttime="3"/>
+<Upgrade gameversion="0.10.0.0" scale="0.5"/>
+<SkillRequirementHint identifier="weapons" level="60"/>
+</Item>
+
+
+
+<Item name="Ratshot Railgun Shell" identifier="ratshotcanistershell" tags="railgunequipment,railgunammo,containershell" category="Weapon" linkable="true" scale="0.5" impactsoundtag="impact_metal_heavy" cargocontaineridentifier="">
+<PreferredContainer primary="railgunammoloader,railgunammocontainer" mincondition="1"/>
+<PreferredContainer secondary="wreckrailgunammocontainer" minamount="1" maxamount="2" spawnprobability="0.2"/>
+<Price baseprice="500">
+<Price storeidentifier="merchantoutpost" sold="false" multiplier="1.2"/>
+<Price storeidentifier="merchantcity" multiplier="1.2" minavailable="1" sold="false"/>
+<Price storeidentifier="merchantresearch" sold="false" multiplier="1.2"/>
+<Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="5"/>
+<Price storeidentifier="merchantmine" sold="false" multiplier="1.2"/>
+<Price storeidentifier="merchantarmory" multiplier="0.9" minavailable="5"/>
+</Price>
+<Deconstruct time="10">
+<Item identifier="steel"/>
+</Deconstruct>
+<Fabricate suitablefabricators="fabricator" displayname="recycleitem" requiredtime="8">
+<RequiredSkill identifier="weapons" level="20"/>
+<RequiredItem tag="munition_core" description="fabricationdescription.munition_core" amount="3" />
+<RequiredItem identifier="railguncanistershell" mincondition="0.0" maxcondition="1.0" usecondition="false"/>
+</Fabricate>
+<!-- <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="320,128,64,64" /> -->
+<Sprite texture="Content/Items/Containers/containers2.png" sourcerect="247,91,216,34" depth="0.55" origin="0.5,0.5"/>
+<BrokenSprite texture="Content/Items/Containers/containers2.png" sourcerect="247,127,216,34" depth="0.55" origin="0.5,0.5" maxcondition="0"/>
+<InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="0,447,64,64" origin="0.5,0.5"/>
+<Body width="215" height="30" density="35"/>
+<Holdable canbecombined="false" slots="LeftHand,RightHand" holdpos="0,-15" handle1="-30,-5" holdangle="170" aimable="false" msg="ItemMsgPickUpSelect">
+<!--  slow down the character when holding the item  -->
+<StatValue stattype="MovementSpeed" value="-0.2"/>
+<!--  adjust hold position when swimming  -->
+<StatusEffect type="OnActive" target="This" holdpos="-10,-15" handle1="0,-5" holdangle="70" setvalue="true" interval="1.1">
+<Conditional InWater="true"/>
+</StatusEffect>
+<!--  revert hold position adjustment when walking  -->
+<StatusEffect type="OnActive" target="This" holdpos="0,-15" handle1="-30,-5" holdangle="170" setvalue="true" interval="1.1">
+<Conditional InWater="false"/>
+</StatusEffect>
+</Holdable>
+<ItemContainer hideitems="true" capacity="50" drawinventory="false" canbeselected="false" canbecombined="true" ShowConditionInContainedStateIndicator="true" removecontaineditemsondeconstruct="true" containedstateindicatorstyle="bullet" spawnwithid="railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet,railguncanistershellpellet">
+<StatusEffect type="OnUse" target="This" condition="-100" disabledeltatime="true">
+<RequiredItem items="railguncanistershellpellet" type="Contained"/>
+</StatusEffect>
+<Containable items="railguncanistershellpellet"/>
+</ItemContainer>
+</Item>
+
+<Item name="" identifier="ratshotcanistershellpellet" category="Weapon" scale="0.5" sonarsize="2" hideinmenus="true">
+<Sprite texture="TurretsAndDepthCharges.png" sourcerect="140,486,21,21" depth="0.55"/>
+<Body width="160" height="10" density="20"/>
+<Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false"/>
+<Projectile characterusable="false" launchimpulse="-15.0" impulsespread="0.3" spread="30" damagedoors="true">
+<Attack structuredamage="10" itemdamage="1" severlimbsprobability="2.0" penetration="0">
+<Affliction identifier="lacerations" strength="20"/>
+<Affliction identifier="bleeding" strength="10"/>
+<Affliction identifier="stun" strength="1"/>
+</Attack>
+<StatusEffect type="OnActive" target="This" lifetime="2">
+<ParticleEmitter particle="bubbles" anglemin="0" anglemax="360" particleamount="1" velocitymin="0" velocitymax="50" scalemin="0.33" scalemax="1"/>
+</StatusEffect>
+<!--  a 5 second lifetime after being fired  -->
+<StatusEffect type="OnNotContained" target="This" stackable="false" delay="5">
+<Remove/>
+</StatusEffect>
+<StatusEffect type="OnImpact" target="This">
+<ParticleEmitter particle="shrapnel" copyentityangle="true" anglemin="0" anglemax="360" particleamount="10" velocitymin="100" velocitymax="2000" scalemin="0.25" scalemax="0.5"/>
+<Remove/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</Projectile>
+<Upgrade gameversion="0.10.0.0" scale="*0.5"/>
+</Item>
+
+
+<Override>
+<Item name="" identifier="coalitioncommendation" category="Misc" Tags="smallitem" cargocontaineridentifier="metalcrate" allowasextracargo="true" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.5" impactsoundtag="impact_soft">
+<PreferredContainer primary="crewcab"/>
+<Price baseprice="300" buyingpricemodifier="5" minleveldifficulty="40">
+<Price storeidentifier="merchantoutpost" maxavailable="0"/>
+<Price storeidentifier="merchantcity" multiplier="0.9" maxavailable="1"/>
+<Price storeidentifier="merchantresearch" sold="false" multiplier="0.9"/>
+<Price storeidentifier="merchantmilitary" maxavailable="1"/>
+<Price storeidentifier="merchantmine" sold="false" multiplier="0.75"/>
+</Price>
+<Deconstruct time="20">
+<Item identifier="copper"/>
+</Deconstruct>
+<InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="265,365,36,65" origin="0.5,0.5"/>
+<Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="3,4,24,43" depth="0.6" origin="0.5,0.5"/>
+<Body width="19" height="40" density="25"/>
+<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+<Attack targetimpulse="5">
+<!--  empty attack so that a talent can trigger -->
+</Attack>
+<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
+<StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+<Sound file="Content/Items/Button/button.ogg" type="OnUse" range="500"/>
+<GiveExperience amount="500"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</MeleeWeapon>
+</Item>
+<Item name="" identifier="coalitionmedal" category="Misc" Tags="smallitem" cargocontaineridentifier="metalcrate" allowasextracargo="true" maxstacksize="32" maxstacksizecharacterinventory="8" scale="0.5" impactsoundtag="impact_soft">
+<PreferredContainer primary="crewcab"/>
+<Price baseprice="600" buyingpricemodifier="5" minleveldifficulty="65">
+<Price storeidentifier="merchantoutpost" maxavailable="0"/>
+<Price storeidentifier="merchantcity" multiplier="0.9" maxavailable="1"/>
+<Price storeidentifier="merchantresearch" sold="false" multiplier="0.9"/>
+<Price storeidentifier="merchantmilitary" maxavailable="1"/>
+<Price storeidentifier="merchantmine" sold="false" multiplier="0.75"/>
+</Price>
+<Deconstruct time="20">
+<Item identifier="copper"/>
+<Item identifier="tin"/>
+</Deconstruct>
+<InventoryIcon texture="Content/Items/JobGear/TalentGear.png" sourcerect="228,365,37,65" origin="0.5,0.5"/>
+<Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="33,4,24,43" depth="0.6" origin="0.5,0.5"/>
+<Body width="19" height="40" density="25"/>
+<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,5" holdangle="90" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+<Attack targetimpulse="5">
+<!--  empty attack so that a talent can trigger -->
+</Attack>
+<StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true"/>
+<StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+<Sound file="Content/Items/Button/button.ogg" type="OnUse" range="500"/>
+<GiveExperience amount="1000"/>
+</StatusEffect>
+<StatusEffect type="OnBroken" target="This">
+<Remove/>
+</StatusEffect>
+</MeleeWeapon>
+</Item>
+</Override>
+
+
+
+</Items>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

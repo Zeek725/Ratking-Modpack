@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item name="Satchel Charge (C-4)" identifier="satchelcharge_c4" aliases="satchel charge c4,c4 bomb" category="Equipment,Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,explosive,ekshared_largeshellexplosive,demolitionsexpert" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" description="Looks like a normal backpack, but is secretly packed with plastic explosive. Set the timer, arm, and RUN." maxstacksize="1">
+    <!-- <Price storeidentifier="merchantMilitary" buyprice="300" />
+    <Price storeidentifier="merchantCity" buyprice="350" /> -->
+    <!-- <Price storeidentifier="merchantOutpost" buyprice="400" /> -->
+    <!-- <Price storeidentifier="merchantResearch" buyprice="350" /> -->
+    <Price baseprice="1250" soldeverywhere="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.5" sold="false" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="organicfiber" amount="4" />
+      <Item identifier="fpgacircuit" />
+      <Item identifier="c4block" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="backpack" />
+      <RequiredItem identifier="c4block" amount="2" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" depth="0.6" />
+    <Body width="60" height="100" density="15" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <StatusEffect type="OnWearing" target="Character" setvalue="true" disabledeltatime="true" />
+      <sprite name="Backpack" CanBeHiddenByOtherWearables="false" CanBeHiddenByItem="deepdivinglarge" texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" limb="Torso" depthlimb="Waist" inherittexturescale="true" origin="1.1,0.5" />
+      <StatValue stattype="MovementSpeed" value="-0.3" />
+      <StatValue stattype="PropulsionSpeed" value="-0.3" />
+    </Wearable>
+    <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="-5,50" handle2="10,50" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" disabledeltatime="true" />
+      <StatValue stattype="PropulsionSpeed" value="-0.3" />
+    </Holdable>
+    <!-- <Throwable slots="Any,RightHand+LeftHand" holdpos="40,-10" aimpos="30,-45" aimangle="90" handle1="0,-13" handle2="0,-13" throwforce="2.0" msg="ItemMsgPickUpSelect"/> -->
+    <Throwable characterusable="false" slots="RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="255,0,0,255" range="20" blinkfrequency="1" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="false">
+      <StatusEffect type="OnActive" targettype="This" Condition="-1.667">
+        <Sound file="%ModDir%/ek_satchelbeep.ogg" loop="true" range="1000" />
+      </StatusEffect>
+    </LightComponent>
+    <ItemComponent characterusable="false">
+      <!-- 
+      <StatusEffect type="Always" targettype="NearbyItems" range="250" setvalue="true" condition="0" disabledeltatime="true"
+					isStuck="false" targetitemcomponent="door" targetidentifiers="door,hatch,windoweddoor,doorwbuttons,hatchwbuttons,windoweddoorwbuttons,ductblock,aliendoor,alienhatch" >
+        <Conditional Condition="lt 0.5" />
+      </StatusEffect>
+	   -->
+      <!-- 
+      <StatusEffect type="Always" targettype="This" disabledeltatime="true" >
+        <Conditional Condition="lt 0.5" />
+	   -->
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true" stackable="false">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+        <ParticleEmitter particle="weldspark" particleamount="20" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionfire" particleamount="10" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.5" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="4" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+        <!-- <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="1" velocitymin="0" velocitymax="0" scalemin="4" scalemax="6" /> -->
+        <ParticleEmitter particle="ekarmory_hdimpactlarge" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="2.5" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="1.75" scalemax="2.0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true">
+        <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+		 -->
+        <Explosion range="1500.0" structuredamage="1000" itemdamage="1000" ballastfloradamage="500" levelwalldamage="500" stun="10" force="20.0" severlimbsprobability="0.5" flames="false" decal="explosion" decalsize="0.5">
+          <Affliction identifier="explosiondamage" strength="1000" />
+          <Affliction identifier="burn" strength="250" />
+          <Affliction identifier="bleeding" strength="50" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+        <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+		 -->
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+        <ParticleEmitter particle="weldspark" particleamount="20" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionfire" particleamount="10" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.5" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="4" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+        <!-- <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="1" velocitymin="0" velocitymax="0" scalemin="4" scalemax="6" /> -->
+        <ParticleEmitter particle="ekarmory_hdimpactlarge" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="2.5" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="1.75" scalemax="2.0" />
+        <Explosion range="1500.0" structuredamage="1000" itemdamage="1000" ballastfloradamage="500" levelwalldamage="500" stun="10" force="20.0" severlimbsprobability="0.5" flames="false" decal="explosion" decalsize="0.5" camerashake="1000" camerashakerange="5000" flashrange="5000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0">
+          <Affliction identifier="explosiondamage" strength="500" />
+          <Affliction identifier="burn" strength="250" />
+          <Affliction identifier="bleeding" strength="50" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.15,0.15" anchor="BottomLeft" absoluteoffset="20,20" style="ItemUI" />
+      <TickBox text="Armed">
+        <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <Button text="Reset">
+        <StatusEffect type="OnUse" targettype="This" Condition="100" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="+ 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="16.667" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="- 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="-16.667" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+          <Conditional Condition="gt 17" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.15" />
+      <QualityStat stattype="ExplosionDamage" value="0.15" />
+    </Quality>
+  </Item>
+  <Item name="Satchel Charge (IED)" identifier="satchelcharge_ied" aliases="satchel charge c4,c4 bomb" category="Equipment,Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,explosive,ekshared_largeshellexplosive,demolitionsexpert" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" description="Looks like a normal backpack, but is secretly packed with plastic explosive. Set the timer, arm, and RUN." maxstacksize="1">
+    <!-- <Price storeidentifier="merchantMilitary" buyprice="300" />
+    <Price storeidentifier="merchantCity" buyprice="350" /> -->
+    <!-- <Price storeidentifier="merchantOutpost" buyprice="400" /> -->
+    <!-- <Price storeidentifier="merchantResearch" buyprice="350" /> -->
+    <Price baseprice="1000" soldeverywhere="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1" minavailable="1" />
+      <Price storeidentifier="merchantmine" multiplier="1.5" sold="false" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="organicfiber" amount="4" />
+      <Item identifier="fpgacircuit" />
+      <Item identifier="c4block" amount="2" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="backpack" />
+      <RequiredItem identifier="nitroglycerin" />
+      <RequiredItem identifier="scrap" amount="3" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" depth="0.6" />
+    <Body width="60" height="100" density="15" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <StatusEffect type="OnWearing" target="Character" setvalue="true" disabledeltatime="true" />
+      <sprite name="Backpack" CanBeHiddenByOtherWearables="false" CanBeHiddenByItem="deepdivinglarge" texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" limb="Torso" depthlimb="Waist" inherittexturescale="true" origin="1.1,0.5" />
+      <StatValue stattype="MovementSpeed" value="-0.3" />
+      <StatValue stattype="PropulsionSpeed" value="-0.3" />
+    </Wearable>
+    <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="-5,50" handle2="10,50" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" disabledeltatime="true" />
+      <StatValue stattype="PropulsionSpeed" value="-0.3" />
+    </Holdable>
+    <!-- <Throwable slots="Any,RightHand+LeftHand" holdpos="40,-10" aimpos="30,-45" aimangle="90" handle1="0,-13" handle2="0,-13" throwforce="2.0" msg="ItemMsgPickUpSelect"/> -->
+    <Throwable characterusable="false" slots="RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="255,0,0,255" range="20" blinkfrequency="1" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="false">
+      <StatusEffect type="OnActive" targettype="This" Condition="-1.667">
+        <Sound file="%ModDir%/ek_satchelbeep.ogg" loop="true" range="1000" />
+      </StatusEffect>
+    </LightComponent>
+    <ItemComponent characterusable="false">
+      <!-- 
+      <StatusEffect type="Always" targettype="NearbyItems" range="250" setvalue="true" condition="0" disabledeltatime="true"
+					isStuck="false" targetitemcomponent="door" targetidentifiers="door,hatch,windoweddoor,doorwbuttons,hatchwbuttons,windoweddoorwbuttons,ductblock,aliendoor,alienhatch" >
+        <Conditional Condition="lt 0.5" />
+      </StatusEffect>
+	   -->
+      <!-- 
+      <StatusEffect type="Always" targettype="This" disabledeltatime="true" >
+        <Conditional Condition="lt 0.5" />
+	   -->
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true" stackable="false">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+        <ParticleEmitter particle="weldspark" particleamount="20" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionfire" particleamount="10" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.5" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="4" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+        <!-- <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="1" velocitymin="0" velocitymax="0" scalemin="4" scalemax="6" /> -->
+        <ParticleEmitter particle="ekarmory_hdimpactlarge" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="2.5" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="1.75" scalemax="2.0" />
+      </StatusEffect>
+      <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+		 -->
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true">
+        <Explosion range="2000.0" structuredamage="0" itemdamage="0" ballastfloradamage="100" levelwalldamage="0" stun="5" force="2.0" severlimbsprobability="0.5" flames="false" decal="explosion" decalsize="0.5">
+          <Affliction identifier="lacerations" strength="50" dividebylimbs="true" />
+          <Affliction identifier="explosiondamage" strength="10" />
+          <Affliction identifier="bleeding" strength="100" dividebylimbs="true" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+        <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+		 -->
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+        <ParticleEmitter particle="weldspark" particleamount="20" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionfire" particleamount="10" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.5" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="4" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+        <!-- <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="1" velocitymin="0" velocitymax="0" scalemin="4" scalemax="6" /> -->
+        <ParticleEmitter particle="ekarmory_hdimpactlarge" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="2.5" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="1.75" scalemax="2.0" />
+        <Explosion range="1500.0" structuredamage="1000" itemdamage="1000" ballastfloradamage="500" levelwalldamage="500" stun="10" force="20.0" severlimbsprobability="0.5" flames="false" decal="explosion" decalsize="0.5" camerashake="1000" camerashakerange="5000" flashrange="5000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0">
+          <Affliction identifier="explosiondamage" strength="500" />
+          <Affliction identifier="burn" strength="250" />
+          <Affliction identifier="bleeding" strength="50" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.15,0.15" anchor="BottomLeft" absoluteoffset="20,20" style="ItemUI" />
+      <TickBox text="Armed">
+        <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <Button text="Reset">
+        <StatusEffect type="OnUse" targettype="This" Condition="100" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="+ 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="16.667" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="- 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="-16.667" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+          <Conditional Condition="gt 17" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.15" />
+      <QualityStat stattype="ExplosionDamage" value="0.15" />
+    </Quality>
+  </Item>
+  <Item name="Satchel Charge (Nuclear)" identifier="satchelcharge_nuclear" aliases="satchel charge c4,c4 bomb" category="Equipment,Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,explosive,ekshared_largeshellexplosive,demolitionsexpert" scale="0.5" impactsoundtag="impact_metal_heavy" isshootable="true" description="Looks like a normal backpack, but is secretly packed with a nuclear payload. Set the timer, arm, and run VERY far." maxstacksize="1">
+    <!-- <Price storeidentifier="merchantMilitary" buyprice="300" />
+    <Price storeidentifier="merchantCity" buyprice="350" /> -->
+    <!-- <Price storeidentifier="merchantOutpost" buyprice="400" /> -->
+    <!-- <Price storeidentifier="merchantResearch" buyprice="350" /> -->
+    <Price baseprice="5000" soldeverywhere="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1" sold="false" />
+      <Price storeidentifier="merchantmine" multiplier="1.5" sold="false" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="organicfiber" amount="4" />
+      <Item identifier="fpgacircuit" />
+      <Item identifier="fulguriumfuelrodvolatile" />
+      <Item identifier="nitroglycerin" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="backpack" />
+      <RequiredItem identifier="nitroglycerin" />
+      <RequiredItem identifier="fulguriumfuelrodvolatile" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" depth="0.6" />
+    <Body width="60" height="100" density="15" />
+    <Wearable slots="Bag" msg="ItemMsgEquipSelect" canbeselected="false" canbepicked="true" pickkey="Select">
+      <StatusEffect type="OnWearing" target="Character" setvalue="true" disabledeltatime="true" />
+      <sprite name="Backpack" CanBeHiddenByOtherWearables="false" CanBeHiddenByItem="deepdivinglarge" texture="Content/Items/Tools/tools.png" sourcerect="3,259,68,110" limb="Torso" depthlimb="Waist" inherittexturescale="true" origin="1.1,0.5" />
+      <StatValue stattype="MovementSpeed" value="-0.3" />
+      <StatValue stattype="PropulsionSpeed" value="-0.3" />
+    </Wearable>
+    <Holdable slots="RightHand,LeftHand" holdpos="0,-70" handle1="-5,50" handle2="10,50" holdangle="0" msg="ItemMsgPickUpUse" canbeselected="false" canbepicked="true" pickkey="Use" allowswappingwhenpicked="false">
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" disabledeltatime="true" />
+      <StatValue stattype="PropulsionSpeed" value="-0.3" />
+      <StatusEffect type="Always" target="NearbyCharacters" range="200" interval="1" disabledeltatime="true">
+        <Affliction identifier="radiationsickness" strength="1" />
+      </StatusEffect>
+    </Holdable>
+    <!-- <Throwable slots="Any,RightHand+LeftHand" holdpos="40,-10" aimpos="30,-45" aimangle="90" handle1="0,-13" handle2="0,-13" throwforce="2.0" msg="ItemMsgPickUpSelect"/> -->
+    <Throwable characterusable="false" slots="RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="255,0,0,255" range="20" blinkfrequency="1" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="false">
+      <StatusEffect type="OnActive" targettype="This" Condition="-1.667">
+        <Sound file="%ModDir%/ek_satchelbeep.ogg" loop="true" range="1000" />
+      </StatusEffect>
+    </LightComponent>
+    <ItemComponent characterusable="false">
+      <!-- 
+      <StatusEffect type="Always" targettype="NearbyItems" range="250" setvalue="true" condition="0" disabledeltatime="true"
+					isStuck="false" targetitemcomponent="door" targetidentifiers="door,hatch,windoweddoor,doorwbuttons,hatchwbuttons,windoweddoorwbuttons,ductblock,aliendoor,alienhatch" >
+        <Conditional Condition="lt 0.5" />
+      </StatusEffect>
+	   -->
+      <!-- 
+      <StatusEffect type="Always" targettype="This" disabledeltatime="true" >
+        <Conditional Condition="lt 0.5" />
+	   -->
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true" stackable="false">
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+        <ParticleEmitter particle="weldspark" particleamount="20" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionfire" particleamount="10" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.5" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="4" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+        <!-- <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="1" velocitymin="0" velocitymax="0" scalemin="4" scalemax="6" /> -->
+        <ParticleEmitter particle="ekarmory_hdimpactlarge" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="2.5" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="1.75" scalemax="2.0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true">
+        <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+		 -->
+        <Explosion range="5000.0" structuredamage="1000" itemdamage="1000" DistanceFalloff="false" ballastfloradamage="500" levelwalldamage="500" stun="10" force="50.0" severlimbsprobability="1" flames="false" decal="explosion" decalsize="0.5" camerashake="1000" camerashakerange="50000" flashrange="10000" flashduration="5.0" screencolor="255,255,255,255" screencolorrange="5000" screencolorduration="5.0">
+          <Affliction identifier="explosiondamage" strength="5000" />
+          <Affliction identifier="burn" strength="2500" />
+          <Affliction identifier="bleeding" strength="500" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" Condition="-100.0" disabledeltatime="true">
+        <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+		 -->
+        <sound file="Content/Items/Weapons/ExplosionMedium1.ogg" type="OnUse" range="10000" selectionmode="All" />
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" type="OnUse" range="10000" />
+        <ParticleEmitter particle="weldspark" particleamount="20" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionfire" particleamount="10" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.5" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="4" distancemin="0" distancemax="128" anglemin="-360" anglemax="360" scalemin="2.5" scalemax="5.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekfireballnew_huge" anglemin="-30" anglemax="30" particleamount="3" velocitymin="0" velocitymax="20" />
+        <!-- <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="1" velocitymin="0" velocitymax="0" scalemin="4" scalemax="6" /> -->
+        <ParticleEmitter particle="ekarmory_hdimpactlarge" particleamount="1" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="2.5" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="1.75" scalemax="2.0" />
+        <Explosion range="5000.0" structuredamage="1000" itemdamage="1000" DistanceFalloff="false" ballastfloradamage="500" levelwalldamage="500" stun="10" force="50.0" severlimbsprobability="1" flames="false" decal="explosion" decalsize="0.5">
+          <Affliction identifier="explosiondamage" strength="5000" />
+          <Affliction identifier="burn" strength="2500" />
+          <Affliction identifier="bleeding" strength="500" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.15,0.15" anchor="BottomLeft" absoluteoffset="20,20" style="ItemUI" />
+      <TickBox text="Armed">
+        <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <Button text="Reset">
+        <StatusEffect type="OnUse" targettype="This" Condition="100" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="+ 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="16.667" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="- 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="-16.667" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+          <Conditional Condition="gt 17" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.15" />
+      <QualityStat stattype="ExplosionDamage" value="0.15" />
+    </Quality>
+  </Item>
+  <Item name="satchelbombafteremitter" identifier="satchelbombafteremitter" Scale="0.5" tags="" sonarsize="50" hideinmenus="true">
+    <AiTarget sightrange="10000.0" soundrange="10000" sonardisruption="10" static="True" />
+    <Sprite texture="Content/Items/JobGear/TalentGear.png" sourcerect="0,0,2,2" depth="0.55" origin="0.5,0.5" />
+    <ItemComponent>
+      <StatusEffect type="Always" target="This" condition="-1.667" />
+      <StatusEffect type="Always" target="NearbyCharacters" range="5000" interval="1" disabledeltatime="true">
+        <Affliction identifier="radiationsickness" strength="5" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" range="2500" interval="1" disabledeltatime="true">
+        <Affliction identifier="radiationsickness" strength="5" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" range="1000" interval="1" disabledeltatime="true">
+        <Affliction identifier="radiationsickness" strength="10" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="Breaching Charge" identifier="concussivebreachingcharge" aliases="ek breaching charge" category="Equipment,Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,explosive" scale="0.32" impactsoundtag="impact_metal_heavy" isshootable="true" hideinmenus="false" maxstacksize="4" description="Designed for breach and clear operations. This charge will concuss anyone near the blast, so get back once you've armed it.">
+    <!-- <Price storeidentifier="merchantMilitary" buyprice="250" />
+    <Price storeidentifier="merchantCity" buyprice="250" />
+    <Price storeidentifier="merchantResearch" buyprice="250" /> -->
+    <Price baseprice="200" soldeverywhere="false">
+      <Price storeidentifier="merchantoutpost" multiplier="0.75" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1" minavailable="4" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" sold="false" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="fpgacircuit" />
+      <Item identifier="uex" />
+      <Item identifier="magnesium" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30" amount="2">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="fpgacircuit" amount="2" />
+      <RequiredItem identifier="uex" />
+      <RequiredItem identifier="magnesium" amount="2" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/InventoryIconssatchelexplosives.png" sourcerect="576,256,64,64" />
+    <Sprite texture="%ModDir%/weapons_ek.png" sourcerect="640,1296,48,96" depth="0.55" origin="0.5,0.5" />
+    <Body width="104" height="86" density="18" />
+    <!-- <Throwable slots="Any,RightHand+LeftHand" holdpos="40,-10" aimpos="30,-45" aimangle="90" handle1="0,-13" handle2="0,-13" throwforce="2.0" msg="ItemMsgPickUpSelect"/> -->
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" holdpos="40,-10" aimpos="50,-5" handle1="0,-13" handle2="0,-13" attachable="true" Attached="false" AttachedByDefault="false" aimable="true">
+      <RequiredItem identifier="wrench" type="Equipped" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+    </Holdable>
+    <LightComponent LightColor="150,0,0,255" range="15" blinkfrequency="1" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="false">
+      <StatusEffect type="OnActive" targettype="This" Condition="-1.667">
+        <Sound file="%ModDir%/ek_satchelbeep.ogg" loop="true" range="1000" />
+      </StatusEffect>
+    </LightComponent>
+    <ItemComponent characterusable="false">
+      <StatusEffect type="OnUse" target="This" Condition="-100" disabledeltatime="true" />
+      <!--  Todo: Wait for this to work  -->
+      <!-- 
+	  <StatusEffect type="Always" targettype="NearbyItems" range="90" setvalue="true" condition="0" disabledeltatime="true"
+					isStuck="false" targetitemcomponent="door" targetidentifiers="door,hatch,windoweddoor,doorwbuttons,hatchwbuttons,windoweddoorwbuttons,ductblock,aliendoor,alienhatch" >
+        <Conditional Condition="lt 0.5" />
+      </StatusEffect>
+	   -->
+      <StatusEffect type="Always" targettype="This" condition="-100" disabledeltatime="true" stackable="false">
+        <Conditional Condition="lt 0.5" />
+        <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_tiny" particleamount="2" scalemin="1" scalemax="1.25" velocitymin="0" velocitymax="35" distancemin="0" distancemax="40"/>
+		 -->
+        <SpawnItem identifier="concussivebreachingcharge_effect" spawnposition="This" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true" stackable="false">
+        <sound file="%ModDir%/ek_breachingcharge1.ogg" selectionmode="Random" range="8000" />
+        <sound file="%ModDir%/ek_breachingcharge2.ogg" selectionmode="Random" range="8000" />
+        <sound file="%ModDir%/ek_breachingcharge3.ogg" selectionmode="Random" range="8000" />
+        <ParticleEmitter particle="weldspark" particleamount="15" distancemin="0" distancemax="60" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.0" velocitymin="250" velocitymax="750" />
+        <ParticleEmitter particle="explosionfire" particleamount="5" distancemin="0" distancemax="30" anglemin="-360" anglemax="360" scalemin="0.5" scalemax="0.75" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="2" distancemin="0" distancemax="30" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="2.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="2" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="5.0" />
+        <ParticleEmitter particle="ekfireballnew_tiny" particleamount="1" scalemin="1" scalemax="1.25" velocitymin="0" velocitymax="35" distancemin="0" distancemax="10" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="0.75" scalemax="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true" stackable="false">
+        <Explosion range="250.0" structuredamage="1000" ballastfloradamage="200" levelwalldamage="500" itemdamage="1500" stun="0" force="20.0" severlimbsprobability="0.75">
+          <!--  Broken in multiplayer
+		  <ParticleEmitter particle="ekfireballnew_tiny" particleamount="2" scalemin="1" scalemax="1.25" velocitymin="0" velocitymax="35" distancemin="0" distancemax="40"/>
+		   -->
+        </Explosion>
+        <Explosion range="500.0" structuredamage="0" ballastfloradamage="0" DistanceFalloff="false" levelwalldamage="0" itemdamage="0" stun="10" force="20.0" severlimbsprobability="0">
+          <Affliction identifier="burn" strength="20" />
+          <Affliction identifier="explosiondamage" strength="30" />
+          <Affliction identifier="sensoryoverload" strength="30" />
+          <Affliction identifier="concussion" strength="10" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.15,0.15" anchor="BottomLeft" absoluteoffset="20,20" style="ItemUI" />
+      <TickBox text="Armed">
+        <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <Button text="Reset">
+        <StatusEffect type="OnUse" targettype="This" Condition="100" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="+ 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="16.667" disabledeltatime="true">
+          <sound file="Content\Items\Button\Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="- 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="-16.667" disabledeltatime="true">
+          <sound file="Content\Items\Button\Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+          <Conditional Condition="gt 17" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.15" />
+      <QualityStat stattype="ExplosionDamage" value="0.15" />
+    </Quality>
+  </Item>
+  <Item name="concussivebreachingcharge_effect" identifier="concussivebreachingcharge_effect" Scale="0.5" impactsoundtag="impact_soft" hideinmenus="true">
+    <Sprite texture="%ModDir%/weapons_ek.png" sourcerect="0,0,1,1" depth="0.55" origin="0.5,0.5" />
+    <!-- <Body width="15" height="15" density="10" /> -->
+    <ItemComponent characterusable="false">
+      <StatusEffect type="Always" target="This" Condition="-75" disabledeltatime="true">
+        <ParticleEmitter particle="weldspark" particlespersecond="60" distancemin="0" distancemax="60" anglemin="-360" anglemax="360" startsizemin="0.6,0.4" startsizemax="1.2,0.8" velocitymin="200" velocitymax="400" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" targettype="NearbyItems" range="100" condition="-200" Stuck="-200.0" disabledeltatime="true" stackable="false" delay="0.1" targetitemcomponent="door" targetidentifiers="door,hatch,windoweddoor,doorwbuttons,hatchwbuttons,windoweddoorwbuttons,ductblock">
+        <Conditional Condition="gt 25" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="This" targettype="NearbyItems" range="100" condition="-60" disabledeltatime="true" stackable="false" delay="0.1" targetitemcomponent="door" targetidentifiers="aliendoor,alienhatch">
+        <Conditional Condition="gt 25" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" target="This" disabledeltatime="true" stackable="false" delay="0.1">
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+  </Item>
+  <Item name="EMP Charge" identifier="empbreachingcharge" aliases="ek breaching charge" category="Equipment,Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,explosive" scale="0.32" impactsoundtag="impact_metal_heavy" isshootable="true" hideinmenus="false" maxstacksize="4" description="Designed to shut down enemy ships from the outside. This charge will shock anyone near the blast, so get back once you've armed it.">
+    <!-- <Price storeidentifier="merchantMilitary" buyprice="250" />
+    <Price storeidentifier="merchantCity" buyprice="250" />
+    <Price storeidentifier="merchantResearch" buyprice="250" /> -->
+    <Price baseprice="500" soldeverywhere="false">
+      <Price storeidentifier="merchantoutpost" multiplier="0.75" sold="false" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" sold="false" />
+      <Price storeidentifier="merchantmilitary" multiplier="1" minavailable="4" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" sold="false" />
+    </Price>
+    <Deconstruct time="15">
+      <Item identifier="fpgacircuit" />
+      <Item identifier="empgrenade" />
+      <Item identifier="fulguriumbatterycell" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="30">
+      <RequiredSkill identifier="weapons" level="45" />
+      <RequiredItem identifier="fpgacircuit" />
+      <RequiredItem identifier="empgrenade" />
+      <RequiredItem identifier="fulguriumbatterycell" />
+    </Fabricate>
+    <InventoryIcon texture="%ModDir%/InventoryIconssatchelexplosives.png" sourcerect="576,256,64,64" />
+    <Sprite texture="%ModDir%/weapons_ek.png" sourcerect="640,1296,48,96" depth="0.55" origin="0.5,0.5" />
+    <Body width="104" height="86" density="18" />
+    <!-- <Throwable slots="Any,RightHand+LeftHand" holdpos="40,-10" aimpos="30,-45" aimangle="90" handle1="0,-13" handle2="0,-13" throwforce="2.0" msg="ItemMsgPickUpSelect"/> -->
+    <Holdable selectkey="Select" pickkey="Use" slots="Any,RightHand,LeftHand" msg="ItemMsgDetachWrench" PickingTime="10.0" holdpos="40,-10" aimpos="50,-5" handle1="0,-13" handle2="0,-13" attachable="true" Attached="false" AttachedByDefault="false" aimable="true">
+      <RequiredItem identifier="wrench" type="Equipped" />
+      <StatusEffect type="OnActive" target="Character" SpeedMultiplier="0.7" setvalue="true" />
+    </Holdable>
+    <LightComponent LightColor="150,0,0,255" range="15" blinkfrequency="1" powerconsumption="0" IsOn="false" canbeselected="false" AllowInGameEditing="false">
+      <StatusEffect type="OnActive" targettype="This" Condition="-1.667">
+        <Sound file="%ModDir%/ek_satchelbeep.ogg" loop="true" range="1000" />
+      </StatusEffect>
+    </LightComponent>
+    <ItemComponent characterusable="false">
+      <StatusEffect type="OnUse" target="This" Condition="-100" disabledeltatime="true" />
+      <!--  Todo: Wait for this to work  -->
+      <!-- 
+	  <StatusEffect type="Always" targettype="NearbyItems" range="90" setvalue="true" condition="0" disabledeltatime="true"
+					isStuck="false" targetitemcomponent="door" targetidentifiers="door,hatch,windoweddoor,doorwbuttons,hatchwbuttons,windoweddoorwbuttons,ductblock,aliendoor,alienhatch" >
+        <Conditional Condition="lt 0.5" />
+      </StatusEffect>
+	   -->
+      <StatusEffect type="Always" targettype="This" condition="-100" disabledeltatime="true" stackable="false">
+        <Conditional Condition="lt 0.5" />
+        <!--  Broken in Multiplayer for Some Reason
+		<ParticleEmitter particle="ekfireballnew_tiny" particleamount="2" scalemin="1" scalemax="1.25" velocitymin="0" velocitymax="35" distancemin="0" distancemax="40"/>
+		 -->
+        <SpawnItem identifier="concussivebreachingcharge_effect" spawnposition="This" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true" stackable="false">
+        <sound file="%ModDir%/ek_breachingcharge1.ogg" selectionmode="Random" range="8000" />
+        <sound file="%ModDir%/ek_breachingcharge2.ogg" selectionmode="Random" range="8000" />
+        <sound file="%ModDir%/ek_breachingcharge3.ogg" selectionmode="Random" range="8000" />
+        <ParticleEmitter particle="weldspark" particleamount="15" distancemin="0" distancemax="60" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="3.0" velocitymin="250" velocitymax="750" />
+        <ParticleEmitter particle="explosionfire" particleamount="5" distancemin="0" distancemax="30" anglemin="-360" anglemax="360" scalemin="0.5" scalemax="0.75" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="explosionsmoke" particleamount="2" distancemin="0" distancemax="30" anglemin="-360" anglemax="360" scalemin="1.5" scalemax="2.0" velocitymin="250" velocitymax="500" />
+        <ParticleEmitter particle="ekarmory_hdimpactmedium" particleamount="2" velocitymin="0" velocitymax="0" scalemin="2.0" scalemax="5.0" />
+        <ParticleEmitter particle="ekfireballnew_tiny" particleamount="1" scalemin="1" scalemax="1.25" velocitymin="0" velocitymax="35" distancemin="0" distancemax="10" />
+        <ParticleEmitter particle="ek_underwaterexplosionfix" particleamount="1" scalemin="0.75" scalemax="1.0" />
+      </StatusEffect>
+      <StatusEffect type="OnBroken" targettype="This" disabledeltatime="true" stackable="false">
+        <Explosion range="2000.0" structuredamage="0" ballastfloradamage="0" levelwalldamage="0" itemdamage="0" stun="0" force="20.0" severlimbsprobability="0.75">
+          <!--  Broken in multiplayer
+		  <ParticleEmitter particle="ekfireballnew_tiny" particleamount="2" scalemin="1" scalemax="1.25" velocitymin="0" velocitymax="35" distancemin="0" distancemax="40"/> -->
+          <Affliction identifier="emp" strength="100" />
+          <Affliction identifier="electricshock" strength="100" />
+          <Affliction identifier="sensoryoverload" strength="30" />
+        </Explosion>
+        <Explosion range="2000.0" structuredamage="0" empstrength="2.5" ballastfloradamage="0" DistanceFalloff="false" levelwalldamage="0" itemdamage="0" stun="0" force="20.0" ignorecover="true" severlimbsprobability="0">
+          <Affliction identifier="emp" strength="100" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.15,0.15" anchor="BottomLeft" absoluteoffset="20,20" style="ItemUI" />
+      <TickBox text="Armed">
+        <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" />
+        <StatusEffect type="OnSecondaryUse" targettype="This" IsOn="false" />
+      </TickBox>
+      <Button text="Reset">
+        <StatusEffect type="OnUse" targettype="This" Condition="100" disabledeltatime="true">
+          <sound file="Content/Items/Button/Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="+ 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="16.667" disabledeltatime="true">
+          <sound file="Content\Items\Button\Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+        </StatusEffect>
+      </Button>
+      <Button text="- 10s">
+        <StatusEffect type="OnUse" targettype="This" Condition="-16.667" disabledeltatime="true">
+          <sound file="Content\Items\Button\Switch1.ogg" type="OnActive" range="250.0" loop="true" volume="0.3" />
+          <Conditional Condition="gt 17" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.15" />
+      <QualityStat stattype="ExplosionDamage" value="0.15" />
+    </Quality>
+  </Item>
+  
+  
+  
+  
+ 
+</Items>
