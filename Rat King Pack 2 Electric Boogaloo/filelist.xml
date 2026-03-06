@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentpackage name="Rat King Pack 2 Electric Boogaloo" steamworkshopid="3605850851" corepackage="false" modversion="1.0.8" gameversion="1.11.5.0" installtime="1769462526">
-  <Character file="%ModDir%/Abyssal Quirks/Charybdis/Charybdis.xml" />
-  <Character file="%ModDir%/Abyssal Quirks/Endworm.xml" />
+
   <Character file="%ModDir%/Chimera Remake/Husk_chimera.xml" />
   <Character file="%ModDir%/Chimera Remake/Chimera_head/chimera_head.xml" />
   <Afflictions file="%ModDir%/Foodafflictions.xml" />

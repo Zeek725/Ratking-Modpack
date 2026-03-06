@@ -10,3 +10,9 @@
 Possible name ideas (feel free to suggest others, not set on these names and the rhyme is a bit off)
 Nox Charybdis
 Pox Latcher 
+
+
+
+  <Character file="%ModDir%/Abyssal Quirks/Charybdis/Charybdis.xml" />
+  <Character file="%ModDir%/Abyssal Quirks/Endworm.xml" />
+  (Leaving these here until we get abyssal quirks finished)
