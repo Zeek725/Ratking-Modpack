@@ -795,7 +795,7 @@
 <Holdable slots="Any,RightHand+LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect" holdangle="-10"/>
 <Propulsion force="300" usablein="water" particles="bubbles">
 <RequiredItems items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired"/>
-<StatusEffect type="OnUse" target="Contained" Condition="-1.7">
+<StatusEffect type="OnUse" target="Contained" Condition="-1">
 <RequiredItem items="mobilebattery" type="Contained"/>
 </StatusEffect>
 <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true"/>
@@ -837,10 +837,10 @@
 <InventoryIcon texture="%ModDir%/atoolsinv.png" sourcerect="133,0,128,128" origin="0.5,0.5"/>
 <Sprite texture="%ModDir%/atools.png" depth="0.55" sourcerect="368,217,141,97"/>
 <Body width="120" height="60" density="10"/>
-<Holdable slots="Any,LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect" holdangle="-10"/>
-<Propulsion force="130" usablein="water" particles="bubbles">
+<Holdable slots="Any,RightHand+LeftHand" aimpos="90,0" handle1="-35,32" handle2="-27,34" msg="ItemMsgPickUpSelect" holdangle="-10"/>
+<Propulsion force="200" usablein="water" particles="bubbles">
 <RequiredItems items="mobilebattery" type="Contained" msg="ItemMsgBatteryCellRequired" targetslot="0"/>
-<StatusEffect type="OnUse" target="Contained" Condition="-0.25" targetslot="0">
+<StatusEffect type="OnUse" target="Contained" Condition="-0.5" targetslot="0">
 <RequiredItem items="mobilebattery" type="Contained" targetslot="0"/>
 </StatusEffect>
 <sound file="Content/Items/Diving/ScooterLoop.ogg" type="OnUse" range="500.0" loop="true"/>
