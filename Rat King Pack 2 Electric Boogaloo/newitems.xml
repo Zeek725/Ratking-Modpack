@@ -1970,56 +1970,6 @@
 <Upgrade/>
 </Item>
 
-<Item name="Ritual Knife" identifier="aritualknife" category="Weapon" Tags="smallitem,weapon,gunsmith,mountableweapon,sharptool" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
-<PreferredContainer primary="secarmcab" secondary="armcab"/>
-<Price baseprice="260" canbespecial="false" sold="false">
-<Price storeidentifier="merchanthusk" minavailable="1" maxavailable="2" sold="true">
-<Reputation faction="huskcult" min="70"/>
-</Price>
-</Price>
-<Deconstruct time="10">
-<Item identifier="steel"/>
-<Item identifier="aluminium"/>
-</Deconstruct>
-<Fabricate suitablefabricators="fabricator" requiresrecipe="true" requiredtime="30">
-<RequiredSkill identifier="medical" level="65"/>
-<RequiredItem identifier="aluminium"/>
-<RequiredItem identifier="steel" amount="2"/>
-<RequiredItem identifier="chlorine"/>
-</Fabricate>
-<Sprite texture="%ModDir%/MeleeWeaponsAndOther.png" sourcerect="3,237,98,31" depth="0.55" origin="0.5,0.5"/>
-<InventoryIcon texture="%ModDir%/InventoryIcons.png" sourcerect="320,0,64,64" origin="0.5,0.5"/>
-<Body width="153" height="18" density="30"/>
-<MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-18,-3" holdangle="30" reload="0.75" range="50" combatPriority="26" msg="ItemMsgPickUpSelect">
-<Attack targetimpulse="2" severlimbsprobability="0.55" itemdamage="6" structuredamage="1" structuresoundtype="StructureSlash">
-<Affliction identifier="lacerations" strength="7"/>
-<Affliction identifier="bleeding" strength="10"/>
-<Affliction identifier="stun" strength="0.1"/>
-</Attack>
-<StatusEffect type="OnUse" target="UseTarget">
-<Conditional entitytype="eq Character"/>
-<Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500"/>
-<Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500"/>
-<Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500"/>
-<Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500"/>
-<Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500"/>
-<Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500"/>
-</StatusEffect>
-<StatusEffect type="OnSuccess" target="UseTarget">
-<Affliction identifier="abloodthinner" strength="5"/>
-</StatusEffect>
-<StatusEffect type="OnFailure" target="This" reload="1.5" setvalue="true"/>
-<RequiredSkill identifier="medical" level="80"/>
-<!-- Reset the reload speed -->
-<StatusEffect type="OnUse" target="This" reload="0.75" setvalue="true" delay="1"/>
-</MeleeWeapon>
-<aitarget sightrange="500" soundrange="250" fadeouttime="1"/>
-<Quality>
-<QualityStat stattype="StrikingPowerMultiplier" value="0.15"/>
-</Quality>
-<SkillRequirementHint identifier="medical" level="80"/>
-</Item>
-
 <Item name="Clown Diving Suit" identifier="aclowndivingsuit" category="Diving,Equipment" tags="diving,deepdiving,human,clowns" scale="0.5" fireproof="true" description="" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy" botpriority="2" cargocontaineridentifier="">
 <Price baseprice="600">
 <Price storeidentifier="merchantclown" minavailable="1" maxavaible="2" sold="true">
